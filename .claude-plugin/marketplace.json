@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "max-skills",
+  "owner": {
+    "name": "Max Guillabert",
+    "email": "maxgctr@gmail.com"
+  },
+  "metadata": {
+    "description": "Max's personal Claude Code skills.",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "reddit-persona-research",
+      "source": "reddit-persona-research",
+      "description": "Deep qualitative Reddit research for persona reconstruction, voice-of-customer mining, pain point extraction. Eleven sections, evidence-loaded, no summaries.",
+      "version": "1.0.0",
+      "category": "research",
+      "tags": ["research", "persona", "reddit", "marketing", "copywriting"]
+    }
+  ]
+}

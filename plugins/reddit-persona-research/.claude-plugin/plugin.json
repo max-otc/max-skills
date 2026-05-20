@@ -1,0 +1,9 @@
+{
+  "name": "reddit-persona-research",
+  "description": "Deep qualitative Reddit research for persona reconstruction, voice-of-customer mining, and pain point extraction. Long, evidence-loaded analysis — not summaries.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Max Guillabert"
+  },
+  "keywords": ["research", "persona", "reddit", "voice-of-customer", "copywriting", "market-intelligence"]
+}

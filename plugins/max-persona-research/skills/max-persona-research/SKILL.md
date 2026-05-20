@@ -1,9 +1,9 @@
 ---
-name: reddit-persona-research
+name: max-persona-research
 description: Use when the user wants deep qualitative research on a target audience, customer persona reconstruction from Reddit, voice-of-customer mining, pain point extraction for copywriting/positioning, or market intelligence for a brand/product. Triggers on phrases like "analyze Reddit for X", "build a persona", "voice of customer research", "find pain points", "market intelligence", "audience research".
 ---
 
-# Reddit Persona Research
+# Max Persona Research
 
 ## Overview
 

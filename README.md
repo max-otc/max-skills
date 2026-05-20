@@ -1,6 +1,6 @@
 # max-skills
 
-A Claude Code plugin marketplace. Personal skills, shipped as a catalog.
+A Claude Code plugin marketplace. Personal skills for research, creative, and content work.
 
 ## Install the marketplace
 
@@ -10,25 +10,45 @@ Once. From inside Claude Code:
 /plugin marketplace add max-otc/max-skills
 ```
 
-## Install a plugin
+## Install a skill
 
 ```
-/plugin install <plugin-name>@max-skills
+/plugin install <skill-name>@max-skills
 ```
 
-Replace `<plugin-name>` with one of the entries below.
+Replace `<skill-name>` with one of the entries below.
 
-## Plugins
+## Skills
 
-### reddit-persona-research
+### max-persona-research
 
 Deep qualitative Reddit research. Reconstructs a target persona for a brand or product from real Reddit discussions: pain points, language, objections, current solutions, journey, strategic gaps. Eleven sections, evidence-loaded. Refuses to summarize.
 
 ```
-/plugin install reddit-persona-research@max-skills
+/plugin install max-persona-research@max-skills
 ```
 
-Then invoke by asking Claude to do Reddit research on a brand, build a persona, or run voice-of-customer analysis. The skill loads itself.
+Invoke by asking Claude to do Reddit research on a brand, build a persona, or run voice-of-customer analysis.
+
+### max-hook
+
+Generate ten neurologically-engineered video ad hooks for TikTok / Reels / Shorts / Meta. Each hook is engineered to create a mental rupture in under two seconds — pattern interrupt, open loop, visual tension. Awareness-matched, sound-off readable, algorithm-friendly. Includes a strategy brief naming the best hook for cold traffic, warm traffic, viral potential, and safe bets.
+
+```
+/plugin install max-hook@max-skills
+```
+
+Invoke by asking Claude to "write a hook", "give me scroll-stoppers", "open my video", "first 2 seconds for my ad", or any first-frame attention-capture task.
+
+### max-explainer-video
+
+Generate scene-by-scene scripts for stick-figure / whiteboard / Notion-style explainer videos — the kind with hand-drawn characters, emoji section headers, callout boxes, and a "wait... what?" moment in scene one. Structured as a loop ladder: hook → key concept → mechanism → three pillars → examples → rules → conclusion. Visual-first, sound-off readable.
+
+```
+/plugin install max-explainer-video@max-skills
+```
+
+Invoke by asking Claude to "write an explainer", "turn this into a stick-figure video", or "script a whiteboard video about X".
 
 ## Update
 
@@ -39,13 +59,13 @@ Then invoke by asking Claude to do Reddit research on a brand, build a persona, 
 ## Uninstall
 
 ```
-/plugin uninstall <plugin-name>@max-skills
+/plugin uninstall <skill-name>@max-skills
 ```
 
-## Adding a new plugin
+## Adding a new skill
 
-1. Create `plugins/<plugin-name>/.claude-plugin/plugin.json`
-2. Add skills under `plugins/<plugin-name>/skills/<skill-name>/SKILL.md`
+1. Create `plugins/<skill-name>/.claude-plugin/plugin.json`
+2. Add the skill body at `plugins/<skill-name>/skills/<skill-name>/SKILL.md`
 3. Add an entry to `.claude-plugin/marketplace.json`
 4. Commit, push, bump
 

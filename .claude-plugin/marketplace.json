@@ -11,12 +11,28 @@
   },
   "plugins": [
     {
-      "name": "reddit-persona-research",
-      "source": "reddit-persona-research",
+      "name": "max-persona-research",
+      "source": "max-persona-research",
       "description": "Deep qualitative Reddit research for persona reconstruction, voice-of-customer mining, pain point extraction. Eleven sections, evidence-loaded, no summaries.",
       "version": "1.0.0",
       "category": "research",
       "tags": ["research", "persona", "reddit", "marketing", "copywriting"]
+    },
+    {
+      "name": "max-hook",
+      "source": "max-hook",
+      "description": "Generate ten neurologically-engineered video ad hooks. Pattern interrupt, open loop, visual tension. Awareness-matched, platform-aware, algorithm-friendly.",
+      "version": "1.0.0",
+      "category": "creative",
+      "tags": ["hook", "video-ad", "tiktok", "reels", "shorts", "meta", "performance-marketing", "scroll-stopper"]
+    },
+    {
+      "name": "max-explainer-video",
+      "source": "max-explainer-video",
+      "description": "Generate scene-by-scene scripts for stick-figure / whiteboard explainer videos. Visual-first, sound-off readable, loop-laddered teaching structure.",
+      "version": "1.0.0",
+      "category": "creative",
+      "tags": ["video-script", "explainer", "whiteboard", "stick-figure", "rsa-animate", "teaching-video"]
     }
   ]
 }

@@ -10,7 +10,15 @@ Once. From inside Claude Code:
 /plugin marketplace add max-otc/max-skills
 ```
 
-## Install a skill
+## Install everything in one shot
+
+```
+/plugin install max-skills@max-skills
+```
+
+That installs all five skills below as a single bundle. Use this if you want the lot.
+
+## Install a single skill
 
 ```
 /plugin install <skill-name>@max-skills

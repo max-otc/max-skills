@@ -11,6 +11,14 @@
   },
   "plugins": [
     {
+      "name": "max-skills",
+      "source": "max-skills",
+      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing). One install, five skills.",
+      "version": "1.0.0",
+      "category": "bundle",
+      "tags": ["bundle", "all", "everything", "complete"]
+    },
+    {
       "name": "max-persona-research",
       "source": "max-persona-research",
       "description": "Deep qualitative Reddit research for persona reconstruction, voice-of-customer mining, pain point extraction. Eleven sections, evidence-loaded, no summaries.",

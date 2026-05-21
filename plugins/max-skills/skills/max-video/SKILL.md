@@ -99,7 +99,9 @@ Each sub-agent writes its analyst-report extract to `02-research/<source>.md`. Y
 
 **Rule.** The angle is the promise the video makes to a viewer who has not yet clicked. It defines the borders of the subject — what's inside, what gets cut. The angle becomes the beta-title in the next phase; pick it knowing this.
 
-**Method.** List every plausible promise. Score each on *curiosity force / honesty (can the script deliver this without bait-switching?) / specificity (does it cut sharper than the saturated angles from phase 2?)*. Pick one. Write the beta-title and the one-sentence promise. State what is now out of scope.
+**Method.** Before listing promises, you need to know who the viewer is and what they already believe about the subject. Dispatch a sub-agent that **invokes the `max-marketing` skill** on this video's subject and target audience. Ask it for: the awareness × sophistication map (what does the viewer already know about this topic — Unaware, Problem Aware, Solution Aware, Product Aware, Most Aware? — and how saturated is the YouTube space, stage 1 through 5?), the villain/hero arc that fits the subject, an angle portfolio (8–12 candidate framings), and the narratives most likely to land with the indifferent viewer. The sub-agent writes its analysis to `02-research/marketing.md`. That document feeds this phase the same way the four raw research files fed phase 2.
+
+Then list every plausible promise — including those the max-marketing pass surfaced. Score each on *curiosity force / honesty (can the script deliver this without bait-switching?) / specificity (does it cut sharper than the saturated angles from phase 2?) / viewer-fit (does it meet the awareness level the marketing pass identified?)*. Pick one. Write the beta-title and the one-sentence promise. State what is now out of scope.
 
 **Honesty has a price even when the bait works.** What a Fail!'s video on AI-cheating-as-neural-network used an angle far from the real subject — and retention dropped measurably even though the video succeeded by other measures. The viewer notices the bait. *Therefore:* if you choose an angle that drifts from the script's true centre, accept the retention tax in advance; do not be surprised by it.
 
@@ -159,6 +161,8 @@ Most paragraphs use method 2. Method 1 is reserved for the moments where the cha
 **Conclusion forms** — pick one: recap-and-chime / open-door / final-question (and answer it — never ask without answering).
 
 **Introduction forms** (30s–1min) — pick one: statistic hook / in medias res / question / brute-force information dump. The intro's job is to deliver the title's promise quickly enough that the indifferent viewer commits.
+
+Once the form is chosen, dispatch a sub-agent that **invokes the `max-hook` skill** to draft ten candidate opens for the first 10–15 seconds — pattern interrupts, open loops, visual-tension sentences engineered to stop the indifferent viewer. Feed the sub-agent the title, the angle, the awareness × sophistication map from phase 3, and the introduction form. It returns ten hooks with the strategy brief (best for cold traffic, warm traffic, viral, safe). Pick one; keep two backups. Splice the chosen hook into the script's opening paragraph. The rest of the intro then carries the viewer from that hook into the title's promise.
 
 **Deliverables.** `05-plan.md` then `05-script.md`.
 

@@ -87,7 +87,17 @@ Update `README.md` after every phase. Each phase ends with a checkpoint where th
 
 **Rule.** Research is done when the next source repeats what you already know. Not before. Not after.
 
-**Method.** Dispatch four sub-agents in parallel (one Agent tool call with multiple invocations) — Google web, YouTube (existing competing videos), Reddit, Google Scholar. Each writes a raw extract to `02-research/<source>.md`. You consolidate into `02-research.md`: section per source, 5–10 highest-signal facts, raw quotes preserved (do not translate quotes — voice is voice), redundancy marked *(saturated)*, single-source facts starred as gold, open questions listed.
+**Method.** Dispatch four sub-agents in parallel (one Agent tool call with multiple invocations) — Google web, YouTube (existing competing videos), Reddit, Google Scholar. Each sub-agent applies the discipline of **max-persona-research**, but turned on the *subject of the video* rather than a customer persona. The point is to mine the topic the way a market intelligence analyst mines an audience — broad-then-deep, evidence-loaded, no summaries.
+
+For each sub-agent:
+
+- **Map broadly AND deeply.** Obvious sources first, then the adjacent ones (one degree off the topic), then the niche ones (small, specialized, high signal). Recent material AND historical. Popular AND obscure — small threads, comment sections, and one-off blog posts often carry the richest detail.
+- **Prioritize high-signal content.** Material with strong emotional intensity, detailed personal testimonials, disagreement threads (conflict reveals belief structures faster than consensus), and unprompted descriptions in the writer's own words.
+- **Reason in patterns.** Mark repetitions across sources. Cluster weak signals into themes. Note when something appears once — and when it appears constantly. The single-source rare signal is gold; the saturated fact is fence-post.
+
+Each sub-agent writes a raw extract to `02-research/<source>.md`. You then consolidate into `02-research.md`: section per source, 5–10 highest-signal facts, raw quotes preserved (do not translate quotes — voice is voice), redundancy marked *(saturated)*, single-source facts starred as gold, open questions listed. The consolidation reads like an analyst's report, not a Wikipedia digest — evidence first, claims second.
+
+**Strict rules** (carried over from max-persona-research): do not simplify, do not condense, provide a maximum of examples, always justify analyses with evidence, prefer too much information over too little. Length and granularity are features, not bugs. If a section feels short, you have not gone deep enough.
 
 **Deliverable.** `02-research.md` + four raw files.
 

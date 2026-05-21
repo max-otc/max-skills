@@ -112,6 +112,13 @@ Two sub-deliverables. Do not start the script before the plan is approved.
 - Hunt overused expressions — they started as personality, ended as filler.
 - Read the whole text aloud. Sentences that cannot be said comfortably get rewritten.
 
+**Keep the red thread.** A worked video stays watchable because the viewer always has a live question in their head. Two ways to keep that question alive — sibling methods, used differently:
+
+1. **Pose the question explicitly.** State it in the paragraph; answer it in the next. Use sparingly — if it isn't the only logical question the viewer would ask at that moment, it sounds forced.
+2. **Seed cause and consequence.** *This happens, which causes that, which raises this.* The viewer asks the question without you asking it.
+
+Most paragraphs use method 2. Method 1 is reserved for the moments where the chain breaks and you need to bridge it cleanly.
+
 **Conclusion forms** — pick one: recap-and-chime / open-door / final-question (and answer it — never ask without answering).
 
 **Introduction forms** (30s–1min) — pick one: statistic hook / in medias res / question / brute-force information dump.
@@ -128,6 +135,11 @@ Two sub-deliverables. Do not start the script before the plan is approved.
 - **Equipment ladder.** No budget → phone. ~€50 → BIRD UM1 USB. ~€100 → Rode NT1 USB / Blue Yeti / Shure MV6. Large budget → Shure SM7B + Behringer UMC202HD, or Rode NT1 XLR + Scarlett Solo G3.
 - **Posture.** Mic slightly off-axis. Speak louder than conversational. Over-emote — the listener cannot see your face.
 - **Take.** Whole script in one pass. Then 1 second of room tone with the mic still open.
+- **Musicality, two rules for French speech** (most carry to other languages — verify by ear):
+  1. A phrase starts higher and lands lower into the period. Approaching punctuation, the voice drops. *Never* finish a sentence higher than where it started.
+  2. Never hold the same tone for two phrases in a row. Vary phrase to phrase. Monotone is what kills a video faster than any bad idea — every viewer has met the teacher who droned, and they will not stay for the same voice.
+- **A listener restores the voice.** The mic flattens delivery. Declaim to a plushie, an object, a patient friend on a call — anything that listens. Without a listener, even a good script sounds read; with one, it sounds said.
+- **Everyone hates their own voice.** Cringe through it. The voice is a tool, not a self-portrait. The first take always sounds worse than it is.
 - **Post-process** (Audacity or equivalent): noise reduction using the room-tone sample → filter-curve EQ to suppress plosives (b, p, v) → cut bad takes → cut every gap >0.2s between sentences → compress *last*.
 - **Level target.** −9 dB to −3 dB.
 
@@ -198,6 +210,16 @@ Set targets in `09-stats.md` *before* publication. Fill actuals at 24h, 7 days, 
 **Deliverable.** `09-stats.md` with targets, three reads, retention notes per timestamp, lessons captured.
 
 **Checkpoint.** When 30-day numbers are in and lessons are written, move lessons to a channel-level `videos/lessons.md` so the next video starts smarter.
+
+## Habits of Mind — From the Annexes
+
+The pipeline alone is not enough. Three habits decide whether the next video gets made at all. Carry them across every phase.
+
+**Ship at 16–17 out of 20.** Not 20 out of 20. The producer who waits for perfection ships nothing, and the videos they would have made stop existing. The score that felt like a 20 last year will feel like a 10 next year — that is *progress*, not failure. A finished 16 teaches more than an unshipped 20.
+
+**Never ask the audience what to do next.** They know what they liked. They do not know what they will like. Asked, they will tell you to keep baking the same lemon tart, until they leave because they've eaten enough lemon tart. The producer chooses the next loaf alone. The audience verdicts the choice, after the fact.
+
+**Sometimes, you just lose.** A flop is not always a lesson. A good video on a good day can land badly because the feed was crowded, the subject was tired, the timing was off. Take the data, write what you can take from it, and move on. The marathon keeps moving — stopping to autopsy every loss is how the runner falls behind.
 
 ## How to Behave Inside a Session
 

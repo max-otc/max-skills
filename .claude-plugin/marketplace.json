@@ -41,6 +41,14 @@
       "version": "1.0.0",
       "category": "creative",
       "tags": ["video", "youtube", "scriptwriting", "storytelling", "long-form", "video-essay", "production-pipeline"]
+    },
+    {
+      "name": "max-marketing",
+      "source": "max-marketing",
+      "description": "Full e-commerce creative strategy — angle portfolio, awareness × sophistication map, villain/hero arc, EPIC distribution, hook bank, Entity ID variants, Andromeda 2026 test plan. Distilled from the 0€→1M€/mois ecom playbook (Schwartz, Hormozi, Rogers).",
+      "version": "1.0.0",
+      "category": "creative",
+      "tags": ["marketing", "ecommerce", "copywriting", "angles", "awareness", "sophistication", "epic", "hormozi", "schwartz", "rogers", "meta-ads", "andromeda", "creative-strategy"]
     }
   ]
 }

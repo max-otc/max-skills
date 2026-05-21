@@ -2,11 +2,11 @@
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "max-skills",
   "owner": {
-    "name": "Max Guillabert",
-    "email": "maxgctr@gmail.com"
+    "name": "Max OTC",
+    "email": "max-otc@users.noreply.github.com"
   },
   "metadata": {
-    "description": "Max's personal Claude Code skills.",
+    "description": "Max OTC's personal Claude Code skills.",
     "pluginRoot": "./plugins"
   },
   "plugins": [
@@ -37,7 +37,7 @@
     {
       "name": "max-video",
       "source": "max-video",
-      "description": "Produce one worked YouTube video end-to-end — nine sequential phases (idea, research, angle, script, voice-over, edit, title & thumbnail, publish, stats) with one artifact written per phase. Method from What a Fail!'s 'Comment faire des vidéos (travaillées)'.",
+      "description": "Produce one worked YouTube video end-to-end — nine sequential phases (idea, research, angle, title & thumbnail, script, voice-over, edit, publish, stats) with one artifact written per phase. Title set before writing so the script honours its promise. Method from What a Fail!'s 'Comment faire des vidéos (travaillées)'.",
       "version": "1.0.0",
       "category": "creative",
       "tags": ["video", "youtube", "scriptwriting", "storytelling", "long-form", "video-essay", "production-pipeline"]

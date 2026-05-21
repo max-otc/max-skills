@@ -50,6 +50,16 @@ Generate scene-by-scene scripts for stick-figure / whiteboard / Notion-style exp
 
 Invoke by asking Claude to "write an explainer", "turn this into a stick-figure video", or "script a whiteboard video about X".
 
+### max-video
+
+Walk one worked YouTube video end-to-end. Nine sequential phases — idea, research, angle of attack, detailed plan & script, voice-over, edit, title & thumbnail, publish, statistics — with one artifact written to `videos/<slug>/` per phase. For long-form storytelling videos (15 min to an hour, 20–80 hours of work), not shorts or explainers. Method from What a Fail!'s *Comment faire des vidéos (travaillées)*.
+
+```
+/plugin install max-video@max-skills
+```
+
+Invoke by asking Claude to "make a YouTube video about X", "script a long-form video on Y", or "help me produce a worked video".
+
 ## Update
 
 ```

@@ -33,6 +33,14 @@
       "version": "1.0.0",
       "category": "creative",
       "tags": ["video-script", "explainer", "whiteboard", "stick-figure", "rsa-animate", "teaching-video"]
+    },
+    {
+      "name": "max-video",
+      "source": "max-video",
+      "description": "Produce one worked YouTube video end-to-end — nine sequential phases (idea, research, angle, script, voice-over, edit, title & thumbnail, publish, stats) with one artifact written per phase. Method from What a Fail!'s 'Comment faire des vidéos (travaillées)'.",
+      "version": "1.0.0",
+      "category": "creative",
+      "tags": ["video", "youtube", "scriptwriting", "storytelling", "long-form", "video-essay", "production-pipeline"]
     }
   ]
 }

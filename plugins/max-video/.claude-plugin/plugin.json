@@ -1,0 +1,9 @@
+{
+  "name": "max-video",
+  "description": "Produce one worked YouTube video end-to-end — idea, research, angle, script, voice-over, edit, title, thumbnail, publish, stats — using the method from What a Fail!'s 'Comment faire des vidéos (travaillées)'.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Max Guillabert"
+  },
+  "keywords": ["video", "youtube", "scriptwriting", "storytelling", "production-pipeline", "long-form", "content-creation"]
+}

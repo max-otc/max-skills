@@ -16,7 +16,7 @@ Once. From inside Claude Code:
 /plugin install max-skills@max-skills
 ```
 
-That installs all five skills below as a single bundle. Use this if you want the lot.
+That installs all six skills below as a single bundle. Use this if you want the lot.
 
 ## Install a single skill
 
@@ -67,6 +67,16 @@ Walk one worked YouTube video end-to-end. Nine sequential phases — idea, resea
 ```
 
 Invoke by asking Claude to "make a YouTube video about X", "script a long-form video on Y", or "help me produce a worked video".
+
+### max-ai-video
+
+Write an AI-tool / trading-creator YouTube script in the recent DaviddTech mould — the "I let Claude build X, here's what happened" genre, with a free workbook for a comment, a community of hundreds, and a paid tier at the end. Hook-first cold open, stacked authority, an enemy, a buddy-talk demo, a funnel staircase, the sign-off jingle. Eleven-part anatomy and ten sentence laws (result first, land on a punch, one breath per sentence, plain word then gloss). Built part by part, sentence by sentence, to `scripts/<slug>/`.
+
+```
+/plugin install max-ai-video@max-skills
+```
+
+Invoke by asking Claude to "write a video like DaviddTech", "script my AI tool video", "sell my tool on YouTube", or "write the video sentence by sentence, part by part".
 
 ## Update
 

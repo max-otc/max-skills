@@ -12,7 +12,7 @@
     {
       "name": "max-skills",
       "source": "./plugins/max-skills",
-      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing). One install, five skills.",
+      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video). One install, six skills.",
       "version": "1.0.0",
       "category": "bundle",
       "tags": ["bundle", "all", "everything", "complete"]
@@ -56,6 +56,14 @@
       "version": "1.0.0",
       "category": "creative",
       "tags": ["marketing", "ecommerce", "copywriting", "angles", "awareness", "sophistication", "epic", "hormozi", "schwartz", "rogers", "meta-ads", "andromeda", "creative-strategy"]
+    },
+    {
+      "name": "max-ai-video",
+      "source": "./plugins/max-ai-video",
+      "description": "Write an AI-tool / trading-creator YouTube script in the recent DaviddTech mould — hook-first cold open, stacked authority, an enemy, a buddy-talk demo, a funnel staircase, the sign-off jingle. Eleven-part anatomy, ten sentence laws, built part by part and sentence by sentence.",
+      "version": "1.0.0",
+      "category": "creative",
+      "tags": ["video", "youtube", "scriptwriting", "ai-tool", "creator", "daviddtech", "sentence-by-sentence", "spoken-script", "content-creation"]
     }
   ]
 }

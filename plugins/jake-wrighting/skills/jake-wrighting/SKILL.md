@@ -80,9 +80,9 @@ Present tense describes the system as a standing fact, not an event.
 
 Future tense appears **only** in the Roadmap, for things not yet built: *"It will register as a SEF to offer multi-dealer execution."* Everywhere else, the present. The system simply *is*.
 
-## S3. Sentence length — short, bursty, never past two clauses
+## S3. Sentence length — short, never past two clauses
 
-Average around fifteen words. The rhythm is deliberate burstiness: a very short declarative beside an expanding compound, then a flat closer.
+Mean sentence length runs ~15–18 words. Most sentences cluster between 12 and 22 words. The burstiness is moderate, not extreme: a rationed very-short closer of 5–8 words lands roughly once per paragraph, beside the medium sentences that carry the mechanism. Do not caricature the voice into telegraph-speak — 5-word sentences are rare (two in the whole litepaper).
 
 > "Pricing in the NDF market is structurally expensive." *(8 words)*
 > "Trades flow through correspondent banking chains, where each link adds credit, capital, and operational cost to the spread." *(17 words)*
@@ -99,6 +99,15 @@ Active voice. The subject does the verb to the object. The one ornament permitte
 
 Main clause states the action; the `, -ing` tail states what it accomplishes. Use it, but not in every sentence — it is seasoning, not structure.
 
+**The one permitted fronting.** A short temporal or conditional prepositional phrase may precede the subject, marking the moment the system acts. It is comma-separated and never more than four words.
+
+> "On execution, the contract pulls initial margin from both participants…"
+> "At expiry, the contract computes the payout…"
+> "On clearance, the participant's wallet is added to an on-chain allowlist…"
+> "Today, FX activity flows through three channels."
+
+Outside this device the subject comes first. No inversion, no cleft, no fronted object.
+
 ## S5. Diction — precise, domain-exact, zero hype
 
 Reach for the exact economic, legal, or technical term. *Structurally expensive. Bank-intermediated. Forward-dated. Non-custodial. Segregated balances. Deterministic. Atomic transaction.*
@@ -107,12 +116,14 @@ Reach for the exact economic, legal, or technical term. *Structurally expensive.
 
 **The one allowed quality adjective is `institutional-grade`** — and even that is a category marker, not praise. Adverbs are rare and structural when they appear: *continuously, directly, bilaterally, programmatically.*
 
+**Favourite words — lean on these.** The litepaper leans hard on a small load-bearing set; reuse them: *bilateral / bilaterally* (4×), *directly* — above all the phrase *"directly with one another"* (twice verbatim) — *segregated, forward-dated, counterparty, institutional* and *institutional-grade, non-custodial, structurally.* And the regulatory-negation frame *"is structured to sit outside."* These carry the voice more than half the technical nouns do.
+
 Acronyms are defined on first use, then used bare:
 
 > "Non-deliverable forwards are the primary instrument… An NDF locks in…"
 > "a request-for-quote (RFQ) engine… The RFQ engine sits off-chain…"
 
-Spell it out, parenthesize the acronym, then never spell it out again: NDF, RFQ, ECP, KYC, CSA, ACA, SEF, DCO, FCM, OFAC.
+Spell it out, parenthesize the acronym, then never spell it out again: NDF, RFQ, ECP, KYC, CSA, ACA, SEF, DCO, FCM, OFAC, BIS. Currency codes are the exception — *USD, BRL, PHP, INR, USDC, USDT, USD/INR* stay bare, never spelled out.
 
 ## S6. Punctuation — periods carry the load
 
@@ -134,6 +145,11 @@ The recurring structural unit inside a section: a **bold label ending in a perio
 
 The label is one to four words. The definition is flat and exact. The example is always specific: a real geography, a real instrument, a real tenor. *A Brazilian importer. A 30-day USD payable. USD/INR at the matching tenor.* Abstraction states the rule; the example proves it can touch the ground.
 
+**The section scaffold.** A decomposed section does not open cold on a bold label. It opens with one overview sentence that names the whole and ends in a colon, then lists the parts as bold labels.
+
+> "CRX is composed of three components that let takers and makers trade NDFs directly with one another: standardized onboarding, an RFQ engine, and a smart contract."
+> "CRX is structured to sit outside the following registration categories:"
+
 ## S8. Rhetoric — define by negation, name the incumbent, anchor on authority
 
 Three moves recur:
@@ -143,7 +159,8 @@ Three moves recur:
 > "Perps have no expiry and mark continuously against an index."
 > "CRX takes no position." / "No CRX address sits in the value path."
 
-**Name the incumbent, then its gap.** Real names, then the space each leaves open.
+**Name the incumbent, then its gap.** Real names, then the space each leaves open. The internal order is fixed: bold label → real names + what they offer → one sentence naming the gap.
+> "Stablecoin spot rails. OpenFX, Circle StableFX, Mento, and similar infrastructure use stablecoins to facilitate cheaper and faster spot transactions. They do not create contracts to manage forward-dated FX exposure."
 > "Institutional FX venues. CME, EBS Markets, 24 Exchange, and bank dealer platforms offer forward-dated contracts… Access requires a combination of FCM relationships, ISDA documentation, counterparty credit lines, and prime brokerage arrangements."
 
 **Anchor on authority.** Real data with inline source. Real names with their pedigree.
@@ -158,6 +175,20 @@ Paragraphs run two to five sentences. Each carries **one** claim. The topic sent
 
 The closer — *"That structure serves speculators on major pairs, not institutional hedging workflows"* — does not summarize. It judges, flatly, and stops. No paragraph ends on a soft or open note.
 
+A frequent closer opens with an anaphoric **That**, pointing back at the previous noun: *"That spread reflects the cost of the bank-intermediated model."* / *"That structure serves speculators on major pairs, not institutional hedging workflows."* The shape is *"That [spread / structure / model] [reflects / serves] X, not Y."*
+
+## S10. Structural tics — triads, no connectives, bookends
+
+**Three is the organizing number.** Lists default to three items (sometimes four) with a serial comma: three architecture components, three FX channels, three use cases. *"credit, capital, and operational cost."* When the material groups into three, group it into three.
+
+**No connective tissue.** Almost no *however, therefore, moreover, in addition, as a result.* Sentences abut. Logic is carried by order and the bold labels, not by conjunctive adverbs. The one allowed connector is the causal *"As [X] accelerates, …"* opener.
+
+**Bookend the thesis.** State the core phrase at the open, restate it near-verbatim at the close. The litepaper opens and closes on *"institutional-grade."*
+
+**The deadline tail.** A recurring gerund clause states what must finish first: *"before any trade", "before joining the network", "before being added."*
+
+**Numbers as ranges.** Magnitudes are written *"X to Y"* in words, never *"X–Y"* (a dash would break the no-dash rule), and hedged honestly: *"Estimated", "Roughly", "or more."* Product claims are never hedged — only the data is.
+
 ---
 
 # Part II — The Replication Checklist
@@ -168,8 +199,8 @@ This is the general method for copying *any* author's style, with Jake's value f
 |---|---|---|---|
 | 1 | **Person** | 1st / 2nd / 3rd person; presence of author and reader | Third only. No *I/we/you*. |
 | 2 | **Tense** | Dominant tense; where it shifts | Present. Future only in Roadmap. |
-| 3 | **Mean sentence length** | Average words per sentence | ~15 words. |
-| 4 | **Burstiness** | Variance in sentence length; short-beside-long rhythm | High. 5-word declaratives beside ~25-word compounds. |
+| 3 | **Mean sentence length** | Average words per sentence | ~15–18 words; most sentences 12–22. |
+| 4 | **Burstiness** | Variance in sentence length; short-beside-long rhythm | Moderate. A rationed 5–8 word closer ~once per paragraph. |
 | 5 | **Clause depth** | Clauses per sentence; subordination | Max two clauses. Shallow. |
 | 6 | **Voice** | Active vs passive ratio | Active dominant. |
 | 7 | **Diction register** | Plain / technical / legal / conversational; intensifier density | Domain-exact, legal-economic. Near-zero intensifiers. |
@@ -233,10 +264,11 @@ Produce a complete whitepaper. The default skeleton is the CRX section set; adap
 
 ### Header
 ```
-[PROJECT] · [Month Year]
-[Title: a plain noun phrase — "On-Chain FX Hedging"]
-[Author Name] · [email]
+[PROJECT]                         [Month Year]
+[Brand]: [Plain noun-phrase title]      — e.g. "CRX: On-Chain FX Hedging"
+[Author Name] · [email]                 — name, middle dot ·, email; no title, no affiliation
 ```
+The title is a colon construction: brand, colon, plain noun phrase. The Bitcoin-paper form.
 
 ### Abstract
 Three to four sentences. What it does, the architecture in one list, where or how it launches. No citations, no hedging.
@@ -244,7 +276,7 @@ Three to four sentences. What it does, the architecture in one list, where or ho
 > Model: *"CRX enables institutional-grade FX hedging on-chain, removing the banking overhead embedded in the current cost of trading. CRX's architecture has three components: standardized onboarding, a request-for-quote (RFQ) engine, and a smart contract. CRX launches in emerging markets."*
 
 ### 1. Introduction
-Sub-sections, each a 1–3 word noun phrase. The CRX set: **1.1 The Market**, **1.2 The Landscape**, **1.3 Why Now**, **1.4 The Entry Point**. Establish the instrument, name the incumbents and their gaps, state why the moment is now (supply + demand), name the underserved entry point.
+Sub-sections, each a 1–3 word noun phrase. The CRX set: **1.1 The Market**, **1.2 The Landscape**, **1.3 Why Now**, **1.4 The Entry Point**. Establish the instrument, name the incumbents and their gaps, state why the moment is now (supply + demand), name the underserved entry point. In **The Landscape**, each incumbent gets the fixed three-move block: bold label → real names + what they offer → one sentence naming the gap (S8).
 
 ### 2. Architecture
 The mechanism, decomposed. One sub-section per component (CRX: **2.1 Standardized Onboarding**, **2.2 RFQ Engine**, **2.3 Smart Contract**). Inside, the run-in **bold label.** device for each moving part: *Collateral. Oracle. Margin. Default. Settlement.*
@@ -259,7 +291,7 @@ What is not yet built. **The only section in future tense.** Run-in labels per i
 The posture, framed by negation: what the thing is structured *not* to be. Name the categories it sits outside, one bold label each. Anchor on a named authority where possible.
 
 ### Figure
-One figure with a flat caption: *"Figure 1: The architecture of CRX."* Describe it in text if it cannot be rendered.
+One figure with a flat caption: *"Figure N: [short noun phrase]."* — e.g. *"Figure 1: The architecture of CRX."* The default figure is a symmetric two-party swim-lane: the taker on the left, the maker on the right, the CRX component in the centre, one numbered row per lifecycle stage (Onboarding, RFQ, Settlement). Each centre box lists three feature bullets; each arrow carries a bidirectional action label. Row titles are small-caps (*"1 · STANDARDIZED ONBOARDING"*). Describe it in text if it cannot be rendered.
 
 ### 6. Conclusion
 Three sentences. Zoom out to the macro thesis. State the shift as a fact already in motion.
@@ -285,7 +317,9 @@ Three sentences. Zoom out to the macro thesis. State the shift as a fact already
 - Did you write it as a numbered whitepaper with an Abstract and a Conclusion?
 - Is there a single *I*, *we*, or *you* anywhere? (There must be none.)
 - Any em-dash, semicolon, or aside parenthesis? (There must be none.)
-- Is mean sentence length near fifteen words, with real burstiness?
+- Is mean sentence length ~15–18 words, with moderate burstiness (most sentences 12–22, a short closer about once per paragraph)?
+- Does each decomposed section open with an overview sentence ending in a colon, before the bold labels?
+- Are lists grouped into threes where the material allows, with serial commas?
 - Does every section use 1–3 word noun-phrase titles?
 - Does every use case and mechanism carry a **bold label.** + definition + concrete worked example?
 - Is there at least one define-by-negation sentence per major section?
@@ -323,6 +357,10 @@ Recycle these structural phrasings (not the content):
 - *"X is composed of three components that let…"*
 - *"On execution, the contract…"* / *"At expiry, the contract computes…"*
 - *"Access requires a combination of…"*
+- *"directly with one another"* / *"face each other directly"*
+- *"is structured to sit outside…"*
+- *"That [spread / structure / model] [reflects / serves] X, not Y."* — the anaphoric-That flat closer
+- *"…before any trade" / "…before joining the network" / "…before being added"* — the deadline tail
 
 ## R3. Anti-pattern table — what breaks the voice
 

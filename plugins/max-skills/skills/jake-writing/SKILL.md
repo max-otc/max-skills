@@ -1,5 +1,5 @@
 ---
-name: jake-wrighting
+name: jake-writing
 description: Use when the user wants a document written in Jake Schkolnick's whitepaper voice — the terse, institutional, define-by-negation register of the CRX litepaper. Produces formal whitepaper/litepaper documents only: Abstract, numbered sections, run-in bold labels, a figure, a Conclusion. Triggers on phrases like "write this as a litepaper", "in Jake's voice", "jake-wright this", "make it sound like the CRX paper", "whitepaper version of", "turn this into a litepaper", "Jake Schkolnick style", "draft the whitepaper", "institutional whitepaper tone".
 ---
 

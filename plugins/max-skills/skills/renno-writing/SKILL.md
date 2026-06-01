@@ -1,5 +1,5 @@
 ---
-name: renno-wrighting
+name: renno-writing
 description: Use when the user wants a document written in Renno & Co's structuring-memorandum voice — the privileged-and-confidential legal opinion register of the IndexMaker Structuring Proposal. Produces formal law-firm memoranda only: letter header, numbered sections with decimal subsections, case-cited rationale, jurisdiction-by-jurisdiction analysis, "Things to Watch Out For" lists, a structure diagram, a step plan, a limitations footer. Triggers on phrases like "write this as a structuring memo", "in Renno's voice", "renno-wright this", "make it sound like the IndexMaker proposal", "legal opinion version of", "turn this into a structuring proposal", "draft the memorandum", "law-firm structuring letter", "privileged and confidential memo".
 ---
 
@@ -40,7 +40,7 @@ A memorandum that promises certainty, hides its assumptions, or skips the discla
 
 **Do NOT use for:**
 - Tweets, threads, landing pages, ad copy, emails, blog posts → wrong format; this skill writes memoranda only
-- A terse institutional **whitepaper** in Jake Schkolnick's voice → use `jake-wrighting`. That voice is the inverse of this one: no em-dash, no semicolon, no "we", no hedging. Do not confuse them.
+- A terse institutional **whitepaper** in Jake Schkolnick's voice → use `jake-writing`. That voice is the inverse of this one: no em-dash, no semicolon, no "we", no hedging. Do not confuse them.
 - Marketing strategy, angles, hooks → use `max-marketing` / `max-hook`
 - Documentation in Max's Feynman house style → use `max-doc`
 - Anything that needs warmth, brevity, or a story → that is the opposite of this voice
@@ -55,7 +55,7 @@ Before writing, you need:
 - **The client objectives** — what the client wants to achieve and the constraints (legally lean, modular, minimum KYC, etc.)
 - **The jurisdictions** — which legal regimes the analysis must cover (the proposal covers the United States, the Marshall Islands, and Panama)
 - **The governing law and tests** — the statutes, cases, and regulatory tests in play (the proposal turns on the *Howey* test, *Williamson*, *Merchant Capital*, the Clarity Act, the *DAO Act*)
-- **The entities and counterparties** — the real registrars, custodians, and exchanges named (MIDAO, Bitget, Ceffu, Binance, Cayman Foundation)
+- **The entities and counterparties** — the real registrars, custodians, and exchanges named (MIDAO, Bitget, Ceffu, Binance, Cayman Foundation), and the client's own corporate parent (the proposal's controlled entities are *Symetio* entities, distinct from the protocol developer, IndexMaker Labs)
 - **Which sections** — default to the IndexMaker section set (see Output Format); the user may add or cut
 
 If a case, a statute, a regulator, or a named entity is missing, ask once in a single combined message. Never invent a citation, a holding, a docket number, or a statutory provision. A memorandum that fabricates its authority is worse than one that omits it — it is malpractice on paper.
@@ -169,17 +169,22 @@ Reach for the exact legal, regulatory, or corporate term. *Investment contract. 
 
 **There is no hype.** No *seamless, revolutionary, cutting-edge, robust* in the marketing sense. *Robust* appears once, as a category word ("embedding robust, skills-based sortition"), not as praise. Adjectives are legal categories or measurable facts, never decoration.
 
+**A vivid noun is allowed when it is the exact noun.** The voice reaches for a colorful operational or threat term where it is precise, not where it is flourish: *"guarded mainnet deployment"*, *"commandeered through DAO corporate raider tactics or other hostile methods of seizing control"*. The test is exactness, not color.
+
+**Keep the corpus's mixed orthography.** The firm is Montréal/Toronto and writes a British–American blend: *endeavoured* (BrE) sits beside *favorable, recognize, decentralization* (AmE). Do not normalize to one variant; the mix is part of the fingerprint.
+
 ## S6. Punctuation — the full legal kit
 
 This is the axis where Renno is the **exact inverse of the Jake whitepaper voice.** Where that voice bans the em-dash, the semicolon, and the aside, this voice uses all three as standard equipment.
 
-- **Semicolon.** Permitted, and used to join two independent clauses or to separate the items of a complex enumerated list. *"while we have endeavoured to provide a rigorous review; no analysis can eliminate…"* The semicolon is part of the legal period.
+- **Semicolon.** Permitted, and used to join two independent clauses or to chain the items of a complex enumerated list. *"…subject to evolving and uncertain regulation; while we have endeavoured to provide a rigorous review, no analysis can eliminate…"* The semicolon joins the clauses; the comma carries the carve-out. It is part of the legal period.
 - **Em-dash.** Permitted, for an embedded clarification. *"The key benefit is that each Series is insulated from the liabilities of the others — if one index underperforms or incurs liabilities, this does not affect the others."*
 - **En-dash** in compound proper nouns: *Master–Series LLC*.
 - **Parentheses.** Used freely — for acronym definitions, for examples, for asides, and for citations. *"(e.g., AMMs, lending, staking)"*, *"(random selection from an eligible pool)"*, *"(1 USDC = 1 vote, not index-specific)"*, *"(5th Cir. 1981)"*.
 - **"e.g." and "i.e."** appear inside parentheses as standard.
 - **Quotation marks** carry defined terms on first use and quoted statutory or regulatory language. *""without reliance on any other person to maintain control of the digital assets of the user during any part of the financial transaction""*.
 - **Colon.** Introduces an enumerated list. *"the Howey Test, which asks whether there is:"* then the numbered prongs.
+- **Two list numerals, two jobs.** Statutory or test elements take paren-numerals — *"1) an investment of money, 2) in a common enterprise, 3) with an expectation of profit, 4) that comes primarily from the efforts of others"* — lowercase, comma- or semicolon-chained, with *"; and"* before the last. Advisory and structural lists take period-numerals with bold labels — *"1. **Real Governance Power.** …"*. Do not mix the two.
 
 The fastest way to break this voice is to write it clean and terse like a whitepaper. The legal period, with its semicolons and parenthetical carve-outs, *is* the register.
 
@@ -229,7 +234,7 @@ Paragraphs run three to six sentences. Each opens on a rule or claim, develops i
 
 The closer — *"remain subject to significant regulatory interpretation"* — does not resolve. It withholds. The paragraph ends with the door held open, not shut, because the honest legal answer is conditional.
 
-The connective tissue the whitepaper voice forbids, this voice **requires**: *however, while, although, similarly, in addition, from this perspective, importantly, specifically, unlike traditional finance.* These transitions carry the logical flow of the argument.
+The connective tissue the whitepaper voice forbids, this voice **requires**: *however, while, although, similarly, in addition, from this perspective, importantly, specifically, unlike traditional finance.* These transitions carry the logical flow of the argument. The workhorse openers are the authority-fronting *"Under [law/test]…"* (*Under U.S. law, Under the Clarity Act, Under Howey*) and the court-fronting *"Courts [verb]…"* (*Courts often determine, Courts have further applied, Courts focus on*). Open the doctrinal sentence on the authority, then state what it does.
 
 ## S10. Structural tics — decimal numbering, enumerated completeness, the defensive perimeter
 
@@ -243,7 +248,11 @@ The connective tissue the whitepaper voice forbids, this voice **requires**: *ho
 
 **The hedged recommendation tail.** A recurring closing move names what must happen before the conclusion firms up: *"once the final implementing regulations and interpretive guidance are available", "after the protocol's operational parameters … are more fully developed", "Such an assessment should be undertaken once…".*
 
-**Named third-party entities and precedent deals.** The structure is grounded in real registrars, custodians, and exchanges (MIDAO, Bitget, Ceffu, Binance, Cayman Foundation) and in real precedent postures (the Uniswap defense, the Hinman speech, the Peirce safe harbor).
+**Named third-party entities and precedent deals.** The structure is grounded in real registrars, custodians, and exchanges (MIDAO, Bitget, Ceffu, Binance, Cayman Foundation) and in real precedent postures (the Uniswap defense, the Hinman speech, the Peirce safe harbor). The client's own corporate parent is named too — the controlled entities are *Symetio* entities, distinct from the protocol developer (IndexMaker Labs).
+
+**Sortition as the non-security argument.** The memo's signature substantive move: random selection of role-holders is offered as legal proof that managerial positions are interchangeable, defeating the *Howey* "efforts of others" prong. *"By assigning roles through chance, sortition demonstrates that managerial positions are interchangeable and not unique."* The mechanism is named with its academic source (the footnoted *Goldilocks sortition* paper) and its hedge (*"effective only if the selected participants are qualified"*). When the structure turns on a novel argument, anchor it on a citation and pair it with its condition.
+
+**Economic stake as governance weight.** Voting power is tied to capital, stated flat with a parenthetical gloss: *"with voting weighted by USDC deposits (1 USDC = 1 vote, not index-specific)"*, *"All voting is weighted by USDC deposits, ensuring governance participation aligns with economic stake."*
 
 ---
 
@@ -331,13 +340,15 @@ RE:     [Matter] Structuring Proposal
 
 Dear [Name],
 ```
+Conventions: the delivery method and the contact channel are the same medium (*BY TELEGRAM* ↔ *Telegram: @handle*). *"To:"* is the named principal in capitals; *"Attention:"* names a different day-to-day contact. The date sits top-right. A running letterhead repeats on every page, and a centered page number closes each page in the form *"- N -"*.
+
 The opening sentence states the engagement: *"You have requested that we provide you with a structuring proposal on how you can operationalize [X] in a regulatory risk-mitigated manner."*
 
 ### 1. Project Overview
 What the structure is, in the present tense, with defined terms bolded-and-quoted on first use. The architecture in one paragraph: the entities, the roles, the custody arrangement.
 
 ### 2. Client Objectives
-The client's goals, stated in the third person, then an enumerated list of key objectives. *"The client aims to launch more than 1,000 index tokens under a legally lean, modular, and decentralized structure…"*
+The client's goals, stated in the third person, then an enumerated list of key objectives. *"The client aims to launch more than 1,000 index tokens under a legally lean, modular, and decentralized structure…"* The enumerated list often closes on a longer, full-sentence final item that widens the scope while the earlier items stay fragmentary — the same fragment-then-full-sentence drift recurs in the *Williamson* conditions.
 
 ### 3. Assumptions and Limitations
 The first disclaimer. The firm has not independently verified the facts; the analysis is general informational only and not legal advice; the area is high-risk and the regulator retains discretion. One dense, hedged paragraph.
@@ -346,19 +357,22 @@ The first disclaimer. The firm has not independently verified the facts; the ana
 The bottom line up front. One dense paragraph naming the recommended structure, the jurisdictions, and what each entity does — *before* the rationale. *"This proposal outlines a legally lean, modular structure for launching up to [N] … mitigating [risk] via [mechanism]. The recommended model uses [entity] for [function], [entity] for [function]…"*
 
 ### 5. The Legal Rationale
-The doctrine, organized **by jurisdiction** (5.1 United States, 5.2 [Jurisdiction]). Inside each jurisdiction, decimal sub-subsections with italic titles analyze each issue (5.1.1 *[Issue] as Securities*, 5.1.2 …, *Looking Ahead*, *Things to Watch Out For*). Each issue is IRAC: rule, cited authority, application, risk. Each jurisdiction closes on a "Things to Watch Out For" list of numbered bold labels.
+The doctrine, organized **by jurisdiction** (5.1 United States, 5.2 [Jurisdiction]). Inside each jurisdiction, decimal sub-subsections with italic titles analyze each issue. The IndexMaker US set runs six: 5.1.1 *LLC Units as Securities*, 5.1.2 *Tokens as Securities*, 5.1.3 *Looking Ahead*, 5.1.4 *Clarity Act Decentralized Finance (DeFi) Activities Exclusion*, 5.1.5 *Digital Commodities*, 5.1.6 *Things to Watch Out For*; the Marshall Islands set runs two: 5.2.1 *Key Benefits*, 5.2.2 *Things to Watch Out For*. Each issue is IRAC: rule, cited authority, application, risk. Each jurisdiction closes on a "Things to Watch Out For" list of numbered bold labels. A covered jurisdiction need not get its own subsection — Panama carries no §5.3; its analysis is folded into the §6 structure rationale. State that asymmetry rather than padding an empty section.
 
 ### 6. Overall Structure Diagram
-**6.1 Description** — the structure, with the diagram referenced and "four important aspects worth highlighting" as numbered bold labels. **6.2 Steps** — a numbered, future-tense ("will") implementation plan, each step a bold label naming the action (*"Formation of [Entity]." "Execution of [Agreement] between X and Y."*). Describe the diagram in text if it cannot be rendered: a boxed entity map with a legend keyed by color (controlled entities, entities to be incorporated, third parties, unincorporated protocol), arrows labeled by relationship (*Governs, 100% Owner, Software Support Agreement*).
+**6.1 Description** — the structure, with the diagram referenced and "four important aspects worth highlighting" as numbered bold labels. **6.2 Steps** — a numbered, future-tense ("will") implementation plan, each step a bold label naming the action (*"Formation of [Entity]." "Execution of [Agreement] between X and Y."*). The memo carries **two figures**, each a boxed, all-caps-titled diagram with a color legend: the entity/structure map here in §6, and a governance-flow map in §7. Describe the diagram in text if it cannot be rendered: a boxed entity map titled in all caps, a legend keyed by color to the real four categories — *controlled entities already incorporated*, *entities to be incorporated*, *third-party entities*, *unincorporated protocol* — line-style keys (solid = *commercial contract*, dashed = *governs*), and arrows labeled by relationship (*100% Owner, Software Support Agreement, OTC trading & Custodian Agreement, Front-End Gateway to Protocol, License Agreement*).
 
 ### 7. [Governance / Operating] Structure
-**7.1 Description** — how the structure runs. **Step-by-Step [Process] & Roles** — numbered bold labels, one per role or stage. **Progressive [Decentralization] Roadmap** — the phased plan, numbered, each phase a bold label (*"Guided Operations." "Hybrid Elections." "Full … Governance." "Mature Autonomy."*).
+**7.1 Description** — how the structure runs, with the governance-flow diagram (the second figure) referenced. **Step-by-Step [Process] & Roles** — numbered bold labels, one per role or stage. **Progressive [Decentralization] Roadmap** — the phased plan, numbered, each phase a bold label. The IndexMaker roadmap is four phases, named exactly: *"Guided Operations." "Hybrid Elections." "Full Sortition Governance and Issuer Network Elections." "Mature Autonomy."* Academic sources cited in this section are footnoted (see Footnotes below).
+
+### Footnotes
+Academic or external sources are cited with a superscript numeral in the body and a footnote at the page bottom, in academic form: *Surname, I., & Surname, I. (Year). Title in italics. Source. URL.* — e.g. *Baharav, T., & Flanigan, B. (2024). Goldilocks sortition: A just-right way to select participants. arXiv. https://arxiv.org/abs/2406.15009* (author surnames bold, title italic, bare URL).
 
 ### 8. Conclusions
 One paragraph. State what the structure achieves, restate the risk-management framing, and close on the conditional path forward. *"The proposed structure positions [X] to operate as [Y] with [benefits]. By combining [A] with [B], the framework balances regulatory risk management with operational scalability."*
 
 ### Limitations footer
-A final page, smaller and centered, titled "LIMITATIONS OF THIS MEMORANDUM." Two short paragraphs: scope determined in consultation with the addressee, no reliance by any third party, not prepared by lawyers qualified in the relevant jurisdictions, no representation or warranty, no duty to update, no reproduction without consent.
+The footer stands alone on the final page, the text smaller and centered, the space above it left blank. Titled "LIMITATIONS OF THIS MEMORANDUM." Two short paragraphs: scope determined in consultation with the addressee, no reliance by any third party, not prepared by lawyers qualified in the relevant jurisdictions, no representation or warranty, no duty to update, no reproduction without consent.
 
 ---
 
@@ -389,6 +403,8 @@ A final page, smaller and centered, titled "LIMITATIONS OF THIS MEMORANDUM." Two
 - Does a Summary Answer state the recommendation before the rationale?
 - Does every comfort carry its caveat, and does every doctrinal paragraph close on a qualification rather than a flat judgment?
 - Is the step plan in the future tense, with each step a bold-label action?
+- Are statutory elements in `1)` paren-numerals and advisory lists in `1.` bold-label numerals, not mixed?
+- Is every external source footnoted in academic form, and does each figure carry an all-caps title and a color legend?
 - Read it aloud: does any sentence promise certainty? If yes, it is not done.
 
 If any answer is wrong — pass over it again with Part I before delivering.
@@ -405,13 +421,15 @@ The whole skill is one document's fingerprint. Key passages and what each teache
 |---|---|
 | *"You have requested that we provide you with a structuring proposal on how you can operationalize IndexMaker in a regulatory risk-mitigated manner."* | The we↔you advisory frame; the risk-mitigated framing (S1, S8). |
 | *"Under U.S. law, a security is an investment that falls within a regulated category. … by applying the Howey Test, which asks whether there is:"* | Doctrine in impersonal third person; rule then cited test (S1, S8). |
-| *"In Williamson v. Tucker, 645 F.2d 404 (5th Cir. 1981) (Williamson), the court recognized that…"* | The case-citation convention (S5). |
+| *"In Williamson v. Tucker, 645 F.2d 404 (5th Cir. 1981) (Williamson), the court recognized that partnership and joint venture interests can qualify as investment contracts if at least one of the following conditions applies:"* | The case-citation convention; define-the-trigger-then-enumerate (S5, S7). |
 | *"To avoid classification as an investment contract, none of these three conditions can be present."* | Define-by-negation for the safe harbor; purpose-clause fronting (S4, S8). |
 | *"the securities law risk decreases."* | The conclusion as a probability, never a certainty (S2, S8). |
 | *"While the DeFi exclusion removes many obligations, it is important to note that the protocol will still fall under the … CFTC's anti-fraud and anti-manipulation oversight."* | Every comfort paired with its caveat; the connective the whitepaper voice bans (S8, S9). |
 | *"5. Avoiding Illusory Rights. In Merchant Capital, … Do not use systems that only appear decentralized…"* | The numbered bold label with embedded case cite and instruction (S7). |
 | *"Crypto-related activities remain a high-risk area subject to evolving and uncertain regulation; while we have endeavoured to provide a rigorous review, no analysis can eliminate the possibility that…"* | The 65-word legal period with a semicolon; the disclaimer register (S3, S6). |
 | *"It would be prudent to conduct a subsequent assessment… Such an assessment should be undertaken once the final implementing regulations and interpretive guidance are available…"* | The hedged recommendation tail (S10). |
+| *"By assigning roles through chance, sortition demonstrates that managerial positions are interchangeable and not unique. … This approach is effective only if the selected participants are qualified…"* | The novel substantive argument, anchored on a citation and paired with its condition (S10). |
+| *"Beneficial ownership reporting is required for anyone with 25% or more governance rights. From experience, it is rare that many, if any, individuals meet this threshold."* | The paired rule→reassurance device: state the hard threshold, then deflate it with firm experience (S8, S9). |
 
 ## R2. Tells of the voice — phrases that read as Renno
 
@@ -428,6 +446,8 @@ Recycle these structural phrasings (not the content):
 - *"While [X] removes many obligations, it is important to note that … will still fall under … oversight."*
 - *"Although [regime] is flexible, there are still mandatory compliance points."*
 - *"From experience, it is rare that many, if any, individuals meet this threshold."*
+- *"By assigning roles through chance, sortition demonstrates that managerial positions are interchangeable and not unique."*
+- *"All voting is weighted by USDC deposits (1 USDC = 1 vote, not index-specific), ensuring governance participation aligns with economic stake."*
 - *"Things to Watch Out For"* / *"To reduce the risk of [classification], consider the following:"*
 
 ## R3. Anti-pattern table — what breaks the voice
@@ -443,4 +463,4 @@ Recycle these structural phrasings (not the content):
 
 ## R4. A note on this skill's own prose
 
-The text *describing* this skill follows Max's house voice (patient, Alexander-register, em-dashes welcome). The text the skill *produces* follows Renno's voice (legal, hedged, we↔you frame, full punctuation kit, every comfort paired with its caveat). Do not confuse the two. And do not confuse Renno's voice with the `jake-wrighting` whitepaper voice — they are near-inverses on person, punctuation, sentence length, and certainty. When writing the output, the only register that exists is Renno's.
+The text *describing* this skill follows Max's house voice (patient, Alexander-register, em-dashes welcome). The text the skill *produces* follows Renno's voice (legal, hedged, we↔you frame, full punctuation kit, every comfort paired with its caveat). Do not confuse the two. And do not confuse Renno's voice with the `jake-writing` whitepaper voice — they are near-inverses on person, punctuation, sentence length, and certainty. When writing the output, the only register that exists is Renno's.

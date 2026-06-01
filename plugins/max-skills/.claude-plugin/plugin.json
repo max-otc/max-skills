@@ -1,9 +1,9 @@
 {
   "name": "max-skills",
-  "description": "Install every Max OTC skill in one shot — max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, jake-wrighting, renno-wrighting. Bundles the entire marketplace into a single plugin so one install command equips Claude with all nine skills.",
+  "description": "Install every Max OTC skill in one shot — max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, jake-writing, renno-writing. Bundles the entire marketplace into a single plugin so one install command equips Claude with all nine skills.",
   "version": "1.3.0",
   "author": {
     "name": "Max OTC"
   },
-  "keywords": ["bundle", "all", "max-skills", "video", "hook", "explainer", "persona", "marketing", "ai-video", "doc", "documentation", "whitepaper", "jake-wrighting", "memorandum", "legal-opinion", "renno-wrighting"]
+  "keywords": ["bundle", "all", "max-skills", "video", "hook", "explainer", "persona", "marketing", "ai-video", "doc", "documentation", "whitepaper", "jake-writing", "memorandum", "legal-opinion", "renno-writing"]
 }

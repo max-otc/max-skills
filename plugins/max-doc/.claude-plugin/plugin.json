@@ -1,0 +1,9 @@
+{
+  "name": "max-doc",
+  "description": "Write or rewrite documentation in Max's house style — plan the learning paths per reader, Feynman Q&A, terse, no TL;DRs. From a product or codebase to a small set of pages that answer the reader's real questions.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Max OTC"
+  },
+  "keywords": ["docs", "documentation", "technical-writing", "feynman", "readme", "docs-site", "help-content", "explainer", "concise"]
+}

@@ -3,7 +3,7 @@
 # any individual skill so the bundle does not drift.
 set -euo pipefail
 cd "$(dirname "$0")/skills"
-for skill in max-video max-hook max-explainer-video max-persona-research max-marketing max-ai-video; do
+for skill in max-video max-hook max-explainer-video max-persona-research max-marketing max-ai-video max-doc; do
   cp "../../$skill/skills/$skill/SKILL.md" "$skill/SKILL.md"
 done
 echo "Bundle synced."

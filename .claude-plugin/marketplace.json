@@ -12,7 +12,7 @@
     {
       "name": "max-skills",
       "source": "./plugins/max-skills",
-      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video). One install, six skills.",
+      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc). One install, seven skills.",
       "version": "1.0.0",
       "category": "bundle",
       "tags": ["bundle", "all", "everything", "complete"]
@@ -56,6 +56,14 @@
       "version": "1.0.0",
       "category": "creative",
       "tags": ["marketing", "ecommerce", "copywriting", "angles", "awareness", "sophistication", "epic", "hormozi", "schwartz", "rogers", "meta-ads", "andromeda", "creative-strategy"]
+    },
+    {
+      "name": "max-doc",
+      "source": "./plugins/max-doc",
+      "description": "Write or rewrite documentation in Max's house style — plan the learning paths per reader, Feynman Q&A, terse, no TL;DRs. From a product or codebase to a small set of pages that answer the reader's real questions.",
+      "version": "1.0.0",
+      "category": "creative",
+      "tags": ["docs", "documentation", "technical-writing", "feynman", "readme", "docs-site", "help-content", "explainer", "concise"]
     },
     {
       "name": "max-ai-video",

@@ -13,7 +13,7 @@
       "name": "max-skills",
       "source": "./plugins/max-skills",
       "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc). One install, seven skills.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "category": "bundle",
       "tags": ["bundle", "all", "everything", "complete"]
     },

@@ -1,0 +1,9 @@
+{
+  "name": "jake-wrighting",
+  "description": "Write a formal whitepaper in Jake Schkolnick's CRX-litepaper voice — terse, third-person, present-tense, define-by-negation, run-in bold labels, no em-dash, no hype. From facts to a finished litepaper: Abstract, numbered sections, figure, Conclusion.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Max OTC"
+  },
+  "keywords": ["whitepaper", "litepaper", "writing-style", "style-transfer", "voice", "jake-schkolnick", "crx", "institutional", "technical-writing", "stylometry", "fintech"]
+}

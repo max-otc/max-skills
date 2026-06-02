@@ -12,8 +12,8 @@
     {
       "name": "max-skills",
       "source": "./plugins/max-skills",
-      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, jake-writing, renno-writing). One install, nine skills.",
-      "version": "1.3.0",
+      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, jake-writing). One install, eight skills.",
+      "version": "1.4.0",
       "category": "bundle",
       "tags": ["bundle", "all", "everything", "complete"]
     },
@@ -80,14 +80,6 @@
       "version": "1.0.0",
       "category": "creative",
       "tags": ["whitepaper", "litepaper", "writing-style", "style-transfer", "voice", "jake-schkolnick", "crx", "institutional", "technical-writing", "stylometry", "fintech"]
-    },
-    {
-      "name": "renno-writing",
-      "source": "./plugins/renno-writing",
-      "description": "Write a formal legal structuring memorandum in Renno & Co's IndexMaker-proposal voice — privileged-and-confidential law-firm letter, we↔you advisory frame, case-cited IRAC rationale, jurisdiction-by-jurisdiction analysis, 'Things to Watch Out For' lists, hedged recommendations, a defensive perimeter of disclaimers. Ten-dimension style fingerprint plus a twelve-axis replication checklist, from facts to a finished memo.",
-      "version": "1.0.0",
-      "category": "creative",
-      "tags": ["memorandum", "legal-opinion", "structuring-proposal", "writing-style", "style-transfer", "voice", "renno", "law-firm", "regulatory", "securities", "howey", "dao", "legal-writing", "stylometry"]
     }
   ]
 }

@@ -1,9 +1,0 @@
-{
-  "name": "renno-writing",
-  "description": "Write a formal legal structuring memorandum in Renno & Co's IndexMaker-proposal voice — privileged-and-confidential law-firm letter, we↔you advisory frame, case-cited IRAC rationale, jurisdiction-by-jurisdiction analysis, 'Things to Watch Out For' lists, hedged recommendations, a defensive perimeter of disclaimers. Ten-dimension style fingerprint plus a twelve-axis replication checklist, from facts to a finished memo.",
-  "version": "1.0.0",
-  "author": {
-    "name": "Max OTC"
-  },
-  "keywords": ["memorandum", "legal-opinion", "structuring-proposal", "writing-style", "style-transfer", "voice", "renno", "law-firm", "regulatory", "securities", "howey", "dao", "technical-writing", "stylometry", "legal-writing"]
-}

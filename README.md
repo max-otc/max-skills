@@ -16,7 +16,7 @@ Once. From inside Claude Code:
 /plugin install max-skills@max-skills
 ```
 
-That installs all six skills below as a single bundle. Use this if you want the lot.
+That installs all nine skills below as a single bundle. Use this if you want the lot.
 
 ## Install a single skill
 
@@ -77,6 +77,16 @@ Write an AI-tool / trading-creator YouTube script in the recent DaviddTech mould
 ```
 
 Invoke by asking Claude to "write a video like DaviddTech", "script my AI tool video", "sell my tool on YouTube", or "write the video sentence by sentence, part by part".
+
+### max-x
+
+Data-driven X / Twitter growth. You don't invent content — you pull what already works in the niche via `twitterapi.io`, reverse-engineer *why* it works, recycle it with your angle, and lead the reader to a CTA. Models the six laws of the X algorithm (niche-first distribution, the consistency law, the soccer-coach memory, the flux gate, the reply game, dead niches), runs the creator-mining loop, builds the data-article "stock not flux" machine, and stands up a 5-account angle-testing rig. Output is an eleven-section growth operating plan. Distilled from Max OTC's method (the source conversation ships with the skill).
+
+```
+/plugin install max-x@max-skills
+```
+
+Invoke by asking Claude to "grow my Twitter", "X growth strategy", "what niche should I post in", "pull top creators in my niche", "why aren't my bangers working", "build me a reply-game plan", or "set up a multi-account testing rig".
 
 ## Update
 

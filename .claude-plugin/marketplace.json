@@ -12,8 +12,8 @@
     {
       "name": "max-skills",
       "source": "./plugins/max-skills",
-      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, jake-writing). One install, eight skills.",
-      "version": "1.5.0",
+      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, jake-writing, max-legal, max-x). One install, ten skills.",
+      "version": "1.6.0",
       "category": "bundle",
       "tags": ["bundle", "all", "everything", "complete"]
     },
@@ -80,6 +80,14 @@
       "version": "1.0.0",
       "category": "creative",
       "tags": ["whitepaper", "litepaper", "writing-style", "style-transfer", "voice", "jake-schkolnick", "crx", "institutional", "technical-writing", "stylometry", "fintech"]
+    },
+    {
+      "name": "max-x",
+      "source": "./plugins/max-x",
+      "description": "Data-driven X / Twitter growth system — pull what already works in a niche via twitterapi.io, reverse-engineer the WHY, recycle-with-an-angle, run the reply game, turn replies into a stock with data articles + CTA, and test 5 angles across a multi-account rig. The six algorithm laws, the creator-mining loop, and a runnable growth operating plan from account or product.",
+      "version": "1.0.0",
+      "category": "creative",
+      "tags": ["twitter", "x", "growth", "twitterapi", "algorithm", "niche", "reply-game", "creator-research", "content-strategy", "viral", "social-media", "mrbeast", "data-article", "multi-account"]
     }
   ]
 }

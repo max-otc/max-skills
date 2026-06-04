@@ -1,0 +1,9 @@
+{
+  "name": "max-x",
+  "description": "Data-driven X / Twitter growth system: pull what already works in a niche via twitterapi.io, reverse-engineer the WHY, recycle-with-an-angle, run the reply game, turn replies into a stock with data articles + CTA, and test 5 angles across a multi-account rig. From account or product to a runnable growth operating plan.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Max OTC"
+  },
+  "keywords": ["twitter", "x", "growth", "twitterapi", "algorithm", "niche", "reply-game", "creator-research", "content-strategy", "viral", "social-media", "mrbeast", "data-article", "multi-account"]
+}

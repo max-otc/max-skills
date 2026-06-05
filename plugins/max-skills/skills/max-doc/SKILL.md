@@ -52,7 +52,14 @@ You stand on the documentation canon. Six frameworks, one line each:
 
 List each party who will read — each role or persona. For each, write the ordered questions they actually have. Cut every topic no one asks. The page set is the union of those questions, and nothing more. Each cluster becomes one page in one mode (law 11).
 
-> A doc set is the questions a reader asks, in order — not a map of the system.
+Then run the page map against two tests — this is MECE, applied:
+
+- **No overlap** (mutually exclusive): no question is answered on two pages. Two pages that answer the same question are one page split in half — merge them, and point every other page at the single home.
+- **No gap** (collectively exhaustive): every real reader question has exactly one page that owns it. A question with no home is a missing page. A page with no question behind it is an invented page — cut it.
+
+This is also how you refactor an existing doc set. Don't read it page by page. List its current pages, list the reader's real questions beside them, then map one to the other: questions that share a page split out, pages that share a question fold together, orphan pages (no question) get cut, orphan questions (no page) get written. The map drives the edits — not the order the old docs happened to be in.
+
+> A doc set is the questions a reader asks, in order — each with one home, none missing.
 
 ### 2. Every heading is a question.
 
@@ -183,6 +190,7 @@ Implementation: build it as one small static SVG or component — no runtime dat
 ## Quality checks before finishing
 
 - Did you plan the per-reader question list, and cut topics no one asks?
+- Is the page map MECE — no question answered on two pages (overlap → merge), no real question without a page (gap → write it)?
 - Is every `##` a real reader question, answered in the first sentence?
 - Is each page exactly one Diátaxis mode (tutorial / how-to / reference / explanation), obeying its contract?
 - Zero TL;DR blocks?

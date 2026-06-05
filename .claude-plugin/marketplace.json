@@ -74,6 +74,14 @@
       "tags": ["video", "youtube", "scriptwriting", "ai-tool", "creator", "daviddtech", "sentence-by-sentence", "spoken-script", "content-creation"]
     },
     {
+      "name": "max-legal",
+      "source": "./plugins/max-legal",
+      "description": "Write a formal legal structuring memorandum — privileged-and-confidential opinion-letter register with a letter header, decimal-numbered sections, case-cited rule-application, jurisdiction-by-jurisdiction analysis, Things to Watch Out For lists, a structure diagram, a step plan, and a limitations footer.",
+      "version": "1.0.0",
+      "category": "creative",
+      "tags": ["legal", "memorandum", "structuring", "opinion-letter", "law-firm", "jurisdiction", "compliance", "privileged", "legal-writing"]
+    },
+    {
       "name": "jake-writing",
       "source": "./plugins/jake-writing",
       "description": "Write a formal whitepaper in Jake Schkolnick's CRX-litepaper voice — terse, third-person, present-tense, define-by-negation, run-in bold labels, no em-dash, no hype. Nine-dimension style fingerprint plus a twelve-axis replication checklist, from facts to a finished litepaper.",

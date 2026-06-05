@@ -1,7 +1,7 @@
 {
   "name": "max-skills",
   "description": "Install every Max OTC skill in one shot — max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, jake-writing. Bundles the entire marketplace into a single plugin so one install command equips Claude with all eight skills.",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "author": {
     "name": "Max OTC"
   },

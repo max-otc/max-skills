@@ -12,7 +12,7 @@
     {
       "name": "max-skills",
       "source": "./plugins/max-skills",
-      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, jake-writing, max-legal, max-x). One install, ten skills.",
+      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, jake-writing, max-legal, max-x, max-ux-flow). One install, eleven skills.",
       "version": "1.6.0",
       "category": "bundle",
       "tags": ["bundle", "all", "everything", "complete"]
@@ -64,6 +64,14 @@
       "version": "1.0.0",
       "category": "creative",
       "tags": ["docs", "documentation", "technical-writing", "feynman", "readme", "docs-site", "help-content", "explainer", "concise"]
+    },
+    {
+      "name": "max-ux-flow",
+      "source": "./plugins/max-ux-flow",
+      "description": "Design a UX flow finance-first (regulated, but modern — Fireblocks-grade) and general-capable — what the user sees first, what they click, screen by screen, what each table shows, how data is structured, mobile vs desktop, and the money/approval/KYC safety layer. A twenty-framework canon (Norman, Cooper, JTBD, Nielsen, Tufte, Shneiderman, Wroblewski, Fireblocks maker-checker) into an eleven-section flow spec.",
+      "version": "1.0.0",
+      "category": "creative",
+      "tags": ["ux", "ux-flow", "user-flow", "wireflow", "interaction-design", "information-architecture", "data-tables", "dashboard", "responsive", "mobile-first", "fintech", "regulated-finance", "fireblocks", "maker-checker", "kyc", "onboarding", "nielsen", "norman", "jtbd", "tufte", "shneiderman"]
     },
     {
       "name": "max-ai-video",

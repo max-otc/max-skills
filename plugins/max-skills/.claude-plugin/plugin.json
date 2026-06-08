@@ -1,9 +1,9 @@
 {
   "name": "max-skills",
-  "description": "Install every Max OTC skill in one shot — max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, jake-writing, max-legal, max-x, max-ux-flow. Bundles the entire marketplace into a single plugin so one install command equips Claude with all eleven skills.",
-  "version": "1.6.0",
+  "description": "Install every Max OTC skill in one shot — max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, max-eli5, max-ux-flow, max-walkthrough, max-video-walkthrough, jake-writing, max-legal, max-x. Bundles the entire marketplace into a single plugin so one install command equips Claude with all fourteen skills.",
+  "version": "1.10.0",
   "author": {
     "name": "Max OTC"
   },
-  "keywords": ["bundle", "all", "max-skills", "video", "hook", "explainer", "persona", "marketing", "ai-video", "doc", "documentation", "whitepaper", "jake-writing", "legal", "twitter", "x", "growth", "ux", "ux-flow", "fintech"]
+  "keywords": ["bundle", "all", "max-skills", "video", "hook", "explainer", "persona", "marketing", "ai-video", "doc", "documentation", "eli5", "explain-like-im-5", "whitepaper", "jake-writing", "legal", "twitter", "x", "growth", "ux", "ux-flow", "fintech", "walkthrough"]
 }

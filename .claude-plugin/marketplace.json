@@ -12,10 +12,26 @@
     {
       "name": "max-skills",
       "source": "./plugins/max-skills",
-      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, jake-writing, max-legal, max-x, max-ux-flow). One install, eleven skills.",
-      "version": "1.6.0",
+      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, max-eli5, max-ux-flow, max-walkthrough, max-video-walkthrough, jake-writing, max-legal, max-x). One install, fourteen skills.",
+      "version": "1.10.0",
       "category": "bundle",
       "tags": ["bundle", "all", "everything", "complete"]
+    },
+    {
+      "name": "max-walkthrough",
+      "source": "./plugins/max-walkthrough",
+      "description": "Generate annotated product screenshots and a step-by-step visual walkthrough by running the real web app in a build-time mock mode, capturing clean shots, and baking arrows + callouts. The visual companion to max-doc.",
+      "version": "1.0.0",
+      "category": "creative",
+      "tags": ["walkthrough", "screenshots", "annotated", "mock-mode", "playwright", "docs", "product-tour", "onboarding"]
+    },
+    {
+      "name": "max-video-walkthrough",
+      "source": "./plugins/max-video-walkthrough",
+      "description": "Build an animated Remotion walkthrough video of a web app from scratch — a faux browser holding real captured screen states, a bezier cursor that glides and clicks, typed inputs, rolling numbers, page-load bars, popup callouts, and a wallet-approval popup, all driven by a beat timeline. The motion companion to max-walkthrough.",
+      "version": "1.0.0",
+      "category": "creative",
+      "tags": ["walkthrough", "video", "remotion", "screen-recording", "product-demo", "cursor", "mock-mode", "onboarding-video", "beat-timeline", "bezier-cursor"]
     },
     {
       "name": "max-persona-research",
@@ -72,6 +88,14 @@
       "version": "1.0.0",
       "category": "creative",
       "tags": ["ux", "ux-flow", "user-flow", "wireflow", "interaction-design", "information-architecture", "data-tables", "dashboard", "responsive", "mobile-first", "fintech", "regulated-finance", "fireblocks", "maker-checker", "kyc", "onboarding", "nielsen", "norman", "jtbd", "tufte", "shneiderman"]
+    },
+    {
+      "name": "max-eli5",
+      "source": "./plugins/max-eli5",
+      "description": "Rewrite any concept \"explain like I'm 5\" — answer-first, one everyday analogy carried all the way, one mechanism, jargon defined on use, one repeatable takeaway. Built on the explanation canon (Feynman, Curse of Knowledge, Hofstadter, Made to Stick) and the recurring moves in top r/explainlikeimfive answers.",
+      "version": "1.0.0",
+      "category": "creative",
+      "tags": ["eli5", "explain-like-im-5", "plain-english", "simplify", "feynman", "analogy", "explainer", "curse-of-knowledge", "made-to-stick", "reddit"]
     },
     {
       "name": "max-ai-video",

@@ -78,7 +78,7 @@ The first sentence is the plain answer, in words the reader already has. No thro
 
 ### 3. Hand them a picture they already own.
 
-Pick one concrete everyday analogy — a thing from a kitchen, a road, a wallet, a queue, a body. It must be something the reader has *touched*, not another abstraction. The new idea sits inside that picture (Hofstadter; Piaget). One analogy, carried all the way through. Do not switch pictures mid-explanation — a second analogy erases the first.
+Pick one concrete everyday analogy — a thing from a kitchen, a road, a wallet, a queue, a body. It must be something the reader has *touched*, not another abstraction. The new idea sits inside that picture (Hofstadter; Piaget). One analogy, carried all the way through. Do not switch pictures mid-explanation — a second analogy erases the first. Choose it with the break-test below — the wrong picture teaches the *opposite* of the truth, and does it convincingly.
 
 ### 4. One mechanism, not the encyclopedia.
 
@@ -107,6 +107,26 @@ Before shipping, read the draft as the reader who knows nothing (Rubber duck; Ta
 ### 10. End on one takeaway.
 
 Close on the single model the reader keeps — one sentence, the same shape as law 1, now earned. *"You're not being pulled under; the mud is gripping you and your own weight does the rest."* No summary block. One line they could repeat to a friend.
+
+## Choosing the analogy — the break-test
+
+The analogy *is* the explanation. Get the picture wrong and the reader walks away holding something false, and holding it with confidence. This is where most explanations fail — not in the words, in the picture. So do not grab the first one that feels clean.
+
+Generate two or three candidate pictures. Then run each through the break-test before you commit a single sentence:
+
+1. **Name the one point that must survive.** The single mechanism from law 1. For HTTPS that point is: *two strangers agree on a secret while everyone is watching.*
+2. **Push the analogy to that exact point.** Does the everyday picture behave like the real thing right there — or only near it?
+3. **Find where it breaks.** Every analogy breaks somewhere; that is fine. The only question is *where* it breaks.
+   - Breaks somewhere harmless → keep it. If the reader might over-extend it, name the break in one line.
+   - Breaks **on the one point that matters** → throw it out. It will teach the opposite of the truth.
+
+The seductive analogy is almost always the one that breaks exactly where the difficulty lives — it feels clean *because* it has quietly assumed away the hard part.
+
+> **The trap, caught in the act:**
+> *"HTTPS is like you and a friend who both already have the same key to a lockbox."* Vivid, clean — and wrong. The whole difficulty of HTTPS is that the two ends do **not** start with a shared key; agreeing on one in front of eavesdroppers is the entire trick. A picture that hands them the key for free deletes the only lesson worth teaching.
+> **The fix:** pick a picture where the secret is *built in the open* — two people mixing paint colours in public view. They each add a private colour to a shared one; the final blend is easy for them to make together but practically impossible for a watcher to un-mix. Now the picture carries the hard part instead of skipping it.
+
+If no candidate survives the break-test on the hard point, that is the signal: **the hard point is the explanation.** Build the picture around the trick itself, not around the result.
 
 ## The voice — before / after
 
@@ -158,6 +178,16 @@ Offer a one-line **"want the next layer?"** at the end *only if* the reader is l
 - "Like I'm 5" = layperson with zero background, not baby-talk. Never condescend.
 - No TL;DR block, no jargon dump, no encyclopedia.
 - End on one repeatable takeaway. Then stop.
+
+## Common mistakes
+
+| Mistake | What it looks like | Fix |
+|---|---|---|
+| **The analogy that misleads** | The picture feels clean because it assumes away the hard part — the lockbox that skips the key exchange. | Run the break-test. If it breaks on the one point that matters, throw it out, don't patch it. |
+| **Switching pictures** | Open in a kitchen, drift to a highway, end at a wallet. Each new picture erases the last. | One picture, carried to the end. If you reach for a second, the first one was wrong — go back and re-pick. |
+| **Jargon smuggled in early** | The technical term appears before the plain word has earned it. | Plain word first, always. The term comes after, defined in the same breath — or it is cut. |
+| **Completeness creep** | "But also…", "technically…", a second mechanism, one more caveat. | One mechanism. Right enough to build on beats exhaustively complete. Push the rest into "want the next layer?". |
+| **Baby-talk** | "Okay, so the little computer gets sad…" — condescension wearing the costume of simplicity. | Layperson, zero background, full respect. Small words, adult reader. Never talk down.|
 
 ## Quality checks before finishing
 

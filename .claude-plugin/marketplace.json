@@ -13,7 +13,7 @@
       "name": "max-skills",
       "source": "./plugins/max-skills",
       "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, max-eli5, max-ux-flow, max-walkthrough, max-video-walkthrough, jake-writing, max-legal, max-x, max-ch-article). One install, fifteen skills.",
-      "version": "1.11.1",
+      "version": "1.11.2",
       "category": "bundle",
       "tags": [
         "bundle",
@@ -163,11 +163,11 @@
     {
       "name": "max-ch-article",
       "source": "./plugins/max-ch-article",
-      "description": "Culturally adapt an English article into a Chinese one — transcreation, not translation. A named canon (Skopos, Nida, Venuti, Hall, 起承转合/Kaplan, Hofstede, the 研报 trust economy) verified against 665 real X-Articles: Chinese readers save where English readers react, so the piece is rebuilt inductive, genre-tagged, bent toward being saved. Glass-box with English back-translation.",
+      "description": "Culturally adapt an English article into a Chinese one — cultural adaptation, not translation. A named canon (Skopos, Nida, Venuti, Hall, 起承转合/Kaplan, Hofstede, the 研报 trust economy) verified against 665 real X-Articles: Chinese readers save where English readers react, so the piece is rebuilt inductive, genre-tagged, bent toward being saved. Glass-box with English back-translation.",
       "version": "1.0.0",
       "category": "creative",
       "tags": [
-        "transcreation",
+        "cultural-adaptation",
         "translation",
         "localization",
         "chinese",

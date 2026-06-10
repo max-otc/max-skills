@@ -1,0 +1,9 @@
+{
+  "name": "max-transcreate",
+  "description": "Culturally adapt an English article into a Chinese one in Max's house style — transcreation, not translation. Built on a named canon (Skopos, Nida, Venuti, Hall, 起承转合/Kaplan, Hofstede, the 研报 trust economy) and verified against 665 real X-Articles: Chinese readers save where English readers react, so the piece is rebuilt inductive, genre-tagged, and bent toward being saved. Ships glass-box with English back-translation for non-Chinese readers.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Max OTC"
+  },
+  "keywords": ["transcreation", "translation", "localization", "chinese", "l10n", "cross-cultural", "skopos", "high-context", "yanbao", "research-report", "weibo", "wechat", "crypto-kol"]
+}

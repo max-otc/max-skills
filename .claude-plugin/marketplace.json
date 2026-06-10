@@ -12,10 +12,15 @@
     {
       "name": "max-skills",
       "source": "./plugins/max-skills",
-      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, max-eli5, max-ux-flow, max-walkthrough, max-video-walkthrough, jake-writing, max-legal, max-x). One install, fourteen skills.",
-      "version": "1.10.1",
+      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, max-eli5, max-ux-flow, max-walkthrough, max-video-walkthrough, jake-writing, max-legal, max-x, max-transcreate). One install, fifteen skills.",
+      "version": "1.11.0",
       "category": "bundle",
-      "tags": ["bundle", "all", "everything", "complete"]
+      "tags": [
+        "bundle",
+        "all",
+        "everything",
+        "complete"
+      ]
     },
     {
       "name": "max-walkthrough",
@@ -23,7 +28,16 @@
       "description": "Generate annotated product screenshots and a step-by-step visual walkthrough by running the real web app in a build-time mock mode, capturing clean shots, and baking arrows + callouts. The visual companion to max-doc.",
       "version": "1.0.0",
       "category": "creative",
-      "tags": ["walkthrough", "screenshots", "annotated", "mock-mode", "playwright", "docs", "product-tour", "onboarding"]
+      "tags": [
+        "walkthrough",
+        "screenshots",
+        "annotated",
+        "mock-mode",
+        "playwright",
+        "docs",
+        "product-tour",
+        "onboarding"
+      ]
     },
     {
       "name": "max-video-walkthrough",
@@ -31,7 +45,18 @@
       "description": "Build an animated Remotion walkthrough video of a web app from scratch — a faux browser holding real captured screen states, a bezier cursor that glides and clicks, typed inputs, rolling numbers, page-load bars, popup callouts, and a wallet-approval popup, all driven by a beat timeline. The motion companion to max-walkthrough.",
       "version": "1.0.0",
       "category": "creative",
-      "tags": ["walkthrough", "video", "remotion", "screen-recording", "product-demo", "cursor", "mock-mode", "onboarding-video", "beat-timeline", "bezier-cursor"]
+      "tags": [
+        "walkthrough",
+        "video",
+        "remotion",
+        "screen-recording",
+        "product-demo",
+        "cursor",
+        "mock-mode",
+        "onboarding-video",
+        "beat-timeline",
+        "bezier-cursor"
+      ]
     },
     {
       "name": "max-persona-research",
@@ -39,7 +64,13 @@
       "description": "Deep qualitative Reddit research for persona reconstruction, voice-of-customer mining, pain point extraction. Eleven sections, evidence-loaded, no summaries.",
       "version": "1.0.0",
       "category": "research",
-      "tags": ["research", "persona", "reddit", "marketing", "copywriting"]
+      "tags": [
+        "research",
+        "persona",
+        "reddit",
+        "marketing",
+        "copywriting"
+      ]
     },
     {
       "name": "max-hook",
@@ -47,7 +78,16 @@
       "description": "Generate ten neurologically-engineered video ad hooks. Pattern interrupt, open loop, visual tension. Awareness-matched, platform-aware, algorithm-friendly.",
       "version": "1.0.0",
       "category": "creative",
-      "tags": ["hook", "video-ad", "tiktok", "reels", "shorts", "meta", "performance-marketing", "scroll-stopper"]
+      "tags": [
+        "hook",
+        "video-ad",
+        "tiktok",
+        "reels",
+        "shorts",
+        "meta",
+        "performance-marketing",
+        "scroll-stopper"
+      ]
     },
     {
       "name": "max-explainer-video",
@@ -55,7 +95,14 @@
       "description": "Generate scene-by-scene scripts for stick-figure / whiteboard explainer videos. Visual-first, sound-off readable, loop-laddered teaching structure.",
       "version": "1.0.0",
       "category": "creative",
-      "tags": ["video-script", "explainer", "whiteboard", "stick-figure", "rsa-animate", "teaching-video"]
+      "tags": [
+        "video-script",
+        "explainer",
+        "whiteboard",
+        "stick-figure",
+        "rsa-animate",
+        "teaching-video"
+      ]
     },
     {
       "name": "max-video",
@@ -63,7 +110,15 @@
       "description": "Produce one worked YouTube video end-to-end — nine sequential phases (idea, research, angle, title & thumbnail, script, voice-over, edit, publish, stats) with one artifact written per phase. Title set before writing so the script honours its promise. Method from What a Fail!'s 'Comment faire des vidéos (travaillées)'.",
       "version": "1.0.0",
       "category": "creative",
-      "tags": ["video", "youtube", "scriptwriting", "storytelling", "long-form", "video-essay", "production-pipeline"]
+      "tags": [
+        "video",
+        "youtube",
+        "scriptwriting",
+        "storytelling",
+        "long-form",
+        "video-essay",
+        "production-pipeline"
+      ]
     },
     {
       "name": "max-marketing",
@@ -71,7 +126,21 @@
       "description": "Full e-commerce creative strategy — angle portfolio, awareness × sophistication map, villain/hero arc, EPIC distribution, hook bank, Entity ID variants, Andromeda 2026 test plan. Distilled from the 0€→1M€/mois ecom playbook (Schwartz, Hormozi, Rogers).",
       "version": "1.0.0",
       "category": "creative",
-      "tags": ["marketing", "ecommerce", "copywriting", "angles", "awareness", "sophistication", "epic", "hormozi", "schwartz", "rogers", "meta-ads", "andromeda", "creative-strategy"]
+      "tags": [
+        "marketing",
+        "ecommerce",
+        "copywriting",
+        "angles",
+        "awareness",
+        "sophistication",
+        "epic",
+        "hormozi",
+        "schwartz",
+        "rogers",
+        "meta-ads",
+        "andromeda",
+        "creative-strategy"
+      ]
     },
     {
       "name": "max-doc",
@@ -79,7 +148,37 @@
       "description": "Write or rewrite documentation in Max's house style — plan the learning paths per reader, Feynman Q&A, terse, no TL;DRs. From a product or codebase to a small set of pages that answer the reader's real questions.",
       "version": "1.0.0",
       "category": "creative",
-      "tags": ["docs", "documentation", "technical-writing", "feynman", "readme", "docs-site", "help-content", "explainer", "concise"]
+      "tags": [
+        "docs",
+        "documentation",
+        "technical-writing",
+        "feynman",
+        "readme",
+        "docs-site",
+        "help-content",
+        "explainer",
+        "concise"
+      ]
+    },
+    {
+      "name": "max-transcreate",
+      "source": "./plugins/max-transcreate",
+      "description": "Culturally adapt an English article into a Chinese one — transcreation, not translation. A named canon (Skopos, Nida, Venuti, Hall, 起承转合/Kaplan, Hofstede, the 研报 trust economy) verified against 665 real X-Articles: Chinese readers save where English readers react, so the piece is rebuilt inductive, genre-tagged, bent toward being saved. Glass-box with English back-translation.",
+      "version": "1.0.0",
+      "category": "creative",
+      "tags": [
+        "transcreation",
+        "translation",
+        "localization",
+        "chinese",
+        "cross-cultural",
+        "skopos",
+        "high-context",
+        "research-report",
+        "weibo",
+        "wechat",
+        "crypto-kol"
+      ]
     },
     {
       "name": "max-ux-flow",
@@ -87,7 +186,29 @@
       "description": "Design a UX flow finance-first (regulated, but modern — Fireblocks-grade) and general-capable — what the user sees first, what they click, screen by screen, what each table shows, how data is structured, mobile vs desktop, and the money/approval/KYC safety layer. A twenty-framework canon (Norman, Cooper, JTBD, Nielsen, Tufte, Shneiderman, Wroblewski, Fireblocks maker-checker) into an eleven-section flow spec.",
       "version": "1.0.0",
       "category": "creative",
-      "tags": ["ux", "ux-flow", "user-flow", "wireflow", "interaction-design", "information-architecture", "data-tables", "dashboard", "responsive", "mobile-first", "fintech", "regulated-finance", "fireblocks", "maker-checker", "kyc", "onboarding", "nielsen", "norman", "jtbd", "tufte", "shneiderman"]
+      "tags": [
+        "ux",
+        "ux-flow",
+        "user-flow",
+        "wireflow",
+        "interaction-design",
+        "information-architecture",
+        "data-tables",
+        "dashboard",
+        "responsive",
+        "mobile-first",
+        "fintech",
+        "regulated-finance",
+        "fireblocks",
+        "maker-checker",
+        "kyc",
+        "onboarding",
+        "nielsen",
+        "norman",
+        "jtbd",
+        "tufte",
+        "shneiderman"
+      ]
     },
     {
       "name": "max-eli5",
@@ -95,7 +216,18 @@
       "description": "Rewrite any concept \"explain like I'm 5\" — answer-first, one everyday analogy carried all the way, one mechanism, jargon defined on use, one repeatable takeaway. Built on the explanation canon (Feynman, Curse of Knowledge, Hofstadter, Made to Stick) and the recurring moves in top r/explainlikeimfive answers.",
       "version": "1.0.1",
       "category": "creative",
-      "tags": ["eli5", "explain-like-im-5", "plain-english", "simplify", "feynman", "analogy", "explainer", "curse-of-knowledge", "made-to-stick", "reddit"]
+      "tags": [
+        "eli5",
+        "explain-like-im-5",
+        "plain-english",
+        "simplify",
+        "feynman",
+        "analogy",
+        "explainer",
+        "curse-of-knowledge",
+        "made-to-stick",
+        "reddit"
+      ]
     },
     {
       "name": "max-ai-video",
@@ -103,7 +235,17 @@
       "description": "Write an AI-tool / trading-creator YouTube script in the recent DaviddTech mould — hook-first cold open, stacked authority, an enemy, a buddy-talk demo, a funnel staircase, the sign-off jingle. Eleven-part anatomy, ten sentence laws, built part by part and sentence by sentence.",
       "version": "1.0.0",
       "category": "creative",
-      "tags": ["video", "youtube", "scriptwriting", "ai-tool", "creator", "daviddtech", "sentence-by-sentence", "spoken-script", "content-creation"]
+      "tags": [
+        "video",
+        "youtube",
+        "scriptwriting",
+        "ai-tool",
+        "creator",
+        "daviddtech",
+        "sentence-by-sentence",
+        "spoken-script",
+        "content-creation"
+      ]
     },
     {
       "name": "max-legal",
@@ -111,7 +253,17 @@
       "description": "Write a formal legal structuring memorandum — privileged-and-confidential opinion-letter register with a letter header, decimal-numbered sections, case-cited rule-application, jurisdiction-by-jurisdiction analysis, Things to Watch Out For lists, a structure diagram, a step plan, and a limitations footer.",
       "version": "1.0.0",
       "category": "creative",
-      "tags": ["legal", "memorandum", "structuring", "opinion-letter", "law-firm", "jurisdiction", "compliance", "privileged", "legal-writing"]
+      "tags": [
+        "legal",
+        "memorandum",
+        "structuring",
+        "opinion-letter",
+        "law-firm",
+        "jurisdiction",
+        "compliance",
+        "privileged",
+        "legal-writing"
+      ]
     },
     {
       "name": "jake-writing",
@@ -119,7 +271,19 @@
       "description": "Write a formal whitepaper in Jake Schkolnick's CRX-litepaper voice — terse, third-person, present-tense, define-by-negation, run-in bold labels, no em-dash, no hype. Nine-dimension style fingerprint plus a twelve-axis replication checklist, from facts to a finished litepaper.",
       "version": "1.0.0",
       "category": "creative",
-      "tags": ["whitepaper", "litepaper", "writing-style", "style-transfer", "voice", "jake-schkolnick", "crx", "institutional", "technical-writing", "stylometry", "fintech"]
+      "tags": [
+        "whitepaper",
+        "litepaper",
+        "writing-style",
+        "style-transfer",
+        "voice",
+        "jake-schkolnick",
+        "crx",
+        "institutional",
+        "technical-writing",
+        "stylometry",
+        "fintech"
+      ]
     },
     {
       "name": "max-x",
@@ -127,7 +291,22 @@
       "description": "Data-driven X / Twitter growth system — pull what already works in a niche via twitterapi.io, reverse-engineer the WHY, recycle-with-an-angle, run the reply game, turn replies into a stock with data articles + CTA, and test 5 angles across a multi-account rig. The six algorithm laws, the creator-mining loop, and a runnable growth operating plan from account or product.",
       "version": "1.0.0",
       "category": "creative",
-      "tags": ["twitter", "x", "growth", "twitterapi", "algorithm", "niche", "reply-game", "creator-research", "content-strategy", "viral", "social-media", "mrbeast", "data-article", "multi-account"]
+      "tags": [
+        "twitter",
+        "x",
+        "growth",
+        "twitterapi",
+        "algorithm",
+        "niche",
+        "reply-game",
+        "creator-research",
+        "content-strategy",
+        "viral",
+        "social-media",
+        "mrbeast",
+        "data-article",
+        "multi-account"
+      ]
     }
   ]
 }

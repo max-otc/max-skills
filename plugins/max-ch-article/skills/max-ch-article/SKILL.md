@@ -1,9 +1,9 @@
 ---
-name: max-transcreate
+name: max-ch-article
 description: Use when the user wants to culturally adapt an English article into a Chinese version — not a literal translation but a transcreation that rebuilds the piece for how Chinese readers actually read, save, and trust. Triggers on "transcreate this", "adapt this article into Chinese", "localize this for China", "Chinese version of this post", "rewrite this for a Chinese audience", "make this work on Weibo / WeChat / Chinese X", "sinify this", "culturally adapt this", "turn my English thread into a Chinese 研报", "why doesn't my translated post land in China".
 ---
 
-# Max Transcreate
+# Max Chinese Article
 
 ## Overview
 

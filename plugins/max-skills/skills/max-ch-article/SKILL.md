@@ -29,7 +29,7 @@ Fidelity to the words is the most common way to lose the meaning.
 
 ## When to Use
 
-- "Adapt / adapt / localize this article into Chinese"
+- "Adapt / localize / rework this article into Chinese"
 - "Chinese version of this post / thread / essay"
 - "Rewrite this for a Chinese audience" · "make this land on Weibo / WeChat / Chinese X / Xiaohongshu"
 - "Turn my English write-up into a Chinese 研报 (research report)"

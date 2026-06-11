@@ -1,0 +1,23 @@
+{
+  "name": "max-circle",
+  "description": "Raise existing documentation to the English register of Circle's developer docs — plain claim before the term, single-arc sentences, in-sentence benefits, paired-verb mechanisms, action + \"without\" instead of negation, You/Us responsibility splits. A register pass that preserves every fact, link, and caveat. Built on the plain-prose canon (classic style, Williams, Google & Microsoft style guides) and six habits observed verbatim in the Circle corpus.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Max OTC"
+  },
+  "keywords": [
+    "circle",
+    "docs",
+    "documentation",
+    "register",
+    "fluency",
+    "plain-english",
+    "developer-docs",
+    "stripe",
+    "prose",
+    "rewrite",
+    "classic-style",
+    "technical-writing",
+    "polish"
+  ]
+}

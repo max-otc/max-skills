@@ -7,13 +7,17 @@ description: Use when the user wants existing documentation raised to the Englis
 
 ## Overview
 
-You take documentation that is already structurally sound and raise its English to the register of Circle's developer docs (developers.circle.com). The register works at three tiers, and you apply all three:
+You write or rewrite documentation at the register of Circle's developer docs (developers.circle.com). The register works at four tiers, and you apply all four:
 
+0. **The page system** — which sections a page has and in what order, how titles and headings are grammared, how a paragraph wraps one idea.
 1. **Sentence grammar** — complete, single-arc sentences: actor, verb, object, benefit.
 2. **Section choreography** — how Circle moves a reader through a page: guide contracts, step openers, code introductions, outcome confirmations, recaps.
 3. **The lexicon** — the workhorse phrases, tense rules, and the words that never appear.
 
-This is a **register pass, not a rewrite**. Facts, numbers, links, time estimates, and caveats survive exactly. You may *add* choreography sentences (a step opener, an outcome confirmation) because those are sentences; you may not move, rename, or delete sections.
+The skill runs in one of two modes — name yours before you start:
+
+- **Pass mode** (default, for existing docs): a register pass, not a rewrite. Facts, numbers, links, time estimates, and caveats survive exactly. You may *add* choreography sentences (a step opener, an outcome confirmation) because those are sentences; you may not move, rename, or delete sections. Tier 0 is used only to *flag* structural gaps.
+- **Blueprint mode** (new page, or the user explicitly asks to restructure): build the page from its mode's blueprint in tier 0, then write it with tiers 1–3. Facts still come only from the source material — the blueprint shapes the page, never the claims.
 
 **REQUIRED REFERENCE:** `circle-corpus.md`, shipped beside this file — the verbatim pattern library, mined from the Circle corpus and organized by page mode. Read the section matching the page you are rewriting before you touch it.
 
@@ -47,6 +51,39 @@ You stand on the plain-prose canon. Named, one line each.
 - **Microsoft Writing Style Guide** — warmth through precision: bias to verbs, talk to "you", never sell.
 - **Curse of Knowledge** (Pinker; Chip & Dan Heath) — the expert opens with the term; the reader needs the plain claim first. The disease every habit below treats.
 - **The Circle corpus itself** — `circle-corpus.md`. The canon tells you why; the corpus shows you exactly how.
+
+## Tier 0 — the page system
+
+Full blueprints with verbatim models: `circle-corpus.md` → "Page blueprints", "Title, description, and heading grammar", "Paragraph shapes".
+
+### The four blueprints
+
+| Mode | Section order |
+|---|---|
+| **Product overview** | intro (definition + audience) → Key features → What you can build (or Products, for a family) → How it works → Get started → Related products |
+| **Quickstart / tutorial** | guide contract → Prerequisites → Step 1…N (verb-first, decimal sub-steps) → Next steps |
+| **Concept page** | governing fact → one section per aspect → practical guidance or boundary to the sibling concept |
+| **What-is intro** | definition paragraph → problem/contrast narrative → action section routing each reader |
+
+### Title and heading grammar
+
+- Product titles are bare nouns ("Circle Wallets"). Quickstart titles are `Quickstart: <Imperative>`. Concept titles are noun phrases. Intro titles are "What is X?".
+- Frontmatter descriptions are imperative benefit summaries, one or two sentences: *"Add secure, embedded wallets to your application with Circle's APIs and SDKs."*
+- **Headings come from a fixed vocabulary**, sentence case: Key features · What you can build · Products · How it works · Get started · Prerequisites · Next steps · Related products · Supported `<X>`. Step headings are verb-first imperatives. Do not invent headings outside the vocabulary ("API changes", "Misc", "Notes") — find the canonical home for the fact class instead (integration facts → How it works or a routed quickstart; support matrices → Supported `<X>`).
+
+### The opener rule
+
+The page opens with **two clean sentences, never one overloaded one**: the definition (plain claim, precise term one clause later, ≤ ~25 words) and the audience named by firm type. Never stack appositives — one "— formally, …" clause is the maximum; a second nested gloss means you needed a second sentence.
+
+### Section behavior
+
+- **Key features**: 3–4 items, bold label + colon + imperative benefit phrase. Features may restate facts that also appear in How it works — Circle states each fact once as a scannable benefit and once inside the flow.
+- **Get started routes, it never teaches.** A decision criterion ("The right X depends on…"), then links by role or product. The teaching lives in the quickstart it points to.
+- **Related products** closes on a one-sentence-pair boundary to the sibling product, then the decision criterion.
+
+### Paragraph shapes — how an idea is wrapped
+
+One idea per paragraph; one to three sentences, almost always two. Five wrappers, all in the corpus: **claim + support**, **before/after contrast**, **You/Us split**, **governing fact** (one flat sentence that rules the page), and the **warning three-beat** (bold prohibition → reason → the right action: *"**Do not hardcode fee values.** Fees can change at any time. Always retrieve the current fee…"*).
 
 ## Tier 1 — sentence grammar, six habits
 
@@ -133,11 +170,12 @@ Identify the page mode first (tutorial / how-to / concept / overview / reference
 - **Tense rules.** Present tense for everything the system does ("the contract emits", "the API returns"). "You'll" only for the reader's future inside this guide ("You'll build", "You'll see output"). Present perfect for prerequisites ("ensure that you've: Installed…"). Imperative for every action the reader takes now ("Create", "Run", "Sign").
 - **The workhorse phrases** — use them; they are the register's connective tissue: "walks you through", "the following", "the table below shows", "so you don't need to", "to verify", "similar to the following", "depends on whether". Full table in `circle-corpus.md`.
 - **Zero gush.** Banned outright: *seamless, seamlessly, powerful, robust, world-class, cutting-edge, blazing, effortless, simply, easily, just, leverage, unlock, supercharge*. No exclamation marks. No jokes, no aphorisms. The warmth is structural: short clear arcs, burdens named and removed, exact numbers.
+- **Zero casual transitions.** Also banned: *under the hood, basically, in a nutshell, simply put, let's, now,* (sentence-initial), *as you can see, it's worth noting*. Circle states the mechanism; it never winks at it. Where a transition is needed, the heading or the governing fact is the transition.
 
 ## The method — the pass
 
-1. **Inventory the facts.** Before touching a sentence, list every fact on the page: numbers, names, links, time estimates, caveats, limitation lines. This list is the contract; the pass ends with every item intact.
-2. **Name the page mode.** Tutorial, how-to, concept, overview, or reference — then read that section of `circle-corpus.md`.
+1. **Inventory the facts.** Before touching a sentence, list every fact in the source: numbers, names, links, time estimates, caveats, limitation lines. This list is the contract; the work ends with every item intact.
+2. **Name the operating mode, then the page mode.** Pass or blueprint first. Then tutorial, how-to, concept, overview, or reference — and read that section of `circle-corpus.md`. In blueprint mode, lay the tier-0 skeleton before writing a sentence.
 3. **Audit against all three tiers.** Where are the six habits missing? Which choreography lines are absent (step openers, code intros, outcome confirmations)? Which lexicon rules are broken?
 4. **Rewrite sentence by sentence**, applying tier 1 to every sentence, tier 2 to the section seams, tier 3 throughout. You may add choreography sentences where they are missing — they are sentences, not structure.
 5. **Respect the structure line.** Headings, fences, tables, callout blocks, code blocks, link targets, time estimates, bolded limitation lines — unchanged. A missing *section* (prerequisites, recap) is a structural gap: deliver it as a flagged, ready-to-paste block in the note, never silently inserted.
@@ -174,8 +212,8 @@ Same facts, same code. The step gained its opener, the code its introduction, th
 
 ## Strict rules
 
-- Register pass only. Never add, drop, soften, or "improve" a fact, number, link, or caveat.
-- Structure unchanged: headings, fences, tables, callouts, link targets, time estimates. Missing sections are flagged with ready-to-paste blocks, never silently inserted.
+- Never add, drop, soften, or "improve" a fact, number, link, or caveat — in either mode. Blueprints shape pages, never claims.
+- Pass mode: structure unchanged — headings, fences, tables, callouts, link targets, time estimates. Missing sections are flagged with ready-to-paste blocks, never silently inserted. Blueprint mode: structure comes from tier 0's fixed vocabulary, never invented.
 - Body prose is complete sentences. Fragments survive only in summary fences, table cells, bullet labels — and reference parameter descriptions.
 - The page opener follows habit 1. Every code block gets an introduction and an outcome confirmation. Every table and diagram is announced.
 - Present tense for the system; "you'll" only for the reader's future; imperative for the reader's actions.
@@ -196,10 +234,17 @@ Same facts, same code. The step gained its opener, the code its introduction, th
 | **Structure vandalism** | Question headings flattened; summary fences expanded to prose; a prerequisites section silently inserted. | Sentences only. Structural gaps ship as flagged ready-to-paste blocks. |
 | **Circleifying the punch** | Every short sentence inflated; the section loses its one load-bearing line. | Keep one punch per section. Fluency needs rhythm too. |
 | **Wrong-mode choreography** | A concept page gets "In this step, you'll…"; a reference page gets benefit clauses on parameters. | Name the page mode first (method 2). Each mode has its own choreography. |
+| **Overloaded opener** | A 50-word first sentence stacking two appositives ("— formally, a wrapper on the NDF, CRX's core instrument, which settles…"). | The opener rule: two clean sentences — definition, then audience. One "— formally" clause maximum. |
+| **Invented headings** | "API changes", "Misc", "Notes" appear as sections. | The fixed heading vocabulary (tier 0). Find the canonical home for the fact class. |
+| **Casual transitions** | "Under the hood, every forward carries two legs." | The banned transitions list. State the mechanism; the heading is the transition. |
+| **Get started that teaches** | A paragraph of inline instructions where the routing belongs. | Get started routes by role to a quickstart. The teaching lives on the page it points to. |
 
 ## Quality checks before finishing
 
-- Does the page open with the plain claim, the precise term one clause later?
+- Blueprint mode: does the page follow its mode's blueprint — section order, fixed heading vocabulary, sentence-case headings, frontmatter description as imperative benefit summary?
+- Does the page open with two clean sentences — the plain claim (term one clause later, one "— formally" maximum), then the audience by firm type?
+- Does every paragraph wrap one idea in one of the five shapes, one to three sentences?
+- Does Get started route rather than teach?
 - Is every body-prose sentence a complete single arc — actor, verb, object, benefit?
 - Does every feature sentence carry its "so that" / "without", and every negation-led definition now lead with the action?
 - Are mechanisms said with concrete paired verbs, in present tense?

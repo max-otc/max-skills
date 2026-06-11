@@ -149,6 +149,76 @@ Complete sentences inside callouts; often a bold label naming the topic; the You
 
 > "Reach out to your Circle representative to get an API key for StableFX."
 
+## Page blueprints — section order by mode
+
+The same skeletons repeat across the whole corpus. Sentence-case headings, drawn from a fixed vocabulary.
+
+**Product overview** (Wallets, Gateway, CCTP, StableFX — identical skeleton):
+
+1. Intro — definition sentence (plain claim, term second), then the audience named by firm type.
+2. `## Key features` — 3-4 items, bold label + colon + imperative benefit; rendered as cards or accordions.
+3. `## What you can build` — imperative use-case sentences. (Product *families* use `## Products` with a card per product instead.)
+4. `## How it works` — optional; flow narration or a diagram, announced.
+5. `## Get started` — opens on the decision criterion ("The right wallet product depends on who controls the wallet:"), then routes by role or product, as cards.
+6. `## Related products` / `## Explore key topics` — one boundary sentence pair to the sibling product, then a comparison table or cards. *"CCTP and Gateway offer different approaches to crosschain transfers. This table compares the two approaches."*
+
+**Quickstart / tutorial** (dev-controlled wallet, StableFX taker):
+
+1. Title `Quickstart: <Imperative phrase>` — *"Quickstart: Create a Dev-Controlled Wallet"*.
+2. Guide-contract intro (two sentences: walks-through + you'll-build).
+3. `## Prerequisites` — "Before you begin, ensure that you've:" + completed states.
+4. `## Step 1. <Verb phrase>` … with decimal sub-steps `### 1.1. <Verb phrase>` — every step title verb-first: *"Set up your project"*, *"Create the script"*, *"Run the script"*.
+5. `## Next steps` — *"Now that you have a developer-controlled wallet, you can:"* + role-routed links.
+
+Callouts sit *inside* steps: a Tip between the step heading and its code, a Note after the code sample.
+
+**Concept page** (fees, finality, how-xReserve-works):
+
+1. Title = noun phrase ("CCTP Fees", "Finality and Block Confirmations").
+2. Opens on the **governing fact** — the one rule that organizes the whole page: *"CCTP charges fees on Fast Transfers only."* / *"Before signing an attestation, Circle waits for blockchain transactions to achieve the appropriate level of transaction finality."*
+3. One section per aspect, noun-phrase headings, tables announced.
+4. Closes on practical guidance ("Fee optimization strategies") or the boundary to a related concept.
+
+**What-is intro page** (what-is-usdc):
+
+1. Question title ("What is USDC?"), definition paragraph first.
+2. A problem/contrast narrative section (before/after shape, below).
+3. An action section ("How to access USDC") routing each reader type to its door.
+
+## Title, description, and heading grammar
+
+- **Product titles** are bare nouns: "Circle Wallets", "StableFX", "Gas Station".
+- **Quickstart titles**: `Quickstart: <Imperative>` — "Quickstart: Create an FX Trade as a Taker".
+- **Concept titles**: noun phrases. **Intro titles**: "What is X?".
+- **Frontmatter descriptions** are imperative benefit summaries, one or two sentences: *"Add secure, embedded wallets to your application with Circle's APIs and SDKs. Manage keys, sign transactions, and support multiple blockchains."* / *"Use the StableFX API to create an FX trade on the taker side"* / *"Get started with developer-controlled wallets by creating a wallet set and a wallet within it."*
+- **Headings are sentence case**, drawn from a fixed vocabulary: Key features · What you can build · Products · How it works · Get started · Prerequisites · Next steps · Related products · Explore key topics. Section headings are noun phrases; step headings are verb-first imperatives.
+- A heading may take **no intro sentence** when a component (card group, table) directly follows — but a table or diagram is still announced when prose precedes it.
+
+## Paragraph shapes — how an idea is wrapped
+
+Paragraphs run one to three sentences, almost always two. One idea per paragraph. Five recurring wrappers:
+
+**Claim + support.** The claim, then the sentence that backs it with mechanism or benefit:
+
+> "USDC is a digital dollar issued by Circle, also known as a stablecoin, running on many of the world's leading blockchains. Designed to represent US dollars on the internet, USDC is backed 100% by highly liquid cash and cash-equivalent assets so that it's always redeemable 1:1 for USD."
+
+**Before / after contrast.** The old burden, then the new state — used for problem narrative:
+
+> "Before USDC, businesses needed traditional banking solutions to accept payments, send remittances to vendors and suppliers, and manage their corporate treasuries. In contrast to USDC, legacy payment methods are slow, expensive, and limited by their lack of interoperability with other systems."
+
+**You / Us split.** The burden removed, then who carries it and what you get instead:
+
+> "You don't manage raw private keys. Circle secures keys with MPC or passkeys depending on wallet product; you get APIs to create wallets, sign transactions, and authorize actions."
+
+**Governing fact.** One flat sentence that rules the page or section; elaboration follows in its own paragraphs:
+
+> "CCTP charges fees on Fast Transfers only."
+> "The right wallet product depends on who controls the wallet."
+
+**Warning three-beat.** Bold prohibition → reason → the right action:
+
+> "**Do not hardcode fee values.** Fees can change at any time. Always retrieve the current fee by calling the fee API at least once per week."
+
 ## The lexicon — workhorse phrases
 
 | Job | Circle's phrase |

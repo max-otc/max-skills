@@ -193,7 +193,19 @@ Structure can match the blueprint while every sentence still sounds like the hou
 - **Personification and metaphor.** The machine never *lingers, guesses, betrays, drifts, touches, lives, looks stale*, and data is never a *fingerprint*. Literal verbs only: records, deletes, rejects, excludes, returns, maps, verifies.
 - **Drum-and-cymbal cadence.** An 8-word punch followed by a 40-word sprawl is the house rhythm. Circle is unimodal: 15–25 words, gently varied; any sentence over 30 words gets split.
 - **Term rotation.** *Picks / position / predictions* for one concept. Circle picks one term per concept and holds it for the whole page.
-- **Idiom leak.** *and so on, in practice, behind the scenes, right after, right up to, all over again, a handful of, sat out.* Exact words or exact numbers instead.
+- **Idiom leak.** *and so on, in practice, behind the scenes, right after, right up to, all over again, a handful of, sat out, until the moment.* Exact words or exact numbers instead.
+
+### The second stratum — tells that surface only after the first is cleared
+
+A draft that clears the six tells above still fails on these. They were found by independent judging of a draft whose self-trial had already reached zero — hunt them with the same severity.
+
+- **The refrain.** The governing fact restated at section seams ("Your predictions stay sealed…" appearing three times). Circle states a fact once; every section opens on a *new* fact.
+- **Duplicate conditionals.** The same trigger and consequence explained in two paragraphs. One exact conditional, stated once: trigger, consequence, numbers.
+- **Actor evasion at mechanism moments.** Passives ("the hash is recorded") and agentless actives ("results become public", "predictions stay hidden") — when the actor *is* the mechanism, name it: the contract records, the oracle publishes. No process-as-actor ("the settlement returns" → "the contract returns") and no person shift ("a voided player … your deposit" inside one sentence). The only passives Circle keeps are stative ("attestations are issued after hard finality").
+- **Rhetorical colons.** The colon belongs before code, lists, and labels. As a sentence-expansion device ("The hash is one-way: it commits you…") it is house cadence — at most two per page, none carrying an antithesis.
+- **Emphasis styling.** Bold mid-sentence for drama; italics on introduced terms. Circle bolds only labels (bold + colon, content after); the corpus carries zero italic emphasis — terms arrive via "called a" or a parenthetical.
+- **Vagueness where numbers live.** "a brief window", "a handful of bytes", "five bytes", "zero". Numerals for every technical quantity ("5 bytes", "0"); a typical time for every duration ("typically a few seconds").
+- **Heading articles and pointer splices.** "The two-part commitment" → "Two-part commitment" — corpus headings carry no leading article. "The API serves them; see X" → a free-standing pointer sentence: "The API returns these results. See X." A link is never the grammatical subject — "For X, see [Y]", not "[Y] covers X".
 
 ### The lint — countable, so count
 
@@ -207,6 +219,14 @@ Structure can match the blueprint while every sentence still sounds like the hou
 | Personification verbs on the system | 0 |
 | Terms per concept | 1 |
 | Section closers that are aphorisms or antitheses | 0 |
+| Italic emphasis or mid-sentence bold in body prose | 0 |
+| Governing-fact restatements after the opener | 0 |
+| Conditionals (trigger + consequence) explained twice | 0 |
+| Mechanism steps without a named actor (passive or agentless active) | 0 |
+| Person shifts inside one sentence | 0 |
+| Rhetorical colon expansions | ≤ 2 per page |
+| Vague duration or quantity words (brief, moment, a handful) | 0 |
+| Technical quantities spelled out instead of numerals | 0 |
 
 ### House invariants — never traded for the register
 
@@ -227,7 +247,8 @@ The method is a staircase with gates. Do not skip a gate because the draft "feel
 3. **Lay the skeleton — and gate it.** Take the mode's blueprint from tier 0 and assign every inventoried fact to its section. Headings follow the blueprint's grammar; order follows the blueprint. A fact with no obvious home goes in How it works (or the concept aspect it supports). A fact that belongs on a *different page* is flagged for `max-doc`, never silently moved or dropped. Gate: the skeleton matches the blueprint before you write a sentence.
 4. **Write fresh, one section at a time.** Write each section from the skeleton and the fact inventory — never by editing the old prose; the old page is a fact source, not a template. Close each section by checking it against the seven habits and its mode's choreography before starting the next. Return to the old page once, at the end, for facts you missed.
 5. **Compress.** Apply habit 7 across the draft: merge sentences that carry one idea, delete prose that restates its neighbor. Net of the choreography lines you added, the page comes out at or under the source's length. A page that grew is carrying padding — find it.
-6. **The register trial.** Re-read the whole draft as a hostile Circle editor who has just read the corpus. Hunt the house tells (the list below) sentence by sentence. Every hit becomes a named gap — draft sentence, violated pattern, corpus model, fixed version — and you fix them all, then re-read. The trial ends when a full read finds zero hits. Texture failing behind a passing structure is the *default* outcome of step 4; the trial is where the register is actually reached. For a flagship page, dispatch a fresh judge who has read only the corpus and the draft.
+6. **The register trial.** Re-read the whole draft as a hostile Circle editor who has just read the corpus. Hunt the house tells and the second stratum (the lists below) sentence by sentence. Every hit becomes a named gap — draft sentence, violated pattern, corpus model, fixed version — and you fix them all, then re-read. The trial ends when a full read finds zero hits. Texture failing behind a passing structure is the *default* outcome of step 4; the trial is where the register is actually reached.
+   Then the independent round: for the first page of any doc set and any flagship page, dispatch a fresh judge — an agent that has read only the corpus and the draft, instructed to FAIL/MARGINAL/PASS it as a Circle editor — and fix every gap it names. A self-trial converges only on the tells you already know; the judge finds the stratum beyond. **The tells list grows:** every new gap class the judge names becomes a hunt item for the remaining pages of the set. A judge finding that is factual rather than register-bearing — a claim that contradicts another, a mechanism left unanchored — is a source-material question: flag it to the user, never resolve it silently.
 7. **Run the lint.** The countable checks in the lint table below. Count, don't estimate.
 8. **Calibrate rhythm.** Explanatory sentences run 15–25 words, gently varied — unimodal, never drum-and-cymbal. Keep at most **one** short load-bearing sentence per section.
 9. **Rebuild the page's index artifacts.** House artifacts that mirror structure — summary fences, sidebar titles, frontmatter descriptions — are regenerated to match the new headings, in their own register (fragments allowed in fences).

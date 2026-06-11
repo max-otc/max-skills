@@ -13,7 +13,7 @@
       "name": "max-skills",
       "source": "./plugins/max-skills",
       "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, max-eli5, max-ux-flow, max-walkthrough, max-video-walkthrough, jake-writing, max-legal, max-x, max-ch-article, max-circle). One install, sixteen skills.",
-      "version": "1.13.1",
+      "version": "1.13.2",
       "category": "bundle",
       "tags": [
         "bundle",
@@ -312,7 +312,7 @@
       "name": "max-circle",
       "source": "./plugins/max-circle",
       "description": "Refactor documentation page by page to the level of Circle's developer docs — a four-tier system mined from the Circle corpus: the page system (four page blueprints, heading grammar, five paragraph shapes), seven sentence habits including word economy, per-mode section choreography (guide contracts, step openers, outcome confirmations), and the Circle lexicon. Default mode rebuilds each page from its blueprint with the facts as the only contract; an opt-in pass mode polishes sentences without touching structure. Every page must survive a register trial — an adversarial re-read against the corpus hunting six house tells — plus a countable lint, before delivery. Ships a verbatim pattern library.",
-      "version": "2.1.0",
+      "version": "2.2.0",
       "category": "creative",
       "tags": [
         "circle",

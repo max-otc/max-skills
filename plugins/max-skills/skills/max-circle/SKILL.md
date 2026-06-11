@@ -21,6 +21,8 @@ The skill runs in one of two modes:
 
 **The magnitude rule.** A Circle-level result is visible at arm's length: headings renamed to the blueprint's grammar, sections reordered, every paragraph rewritten, the page at or under its old length. If the diff reads as the old page with smoother sentences, you ran a pass while the user asked for the level. Start over from the skeleton (method, step 3).
 
+**Structure is half the level.** A page can match the blueprint perfectly and still fail in sentence texture — house cadence, punchlines, personification survive the rebuild by default. The register trial (method, step 6) is where the other half is reached; it is not optional.
+
 **REQUIRED REFERENCE:** `circle-corpus.md`, shipped beside this file — the verbatim pattern library, mined from the Circle corpus and organized by page mode. Read the section matching the page you are rebuilding before you touch it.
 
 ## Core Principle
@@ -182,20 +184,58 @@ Identify the page mode first (tutorial / how-to / concept / overview / reference
 - **Zero gush.** Banned outright: *seamless, seamlessly, powerful, robust, world-class, cutting-edge, blazing, effortless, simply, easily, just, leverage, unlock, supercharge*. No exclamation marks. No jokes, no aphorisms. The warmth is structural: short clear arcs, burdens named and removed, exact numbers.
 - **Zero casual transitions.** Also banned: *under the hood, basically, in a nutshell, simply put, let's, now,* (sentence-initial), *as you can see, it's worth noting*. Circle states the mechanism; it never winks at it. Where a transition is needed, the heading or the governing fact is the transition.
 
+## The house tells — what the register trial hunts
+
+Structure can match the blueprint while every sentence still sounds like the house. These six tells are the house voice's signature; the trial (method, step 6) hunts them one by one, and a draft fails the trial while any remains.
+
+- **Punchline grammar.** Aphorism, antithesis ("a round you sat out, not a round you lost"), negation-as-punchline ("reveals nothing", "it does not guess"). A section that ends on a turn of phrase fails. Replace it with a flat behavioral statement or the boundary cross-link.
+- **Em-dash constructions.** Paired appositions ("— a *bitmap* —") and pivot dashes. Circle uses a parenthetical, a comma, or a second sentence. Em-dash count in body prose: effectively zero.
+- **Personification and metaphor.** The machine never *lingers, guesses, betrays, drifts, touches, lives, looks stale*, and data is never a *fingerprint*. Literal verbs only: records, deletes, rejects, excludes, returns, maps, verifies.
+- **Drum-and-cymbal cadence.** An 8-word punch followed by a 40-word sprawl is the house rhythm. Circle is unimodal: 15–25 words, gently varied; any sentence over 30 words gets split.
+- **Term rotation.** *Picks / position / predictions* for one concept. Circle picks one term per concept and holds it for the whole page.
+- **Idiom leak.** *and so on, in practice, behind the scenes, right after, right up to, all over again, a handful of, sat out.* Exact words or exact numbers instead.
+
+### The lint — countable, so count
+
+| Check | Target |
+|---|---|
+| Body-prose sentences over 30 words | 0 |
+| Em-dash appositions or pivots in body prose | 0 |
+| Fragments in body prose (outside fences, cells, labels) | 0 |
+| Banned gush words, exclamation marks | 0 |
+| Idiom-leak list hits | 0 |
+| Personification verbs on the system | 0 |
+| Terms per concept | 1 |
+| Section closers that are aphorisms or antitheses | 0 |
+
+### House invariants — never traded for the register
+
+Some house rules outrank Circle cosmetics; the refactor keeps them even where Circle would not:
+
+- Time estimates on links ("~4 min") stay — an accessibility rule from the operating manual.
+- Summary, plain-words, tip, and see-also fences stay, in their own register.
+- Front-loaded answers stay: the first sentence of a section answers it.
+
+The register governs body prose; it never strips the house's reader aids.
+
 ## The method — the refactor
+
+The method is a staircase with gates. Do not skip a gate because the draft "feels done" — the trial exists because finished-feeling drafts fail it.
 
 1. **Inventory the facts.** Before touching the page, list every fact in the source: numbers, names, links, time estimates, caveats, limitation lines. This list is the contract; the work ends with every item intact and housed.
 2. **Name the page mode.** Tutorial, how-to, concept, overview, or reference — then read that section of `circle-corpus.md`.
-3. **Lay the skeleton.** Take the mode's blueprint from tier 0 and assign every inventoried fact to its section. Headings follow the blueprint's grammar; order follows the blueprint. A fact with no obvious home goes in How it works (or the concept aspect it supports). A fact that belongs on a *different page* is flagged for `max-doc`, never silently moved or dropped.
-4. **Write the page fresh.** Write from the skeleton and the fact inventory — tiers 1–3, the mode's choreography at every seam. Do not edit the old prose into shape; the old page is a fact source, not a template. Return to it once, at the end, to check for facts you missed.
+3. **Lay the skeleton — and gate it.** Take the mode's blueprint from tier 0 and assign every inventoried fact to its section. Headings follow the blueprint's grammar; order follows the blueprint. A fact with no obvious home goes in How it works (or the concept aspect it supports). A fact that belongs on a *different page* is flagged for `max-doc`, never silently moved or dropped. Gate: the skeleton matches the blueprint before you write a sentence.
+4. **Write fresh, one section at a time.** Write each section from the skeleton and the fact inventory — never by editing the old prose; the old page is a fact source, not a template. Close each section by checking it against the seven habits and its mode's choreography before starting the next. Return to the old page once, at the end, for facts you missed.
 5. **Compress.** Apply habit 7 across the draft: merge sentences that carry one idea, delete prose that restates its neighbor. Net of the choreography lines you added, the page comes out at or under the source's length. A page that grew is carrying padding — find it.
-6. **Calibrate rhythm.** Explanatory sentences run 15–25 words; vary around that. Keep at most **one** short load-bearing sentence per section. More and the staccato returns.
-7. **Rebuild the page's index artifacts.** House artifacts that mirror structure — summary fences, sidebar titles, frontmatter descriptions — are regenerated to match the new headings, in their own register (fragments allowed in fences).
-8. **Close with the fact diff.** Reconcile the inventory item by item against the rewrite. A caveat that softened or a number that moved means the refactor failed — fix it before delivering. A fact that *should* change is flagged, never silently changed.
+6. **The register trial.** Re-read the whole draft as a hostile Circle editor who has just read the corpus. Hunt the house tells (the list below) sentence by sentence. Every hit becomes a named gap — draft sentence, violated pattern, corpus model, fixed version — and you fix them all, then re-read. The trial ends when a full read finds zero hits. Texture failing behind a passing structure is the *default* outcome of step 4; the trial is where the register is actually reached. For a flagship page, dispatch a fresh judge who has read only the corpus and the draft.
+7. **Run the lint.** The countable checks in the lint table below. Count, don't estimate.
+8. **Calibrate rhythm.** Explanatory sentences run 15–25 words, gently varied — unimodal, never drum-and-cymbal. Keep at most **one** short load-bearing sentence per section.
+9. **Rebuild the page's index artifacts.** House artifacts that mirror structure — summary fences, sidebar titles, frontmatter descriptions — are regenerated to match the new headings, in their own register (fragments allowed in fences).
+10. **Close with the fact diff.** Reconcile the inventory item by item against the rewrite. A caveat that softened or a number that moved means the refactor failed — fix it before delivering. A fact that *should* change is flagged, never silently changed.
 
-For a doc set: one page at a time, in reading order. Never batch-rewrite blind. With each page, deliver a one-line structure note: sections renamed, reordered, or merged, and any facts flagged for another page.
+For a doc set: one page at a time, in reading order. Never batch-rewrite blind. With each page, deliver a one-line structure note: sections renamed, reordered, or merged, the trial's hit count per round, and any facts flagged for another page.
 
-In pass mode, steps 3 and 7 collapse: the skeleton is the existing structure, untouched; missing sections ship as flagged ready-to-paste blocks. Compression still runs, sentence by sentence.
+In pass mode, steps 3 and 9 collapse: the skeleton is the existing structure, untouched; missing sections ship as flagged ready-to-paste blocks. The trial and the lint still run in full.
 
 ## The voice — before / after
 
@@ -229,6 +269,8 @@ Same facts, same code. The step gained its opener, the code its introduction, th
 - Refactor mode rebuilds one page at a time. Splitting, merging, creating, or deleting pages is `max-doc`'s work — flag it, never do it silently.
 - Structure comes from tier 0's blueprints and heading grammar, never invented. Index artifacts (summary fences, sidebar titles) are regenerated to match.
 - The magnitude rule holds: if the delivered page reads as the old page with smoother sentences, the refactor is not done.
+- The register trial runs on every page, in both modes: zero house tells before delivery, lint all zeros.
+- House invariants (link time estimates, house fences, front-loaded answers) survive the refactor — the register never strips reader aids.
 - Pass mode only on explicit request, and there structure is untouched — headings, fences, tables, callouts, link targets; missing sections ship as flagged ready-to-paste blocks.
 - Body prose is complete sentences. Fragments survive only in summary fences, table cells, bullet labels — and reference parameter descriptions.
 - The page opener follows habit 1. Every code block gets an introduction and an outcome confirmation. Every table and diagram is announced.
@@ -243,6 +285,10 @@ Same facts, same code. The step gained its opener, the code its introduction, th
 |---|---|---|
 | **The timid refactor** | The old structure intact, a handful of sentences smoothed — a pass wearing the refactor's name. | Write from the skeleton (method 3–4), never from the old prose. The result must differ at arm's length: blueprint order, new headings, every paragraph fresh. |
 | **Padding growth** | Every paragraph longer, the page half again its size, "because fluency". | Step 5 and habit 7. Choreography lines may add; everything else holds flat or shrinks. |
+| **Texture fail behind a passing structure** | Blueprint order, noun-phrase headings — and every paragraph still closes on a punchline a Circle editor would flag. | The register trial (method 6). Architecture is half; loop the trial until zero house tells. |
+| **Em-dash habit** | "— a *bitmap* —" appositions and pivot dashes through the page. | Parenthetical, comma, or a second sentence. Lint target: zero. |
+| **Personified machine** | "the oracle does not guess", "bitmaps do not linger". | Literal verbs: rejects, deletes, excludes, returns. The machine acts; it never behaves. |
+| **Register strips the house aids** | "(~4 min)" removed from links, fences flattened, "because Circle doesn't do that". | House invariants outrank cosmetics. The aids stay. |
 | **Surface smoothing** | A few fragments joined, but the jargon-first opener and the negations survive. | Run all four tiers as a checklist per section. Habit 1 applies to the opener every time. |
 | **Grammar without choreography** | Sentences are arcs, but code blocks still end in silence and steps open cold. | Tier 2 is half the register. Every code block: introduction before, confirmation after. |
 | **Aphoristic closers kept** | "You read a live mark." ends the step. | Complete the arc: "If `volPct` prints, the relayer reached the live oracle and you've read your first live mark." |
@@ -273,6 +319,9 @@ Same facts, same code. The step gained its opener, the code its introduction, th
 - Concept pages: flows narrated actor-by-actor, tables and diagrams announced, trade-offs carried by because-clauses?
 - Reference prose: conditionals exact, durations concrete, parameters terse?
 - Zero banned words, zero exclamation marks, zero aphorisms?
+- Did the register trial run to zero house tells — no punchline closers, no em-dash constructions, no personification, one term per concept, no idiom leaks?
+- Does the lint table read all zeros, counted rather than estimated?
+- Are the house invariants intact — link time estimates, house fences, front-loaded answers?
 - Facts, numbers, links, time estimates, caveats — unchanged in meaning everywhere? (Pass mode: structure too.)
 - Index artifacts — summary fences, sidebar titles, descriptions — regenerated against the new headings?
 - Does the fact inventory reconcile, item by item?

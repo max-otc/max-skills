@@ -1,7 +1,7 @@
 {
   "name": "max-circle",
-  "description": "Refactor documentation page by page to the level of Circle's developer docs — a four-tier system mined from the Circle corpus: the page system (four page blueprints, heading grammar, five paragraph shapes), seven sentence habits including word economy, per-mode section choreography (guide contracts, step openers, outcome confirmations), and the Circle lexicon. Default mode rebuilds each page from its blueprint with the facts as the only contract; an opt-in pass mode polishes sentences without touching structure. Ships a verbatim pattern library.",
-  "version": "2.0.0",
+  "description": "Refactor documentation page by page to the level of Circle's developer docs — a four-tier system mined from the Circle corpus: the page system (four page blueprints, heading grammar, five paragraph shapes), seven sentence habits including word economy, per-mode section choreography (guide contracts, step openers, outcome confirmations), and the Circle lexicon. Default mode rebuilds each page from its blueprint with the facts as the only contract; an opt-in pass mode polishes sentences without touching structure. Every page must survive a register trial — an adversarial re-read against the corpus hunting six house tells — plus a countable lint, before delivery. Ships a verbatim pattern library.",
+  "version": "2.1.0",
   "author": {
     "name": "Max OTC"
   },

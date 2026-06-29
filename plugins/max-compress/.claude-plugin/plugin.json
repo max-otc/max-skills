@@ -1,7 +1,7 @@
 {
   "name": "max-compress",
   "description": "Hyper-compress any text for a human reader — keep the decisive core, delete the rest. Aggressive by default: at least 3x shorter, often more. Compression is deletion, not rewording — it collapses structure (ten bullets to one paragraph), cuts elaboration/justification/examples, runs a halve-again test, and answers first. Two floors only: stay true, stay readable. A violence dial (light / default / brutal) scales the cut. Built on Strunk, Grice, Minto, Shannon, Forte, and Chain of Density. Not SPR/LLMLingua token-soup — readable prose for a person.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": {
     "name": "Max OTC"
   },

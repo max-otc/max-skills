@@ -65,7 +65,7 @@ In real text the decisive content is a fraction of the words. Each bullet, each 
 
 ### 3. Collapse the structure.
 
-Do not preserve the shape one-to-one. Ten bullets become three, or one dense paragraph. A section becomes a sentence. Fuse related points into a single line. The original's outline is not sacred; the original's *meaning* is. A compression that keeps every heading and bullet has not compressed — it has reformatted.
+Do not preserve the shape one-to-one. Ten bullets become three; a section becomes a sentence; flowing argument becomes one dense paragraph. Fuse related points into a single line. The original's outline is not sacred; the original's *meaning* is. A compression that keeps every heading and bullet has not compressed — it has reformatted. Collapse the *count*, not the form: when the survivors are still 2+ parallel items, keep them as a tight bullet list (see Output rules), not buried in prose — fewer bullets, never zero.
 
 ### 4. Delete by Grice, ruthlessly.
 
@@ -122,6 +122,7 @@ The decision leads. Only the decisive facts survive: what, when, why, and what t
 - Deliver the compressed text and nothing else by default. No preamble.
 - Be dramatically shorter — ≥3x unless told otherwise. If it isn't, cut again before delivering.
 - Collapse structure freely; do not mirror the original's bullets or headings.
+- **Bullet every list.** When 2+ parallel items survive (options, steps, properties, facts of one kind), give each its own line, lead with the noun (the thing named — not "The" or a verb), and use no trailing punctuation. Continuous argument stays prose.
 - Lead with the main point.
 - Never add a claim, fact, or framing not in the source. Compression only removes and fuses — it never invents.
 - Keep the register of the source (a compressed legal notice still reads as one) unless asked to change it.
@@ -132,6 +133,7 @@ The decision leads. Only the decisive facts survive: what, when, why, and what t
 - At least 3x shorter by default. Reword-only at full length is the one forbidden outcome.
 - Keep the decisive core; delete elaboration, justification, examples, restatement.
 - Collapse structure — fuse many points into few.
+- Bullet any list of 2+ parallel items — one per line, lead with the noun, no trailing punctuation.
 - Answer first.
 - True and readable are the only floors. Everything else is deletable.
 - Remove and fuse only; never invent.
@@ -158,5 +160,6 @@ The decision leads. Only the decisive facts survive: what, when, why, and what t
 - Did every decisive fact (numbers, dates, names, caveats) survive?
 - Is it dense but still readable prose — not shorthand for a machine?
 - Did you only remove and fuse, adding nothing?
+- Is every list of 2+ parallel items bulleted — one per line, noun first, no trailing punctuation?
 
 If any answer is no — cut harder before delivering.

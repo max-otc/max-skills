@@ -12,8 +12,8 @@
     {
       "name": "max-skills",
       "source": "./plugins/max-skills",
-      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, max-eli5, max-ux-flow, max-walkthrough, max-video-walkthrough, jake-writing, max-legal, max-x, max-ch-article, max-circle). One install, sixteen skills.",
-      "version": "1.13.2",
+      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, max-eli5, max-compress, max-ux-flow, max-walkthrough, max-video-walkthrough, jake-writing, max-legal, max-x, max-ch-article, max-circle). One install, every skill.",
+      "version": "1.14.0",
       "category": "bundle",
       "tags": [
         "bundle",
@@ -227,6 +227,29 @@
         "curse-of-knowledge",
         "made-to-stick",
         "reddit"
+      ]
+    },
+    {
+      "name": "max-compress",
+      "source": "./plugins/max-compress",
+      "description": "Hyper-compress any text for a human reader — keep every load-bearing point, incinerate the filler. Engine is Chain of Density held at its readable middle, output shaped like Fabric's digest, decisions ruled by Strunk, Grice, Minto, Shannon, and Forte. Finds the spine, cuts decoration not conclusions, answers first, verifies nothing load-bearing died. ~3x by default, obeys explicit targets. Not SPR/LLMLingua token-soup — readable prose for a person.",
+      "version": "1.0.0",
+      "category": "creative",
+      "tags": [
+        "compress",
+        "condense",
+        "distill",
+        "shorten",
+        "tighten",
+        "summarize",
+        "concise",
+        "chain-of-density",
+        "fabric",
+        "grice",
+        "minto",
+        "strunk",
+        "tldr",
+        "brevity"
       ]
     },
     {

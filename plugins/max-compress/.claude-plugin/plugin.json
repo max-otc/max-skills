@@ -1,0 +1,9 @@
+{
+  "name": "max-compress",
+  "description": "Hyper-compress any text for a human reader — keep every load-bearing point, incinerate the filler. Engine is Chain of Density held at its readable middle (not the dense end), output shaped like Fabric's digest, decisions ruled by Strunk, Grice, Minto, Shannon, and Forte. Finds the spine, cuts decoration not conclusions, answers first, and verifies nothing load-bearing died. ~3x by default, obeys explicit targets. Not SPR/LLMLingua token-soup — readable prose for a person.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Max OTC"
+  },
+  "keywords": ["compress", "condense", "distill", "shorten", "tighten", "summarize", "concise", "chain-of-density", "fabric", "grice", "minto", "strunk", "tldr", "brevity"]
+}

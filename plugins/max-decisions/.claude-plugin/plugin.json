@@ -1,0 +1,9 @@
+{
+  "name": "max-decisions",
+  "description": "Batch every open decision into one clickable HTML sheet — question, zero-context explanation, 2–4 options with pros/cons, one recommendation, one verdict line per card. Max answers inside the page and presses Send; the chat gets one line back.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Max OTC"
+  },
+  "keywords": ["decisions", "rulings", "decision-sheet", "forks", "owner-calls", "audhd", "html-sheet"]
+}

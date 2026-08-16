@@ -12,8 +12,8 @@
     {
       "name": "max-skills",
       "source": "./plugins/max-skills",
-      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, max-eli5, max-compress, max-ux-flow, max-walkthrough, max-video-walkthrough, jake-writing, max-legal, max-x, max-ch-article, max-circle, formatting-marketmaker-documents). One install, every skill.",
-      "version": "1.14.3",
+      "description": "Bundle — installs every Max OTC skill at once (max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, max-eli5, max-compress, max-ux-flow, max-walkthrough, max-video-walkthrough, jake-writing, max-legal, max-x, max-ch-article, max-circle, formatting-marketmaker-documents, max-decisions, max-plan-itteration, max-blacklist). One install, every skill.",
+      "version": "1.15.0",
       "category": "bundle",
       "tags": [
         "bundle",
@@ -161,8 +161,8 @@
       ]
     },
     {
-      "name": "crx-mm-doc-formatting",
-      "source": "./plugins/crx-mm-doc-formatting",
+      "name": "formatting-marketmaker-documents",
+      "source": "./plugins/formatting-marketmaker-documents",
       "description": "Format and render formal CRX market-maker documents to the CRX document standard — the Margin and Settlement Overview, Collateral Overview, margin methodologies, rules overviews, mechanism memos, MM-facing one-pagers. Locks one LaTeX-style document class: letterhead serif register, closed component inventory, page geometry, type and color tokens, figure grammar, and a conformance gate that renders HTML to PDF locally.",
       "version": "1.0.0",
       "category": "creative",
@@ -371,6 +371,50 @@
         "classic-style",
         "technical-writing",
         "polish"
+      ]
+    },
+    {
+      "name": "max-decisions",
+      "source": "./plugins/max-decisions",
+      "description": "Batch every open decision into one clickable HTML sheet — question, zero-context explanation, 2–4 options with pros/cons, one recommendation, one verdict line per card. Max answers inside the page and presses Send.",
+      "version": "1.0.0",
+      "category": "workflow",
+      "tags": [
+        "decisions",
+        "rulings",
+        "decision-sheet",
+        "forks",
+        "audhd"
+      ]
+    },
+    {
+      "name": "max-plan-itteration",
+      "source": "./plugins/max-plan-itteration",
+      "description": "Verify a plan, report, or agent-produced doc by fresh adversarial verifier pairs until a full round adds nothing.",
+      "version": "1.0.0",
+      "category": "workflow",
+      "tags": [
+        "verify",
+        "verification",
+        "adversarial",
+        "plan",
+        "claims",
+        "gate"
+      ]
+    },
+    {
+      "name": "max-blacklist",
+      "source": "./plugins/max-blacklist",
+      "description": "Max's ban-word and anti-AI-slop blacklist — banned words, phrases, and 26 measured sentence-structure pattern rules, matched by a Python linter (never by the model). Ships ste-lint.py, ste-lint-code.py, md-structure.py, words.txt.",
+      "version": "1.0.0",
+      "category": "writing",
+      "tags": [
+        "blacklist",
+        "banned-words",
+        "slop",
+        "ai-tells",
+        "sentence-structures",
+        "linter"
       ]
     }
   ]

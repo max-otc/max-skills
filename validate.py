@@ -64,12 +64,19 @@ for d in skills:
     if not os.path.isdir(b):
         fails.append("bundle missing %s - run plugins/max-skills/sync.sh" % d)
         continue
-    fa, fb = sorted(os.listdir(a)), sorted(os.listdir(b))
-    if fa != fb:
-        fails.append("bundle file-set drift %s: %s vs %s" % (d, fa, fb))
+    def tree(root):
+        out = {}
+        for base, _, files in os.walk(root):
+            for f in files:
+                p = os.path.join(base, f)
+                out[os.path.relpath(p, root)] = p
+        return out
+    fa, fb = tree(a), tree(b)
+    if sorted(fa) != sorted(fb):
+        fails.append("bundle file-set drift %s: %s vs %s" % (d, sorted(fa), sorted(fb)))
         continue
     for f in fa:
-        if open(os.path.join(a, f), 'rb').read() != open(os.path.join(b, f), 'rb').read():
+        if open(fa[f], 'rb').read() != open(fb[f], 'rb').read():
             fails.append("bundle content drift %s/%s - run plugins/max-skills/sync.sh" % (d, f))
 orphans = sorted(set(os.listdir(os.path.join('plugins', 'max-skills', 'skills'))) - set(skills))
 if orphans:
@@ -94,8 +101,9 @@ for tok in set(re.findall(r'^### (\S+)', rd, re.M)):
     if tok not in skills:
         fails.append("README documents absent skill %s" % tok)
 WORDS = {'nine': 9, 'ten': 10, 'eleven': 11, 'twelve': 12, 'thirteen': 13, 'fourteen': 14,
-         'fifteen': 15, 'sixteen': 16, 'seventeen': 17, 'eighteen': 18, 'nineteen': 19, 'twenty': 20}
-for n in re.findall(r'all (\w+) skills', rd):
+         'fifteen': 15, 'sixteen': 16, 'seventeen': 17, 'eighteen': 18, 'nineteen': 19, 'twenty': 20,
+         'twenty-one': 21, 'twenty-two': 22, 'twenty-three': 23, 'twenty-four': 24, 'twenty-five': 25}
+for n in re.findall(r'all ([\w-]+) skills', rd):
     if WORDS.get(n.lower()) != len(skills):
         fails.append("README says 'all %s skills' but there are %d" % (n, len(skills)))
 

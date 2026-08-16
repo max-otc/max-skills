@@ -1,7 +1,7 @@
 {
   "name": "max-skills",
-  "description": "Install every Max OTC skill in one shot — max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, max-eli5, max-compress, max-ux-flow, max-walkthrough, max-video-walkthrough, jake-writing, max-legal, max-x, max-ch-article, max-circle, formatting-marketmaker-documents. Bundles the entire marketplace into a single plugin so one install command equips Claude with every skill.",
-  "version": "1.14.3",
+  "description": "Install every Max OTC skill in one shot — max-video, max-hook, max-explainer-video, max-persona-research, max-marketing, max-ai-video, max-doc, max-eli5, max-compress, max-ux-flow, max-walkthrough, max-video-walkthrough, jake-writing, max-legal, max-x, max-ch-article, max-circle, formatting-marketmaker-documents, max-decisions, max-plan-itteration, max-blacklist. Bundles the entire marketplace into a single plugin so one install command equips Claude with every skill.",
+  "version": "1.15.0",
   "author": {
     "name": "Max OTC"
   },
@@ -40,6 +40,11 @@
     "circle",
     "register",
     "fluency",
-    "technical-writing"
+    "technical-writing",
+    "decisions",
+    "verification",
+    "blacklist",
+    "banned-words",
+    "slop"
   ]
 }

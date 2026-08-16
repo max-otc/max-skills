@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TOPIC}} — decisions to make</title>
+<style>
+:root{
+  --bg:#fbfaf8; --card:#ffffff; --ink:#1a1a1a; --ink2:#4a4a4a; --ink3:#767676;
+  --line:#e4e0d9; --line2:#cfc9c0; --code:#f2f0ec;
+  --accent:#1e5aa8; --accentbg:#e8f0fb;
+  --pro:#1a6b3c; --con:#a4243b; --rec:#8a5200; --recbg:#fbeed6;
+  --live:#a4243b; --livebg:#fbe9ec;
+  --disp:"SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"SF Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#131316; --card:#1b1b20; --ink:#ececef; --ink2:#b9b9c0; --ink3:#8e8e97;
+  --line:#2c2c33; --line2:#3c3c45; --code:#232329; --accent:#7fb0f0; --accentbg:#1b2a3e;
+  --pro:#7bd6a2; --con:#f090ac; --rec:#e6b45c; --recbg:#2e2411; --live:#f090ac; --livebg:#33141f;
+}}
+:root[data-theme="dark"]{--bg:#131316;--card:#1b1b20;--ink:#ececef;--ink2:#b9b9c0;--ink3:#8e8e97;--line:#2c2c33;--line2:#3c3c45;--code:#232329;--accent:#7fb0f0;--accentbg:#1b2a3e;--pro:#7bd6a2;--con:#f090ac;--rec:#e6b45c;--recbg:#2e2411;--live:#f090ac;--livebg:#33141f;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;padding:0 18px 90px}
+.wrap{max-width:1000px;margin:0 auto}
+h1{font-family:var(--disp);font-size:1.7rem;line-height:1.15;margin:30px 0 4px;letter-spacing:-0.02em}
+.lede{color:var(--ink2);margin-bottom:8px;max-width:760px}
+code{font-family:var(--mono);font-size:.82em;background:var(--code);padding:1px 5px;border-radius:4px}
+.live{background:var(--livebg);border:1px solid var(--live);border-radius:12px;padding:15px 18px;margin-top:20px}
+.live b{font-family:var(--disp);color:var(--live)} .live p{font-size:.92rem;margin-top:5px;color:var(--ink2)}
+.q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:22px}
+.q>.n{font-size:.7rem;font-weight:700;letter-spacing:.06em;color:var(--ink3);text-transform:uppercase}
+.q>h2{font-family:var(--disp);font-size:1.22rem;letter-spacing:-0.01em;margin:3px 0 6px}
+.q>.ctx{color:var(--ink2);font-size:.95rem;margin-bottom:12px;max-width:840px}
+.eg{background:var(--accentbg);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:12px 15px;margin-bottom:14px;max-width:840px}
+.eg b{font-family:var(--disp);font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:4px}
+.eg p{font-size:.95rem;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.opt{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column}
+.opt.rec{border-color:var(--rec);border-width:2px}
+.opt>header{padding:12px 14px 10px;border-bottom:1px solid var(--line)}
+.opt .tag{font-size:.66rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3)}
+.opt.rec .tag{color:var(--rec)}
+.opt h3{font-family:var(--disp);font-size:1.02rem;line-height:1.25;margin-top:3px}
+.opt .effort{font-size:.72rem;color:var(--ink3);margin-top:4px}
+.pc{padding:11px 14px;display:flex;flex-direction:column;gap:9px;flex:1}
+.pc b.h{display:block;font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;margin-bottom:5px}
+.pc .pro b.h{color:var(--pro)} .pc .con b.h{color:var(--con)}
+.pc ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.pc li{font-size:.86rem;color:var(--ink2);padding-left:16px;position:relative;line-height:1.35}
+.pc .pro li::before{content:"+";position:absolute;left:2px;color:var(--pro);font-weight:800}
+.pc .con li::before{content:"−";position:absolute;left:3px;color:var(--con);font-weight:800}
+.verdict{background:var(--recbg);border-radius:10px;padding:11px 14px;margin-top:12px;font-size:.9rem}
+.verdict b{color:var(--rec)}
+.dep{font-size:.78rem;color:var(--ink3);margin-top:8px}
+footer{color:var(--ink3);font-size:.78rem;border-top:1px solid var(--line);padding-top:14px;margin-top:30px}
+
+/* --- selection layer (added; nothing above is restyled) --- */
+.opt{position:relative;cursor:pointer;transition:border-color .12s,box-shadow .12s}
+.opt input.pick{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.opt:hover{border-color:var(--line2)}
+.opt.rec:hover{border-color:var(--rec)}
+.opt.foc{box-shadow:0 0 0 3px var(--accentbg)}
+.opt.sel{border-color:var(--accent);border-width:2px;box-shadow:0 0 0 3px var(--accentbg)}
+.opt.sel>header{background:var(--accentbg)}
+.opt.sel::after{content:"✓";position:absolute;top:9px;right:10px;width:20px;height:20px;border-radius:50%;
+  background:var(--accent);color:var(--card);font-size:.72rem;font-weight:800;line-height:20px;text-align:center}
+.opt h3{padding-right:26px}
+.opt.none{background:var(--card)}
+.opt.none .pc{justify-content:center}
+.opt.none p{font-size:.86rem;color:var(--ink3)}
+.cmt{margin-top:12px}
+.cmt textarea,.notes textarea{width:100%;font-family:var(--font);font-size:.88rem;color:var(--ink);background:var(--bg);
+  border:1px solid var(--line);border-radius:10px;padding:9px 11px;resize:vertical;line-height:1.45}
+.cmt textarea{min-height:44px}
+.cmt textarea:focus,.notes textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accentbg)}
+.notes{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-top:22px}
+.notes b{font-family:var(--disp);font-size:.95rem;display:block;margin-bottom:8px}
+.notes textarea{min-height:80px}
+.sendbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--card);border-top:1px solid var(--line2);
+  padding:10px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.sendbar .inner{max-width:1000px;margin:0 auto;width:100%;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.sb-str{font-family:var(--mono);font-size:.92rem;color:var(--ink)}
+.sb-miss{font-size:.78rem;color:var(--ink3)}
+.sb-miss.warn{color:var(--con)}
+.sb-spacer{flex:1}
+.sendbar button{font-family:var(--font);font-size:.9rem;font-weight:600;color:#fff;background:var(--accent);
+  border:none;border-radius:9px;padding:9px 18px;cursor:pointer}
+.sendbar button:disabled{background:var(--line2);color:var(--ink3);cursor:not-allowed}
+.sendbar.done{background:var(--accentbg)}
+.sendbar .done-msg{font-family:var(--disp);font-size:.95rem;color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>{{TOPIC}} — the decisions you need to make</h1>
+<p class="lede">{{WHY these decisions exist now, one or two sentences. Then the ranking: which are substantive, which are batch-rulable one-liners.}}</p>
+
+<!-- Optional red banner: THE one urgent fact (a live risk, a deadline). Delete if none. -->
+<div class="live">
+  <b>⚠ Read first — {{the one urgent fact}}</b>
+  <p>{{Two sentences max. What is live/urgent, and what deadline it sets.}}</p>
+</div>
+
+<!-- One section per decision. Repeat. data-d carries the decision number. -->
+<section class="q" data-d="1">
+  <div class="n">Decision 1 · {{gating note: "the substantive one" / "only if 1=A" / "batch-rulable"}}</div>
+  <h2>{{The question, as a question}}</h2>
+  <p class="ctx">{{ZERO-CONTEXT paragraph. A reader with no chat history must understand it: define every term/verb/address inline, state what is at stake, name concrete files/quantities. 2–4 sentences.}}</p>
+
+  <!-- MANDATORY on every decision. Business logic, real dollars, ZERO code identifiers. -->
+  <div class="eg">
+    <b>What this means in money</b>
+    <p>{{A named actor doing an ordinary thing, with round dollar amounts, ending in the consequence this decision is about. Convert every bp and ratio into dollars. No file paths, no function names. 2–4 sentences. Where the options differ, end with the fork made concrete.}}</p>
+  </div>
+
+  <div class="grid">
+
+    <label class="opt rec"> <!-- exactly ONE rec card per decision, always FIRST -->
+      <input class="pick" type="radio" value="A">
+      <header><div class="tag">Recommended</div><h3>A · {{option name}}</h3><div class="effort">Effort: {{ZERO/TRIVIAL/SMALL/MED/LARGE}} · {{qualifier}}</div></header>
+      <div class="pc">
+        <div class="pro"><b class="h">Pros</b><ul class="pro">
+          <li>{{≤4 bullets, each one line}}</li>
+        </ul></div>
+        <div class="con"><b class="h">Cons</b><ul class="con">
+          <li>{{≤4 bullets — every option gets honest cons, including the rec}}</li>
+        </ul></div>
+      </div>
+    </label>
+
+    <label class="opt">
+      <input class="pick" type="radio" value="B">
+      <header><div class="tag">Option</div><h3>B · {{option name}}</h3><div class="effort">Effort: {{...}}</div></header>
+      <div class="pc">
+        <div class="pro"><b class="h">Pros</b><ul class="pro"><li>{{...}}</li></ul></div>
+        <div class="con"><b class="h">Cons</b><ul class="con"><li>{{...}}</li></ul></div>
+      </div>
+    </label>
+
+    <!-- Always last. Keep verbatim on every decision. -->
+    <label class="opt none">
+      <input class="pick" type="radio" value="none">
+      <header><div class="tag">Fallback</div><h3>None of these</h3></header>
+      <div class="pc"><p>Say why in the box below, or what you would do instead.</p></div>
+    </label>
+
+  </div>
+  <div class="verdict"><b>My pick: A</b> — {{one-line reason. If the call is genuinely the owner's (a business number), say so plainly.}}</div>
+  <div class="cmt"><textarea placeholder="why, or what you'd do instead"></textarea></div>
+</section>
+
+<!-- Residuals box: facts to carry, NOT decisions. Delete if none. -->
+<div class="live" style="border-color:var(--line);background:var(--card)">
+  <b>Standing residuals (not decisions — carry them into whatever you pick)</b>
+  <p>• {{bullet}} • {{bullet}}</p>
+</div>
+
+<div class="notes">
+  <b>Anything else</b>
+  <textarea id="globalNotes" placeholder="notes for the whole sheet — context, constraints, a decision I missed"></textarea>
+</div>
+
+<footer>Generated {{DATE}} · {{which decision to take first and why}} · answer in the page, then press Send answers. Basis: {{sources}}.</footer>
+
+</div>
+
+<div class="sendbar" id="sendbar">
+  <div class="inner">
+    <span class="sb-str" id="sbStr">—</span>
+    <span class="sb-miss" id="sbMiss"></span>
+    <span class="sb-spacer"></span>
+    <button id="sendBtn" disabled>Send answers</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var STORE = 'maxdec:' + document.title;
+  var secs = Array.prototype.slice.call(document.querySelectorAll('section.q[data-d]'));
+  var bar = document.getElementById('sendbar');
+  var strEl = document.getElementById('sbStr');
+  var missEl = document.getElementById('sbMiss');
+  var btn = document.getElementById('sendBtn');
+  var notesEl = document.getElementById('globalNotes');
+
+  var items = secs.map(function(sec){
+    var n = sec.getAttribute('data-d');
+    var h2 = sec.querySelector('h2');
+    var opts = Array.prototype.slice.call(sec.querySelectorAll('label.opt'));
+    opts.forEach(function(o){
+      var input = o.querySelector('input.pick');
+      if (!input) return;
+      input.name = 'd' + n;
+      input.addEventListener('change', function(){ paint(); save(); });
+      input.addEventListener('focus', function(){ o.classList.add('foc'); });
+      input.addEventListener('blur', function(){ o.classList.remove('foc'); });
+    });
+    var cmt = sec.querySelector('.cmt textarea');
+    if (cmt) cmt.addEventListener('input', save);
+    return {n:n, sec:sec, opts:opts, cmt:cmt, question: h2 ? h2.textContent.trim() : ''};
+  });
+
+  function labelOf(o){
+    var h3 = o.querySelector('h3');
+    if (!h3) return '';
+    return h3.textContent.trim().replace(/^[A-Za-z0-9]+\s*·\s*/, '');
+  }
+  function chosen(it){
+    for (var i=0;i<it.opts.length;i++){
+      var input = it.opts[i].querySelector('input.pick');
+      if (input && input.checked) return {choice: input.value, label: labelOf(it.opts[i])};
+    }
+    return null;
+  }
+  function state(){
+    return items.map(function(it){
+      var c = chosen(it);
+      return {n: it.n, question: it.question,
+              choice: c ? c.choice : '', label: c ? c.label : '',
+              comment: it.cmt ? it.cmt.value : ''};
+    });
+  }
+  function summary(){
+    return state().filter(function(a){ return a.choice; })
+                  .map(function(a){ return a.n + a.choice; }).join(' · ');
+  }
+
+  function paint(){
+    items.forEach(function(it){
+      it.opts.forEach(function(o){
+        var input = o.querySelector('input.pick');
+        o.classList.toggle('sel', !!(input && input.checked));
+      });
+    });
+    var missing = state().filter(function(a){ return !a.choice; }).map(function(a){ return a.n; });
+    strEl.textContent = summary() || '—';
+    if (missing.length){
+      missEl.textContent = 'still open: ' + missing.join(', ');
+      missEl.className = 'sb-miss warn';
+      btn.disabled = true;
+    } else {
+      missEl.textContent = items.length ? 'all ' + items.length + ' answered' : '';
+      missEl.className = 'sb-miss';
+      btn.disabled = false;
+    }
+  }
+
+  function save(){
+    try{
+      var d = {answers:{}, comments:{}, notes: notesEl ? notesEl.value : ''};
+      items.forEach(function(it){
+        var c = chosen(it);
+        if (c) d.answers[it.n] = c.choice;
+        if (it.cmt) d.comments[it.n] = it.cmt.value;
+      });
+      localStorage.setItem(STORE, JSON.stringify(d));
+    }catch(e){}
+  }
+  function load(){
+    var d;
+    try{ d = JSON.parse(localStorage.getItem(STORE) || 'null'); }catch(e){ d = null; }
+    if (!d) return;
+    items.forEach(function(it){
+      var want = d.answers ? d.answers[it.n] : null;
+      if (want) it.opts.forEach(function(o){
+        var input = o.querySelector('input.pick');
+        if (input && input.value === want) input.checked = true;
+      });
+      if (it.cmt && d.comments && d.comments[it.n]) it.cmt.value = d.comments[it.n];
+    });
+    if (notesEl && d.notes) notesEl.value = d.notes;
+  }
+
+  function payload(){
+    return {title: document.title, summary: summary(), answers: state(),
+            notes: notesEl ? notesEl.value : '', timestamp: new Date().toISOString()};
+  }
+  function asText(){
+    var p = payload();
+    var out = [p.summary, ''];
+    p.answers.forEach(function(a){
+      out.push(a.n + a.choice + (a.label ? ' — ' + a.label : ''));
+      if (a.comment && a.comment.trim()) out.push('   ' + a.comment.trim().replace(/\n/g, '\n   '));
+    });
+    if (p.notes && p.notes.trim()) out.push('', 'Notes: ' + p.notes.trim());
+    return out.join('\n');
+  }
+  function execCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    var ok = false;
+    try{ ok = document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(ta);
+    return ok;
+  }
+  // writeText can hang when the page is not focused, so race it and fall back.
+  function copy(text){
+    if (!(navigator.clipboard && window.isSecureContext)){
+      return execCopy(text) ? Promise.resolve() : Promise.reject(new Error('copy blocked'));
+    }
+    return new Promise(function(res, rej){
+      var settled = false;
+      var t = setTimeout(function(){
+        if (settled) return;
+        settled = true;
+        execCopy(text) ? res() : rej(new Error('clipboard timed out'));
+      }, 1500);
+      navigator.clipboard.writeText(text).then(function(){
+        if (settled) return; settled = true; clearTimeout(t); res();
+      }, function(err){
+        if (settled) return; settled = true; clearTimeout(t);
+        execCopy(text) ? res() : rej(err);
+      });
+    });
+  }
+  function finish(msg){
+    bar.classList.add('done');
+    bar.innerHTML = '<div class="inner"><span class="done-msg"></span></div>';
+    bar.querySelector('.done-msg').textContent = msg;
+  }
+
+  btn.addEventListener('click', function(){
+    btn.disabled = true;
+    var text = asText();
+    var fallback = function(){
+      copy(text).then(function(){
+        finish('No server — the answer is copied to your clipboard. Paste it in the chat.');
+      }).catch(function(){
+        finish('Clipboard blocked. Paste this in the chat: ' + asText().split('\n')[0]);
+      });
+    };
+    if (location.protocol !== 'http:' && location.protocol !== 'https:'){ fallback(); return; }
+    fetch('/answer', {method:'POST', headers:{'Content-Type':'application/json'},
+                      body: JSON.stringify(payload())})
+      .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function(){ finish('Sent — you can close this tab.'); })
+      .catch(fallback);
+  });
+
+  if (notesEl) notesEl.addEventListener('input', save);
+  load();
+  paint();
+})();
+</script>
+</body>
+</html>

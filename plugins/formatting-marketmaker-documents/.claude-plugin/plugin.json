@@ -1,9 +1,21 @@
 {
-  "name": "crx-mm-doc-formatting",
+  "name": "formatting-marketmaker-documents",
   "description": "Format and render formal CRX market-maker documents to the CRX document standard — the Margin and Settlement Overview, Collateral Overview, margin methodologies, rules overviews, mechanism memos, MM-facing one-pagers. Locks one LaTeX-style document class: letterhead serif register, closed component inventory, page geometry, type and color tokens, figure grammar, and a conformance gate that renders HTML to PDF locally.",
   "version": "1.0.0",
   "author": {
     "name": "Max OTC"
   },
-  "keywords": ["crx", "market-maker", "document-formatting", "pdf", "html-to-pdf", "typesetting", "document-class", "margin", "settlement", "institutional", "fintech"]
+  "keywords": [
+    "crx",
+    "market-maker",
+    "document-formatting",
+    "pdf",
+    "html-to-pdf",
+    "typesetting",
+    "document-class",
+    "margin",
+    "settlement",
+    "institutional",
+    "fintech"
+  ]
 }

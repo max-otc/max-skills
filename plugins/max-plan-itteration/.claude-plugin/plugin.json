@@ -1,0 +1,9 @@
+{
+  "name": "max-plan-itteration",
+  "description": "Verify a plan, report, or agent-produced doc by fresh adversarial verifier pairs until a full round adds nothing. A verifier that trusts the artifact, or its own prior CLEAN, is not verifying.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Max OTC"
+  },
+  "keywords": ["verify", "verification", "adversarial", "plan", "claims", "gate", "audit-findings"]
+}

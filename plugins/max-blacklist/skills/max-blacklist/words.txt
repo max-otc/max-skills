@@ -1,0 +1,2400 @@
+# Custom word rules. Add a line, save. No restart, no code edit.
+# Format:  phrase                     flag it, no suggested fix
+#          phrase -> note             the arrow is OPTIONAL and it is yours to fill in
+# The arrow separator must have SPACES around it, so a regex may contain a bare ->.
+# Case-insensitive. Multi-word phrases work. Lines starting with # are ignored.
+#
+# EVERY WORD ENTRY IS BARE, as of 2026-08-14. The fix is your call, not the
+# linter's, and an arrow took that call away: it funnelled every writer to one
+# word. See the note at the head of [banned]. Only [pattern] keeps its arrows,
+# where the right-hand side is the advice message shown on a hit.
+#
+# [banned]     words to replace with a plainer one
+# [marketing]  sales adjectives with no meaning
+# [phrasal]    two-word verbs that a single plain verb replaces
+# [hedge]      filler that delays the sentence
+# [address]    second person. Scored on its own key, second_person, so a wall of
+#              "you" cannot drown out every other finding in the score.
+# [pattern]    Python regexes, scored on their own key, pattern_hit. The report
+#              names WHICH regex fired. A bad or slow regex warns and is skipped.
+# [allow]      turn OFF any rule above, built-in or your own (phrase only, no arrow)
+# [options]    tune a built-in rule. One  key = value  per line, see the block below.
+#
+# SCOPE. All of this applies to docs, READMEs, runbooks, specs, and prose inside
+# code. It does NOT apply to agent instruction files (CLAUDE.md, AGENTS.md,
+# SKILL.md), chat, commit messages, or rendered website prose. Those keep the
+# Alexander voice, which uses em dashes and the direct "you" on purpose.
+
+# ---------------------------------------------------------------------------
+# THE COST OF THIS LIST, so you see it when you open the file.
+#
+# These are load-bearing CRX domain nouns. They name one specific thing and a doc
+# often cannot avoid them. A margin doc cannot describe the prover without "guest",
+# a hash without "digest", or the floor rule without "floored":
+#     guest  digest  consent  rotation  rotations  anchor  anchors  mirror
+#     firm  discriminator  idempotent  floored  floor  state  states  pinned
+#
+# Strong [allow] candidates, because they name a thing you cannot rename:
+#     body  bodies      HTTP request body, response body, PR body, issue body
+#     declaration(s)    Solidity and TypeScript declarations, in every code doc
+#     state  states     state machine, state keeper, on-chain state
+#     reach             bare reach also swallows the built-in phrasal "reach out"
+#
+# These collide with your own Alexander Voice section, which says "plain words
+# first" and "name the failure plainly". They are exempt outside docs and code by
+# the SCOPE rule above, and the Voice section was NOT edited:
+#     plain  plainly  verbatim  stated  state  describe  describes  honestly  honest
+#
+# state and states will fire constantly on CRX docs (state machine, state keeper,
+# on-chain state). They are the most likely [allow] candidates in this file.
+# To turn any single rule off, copy it into [allow] at the bottom. Nothing else.
+# ---------------------------------------------------------------------------
+
+# The 's is the one ambiguous ending in English. It is a contraction in "it's ready"
+# and a possessive in "the token's mark". Counting both gave 217 contraction hits on
+# the contracts repo. Only 4 were contractions. The rest were possessives: account's,
+# core's, token's, guest's, proof's, maker's, caller's. So the possessive is off here.
+#
+#
+# Every key below takes flag or allow. flag is upstream behaviour and is the default
+# when the key is absent or this file is absent. Each one was set to allow because a
+# measured run on the contracts repo showed the rule charging for something no writer
+# may rewrite. Set any key back to flag to see the old numbers.
+#
+#   possessive             the possessive 's is not a contraction. it's, that's,
+#                          there's, let's still are, and so is every -'t -'re -'ve
+#                          -'ll -'d -'m.                        217 hits -> 4
+#   identifier_apostrophe  delegatecall'd and keccak'd hang an apostrophe on a code
+#                          identifier. Not a verb, not a contraction.   10 hits -> 0
+#   code_token             a version pin, a target triple, a hex address, a snake_case
+#                          or camelCase name, and a numeric range are code. EIP-712
+#                          and ERC-20 never flag.
+#   markdown_structure     a table row is not one 40-word sentence, an empty cell drawn
+#                          as a dash is not an em dash, eight bullets are not one
+#                          paragraph, and an indented block of shell is not prose.
+#   partial_token          report byte-for-byte, never the fragment byte-for. A rewrite
+#                          driven by the fragment corrupts the word.
+#
+# EVERY STRUCTURAL EXEMPTION IS OFF. All three are built, all three are switches,
+# and all three read flag. What stays ON is the name whitelist in
+# [compound-allow], and the five false-positive fixes above: possessive,
+# identifier_apostrophe, code_token, markdown_structure, partial_token. Those
+# five charge for something no writer may rewrite. Nothing below does.
+#
+#   module_tag             "oracle-registry: zero pairId" at the head of a string
+#                          literal. Built and switched OFF on your ruling, which
+#                          is right: an error string is USER-FACING TEXT. It
+#                          reaches a human. A log namespace is not furniture the
+#                          way a file path or a version pin is. It is prose that
+#                          happens to live in a string literal.           OFF
+#   prefix_propernoun      pre-Cancun, post-Merge, non-EVM. A closed prefix on a
+#                          proper name. OFF: pre-Cancun is jargon you might not
+#                          want, so it is a real finding, not noise.       OFF
+#   term_of_art            reads the [term-of-art] block at the end of this file.
+#                          OFF, and the block is commented out too. Every entry in
+#                          it is JARGON, which is prose, which you want to see.
+#                          Two switches, so neither one can flip by accident. OFF
+[options]
+possessive = allow
+identifier_apostrophe = allow
+code_token = allow
+markdown_structure = allow
+partial_token = allow
+module_tag = flag
+prefix_propernoun = flag
+term_of_art = flag
+
+[banned]
+
+# ---------------------------------------------------------------------------
+# 2026-08-14: EVERY ARROW IS STRIPPED FROM THIS SECTION. 176 entries carried
+# "word -> replacement" and now carry the word alone.
+#
+# Each arrow funnelled every writer to one word. In a single day of rewriting,
+# five arrow targets gained a net +852 uses: the reject family +368, instead
+# +196, minimum +158, layout +69, undetected +61. The list was manufacturing
+# its own monoculture.
+#
+# The fix is yours, one instance at a time, which is what a bare entry says.
+# [pattern] KEEPS every arrow it has. There the right-hand side is the ADVICE
+# MESSAGE shown on a hit, not a replacement word, so stripping it would delete
+# the finding rather than the funnel.
+# ---------------------------------------------------------------------------
+torn up
+damaged
+damage
+damages
+
+# Named 2026-07-28.
+distilled
+firm
+mirror
+clobbered
+forged
+resurrected
+both-armed
+regardless
+together
+the arm
+risk-in
+digest
+mismatch
+re-arm
+single-arm
+discriminator
+byte-frozen
+consent
+cross-family
+bad-sig
+prior
+proven
+anchors
+rotation
+idempotent
+dry-run
+recreation
+pinned
+checkable
+re-drive
+# the two you stated yourself. Their replacements went with the arrows on 08-14.
+on-chain
+off-chain
+
+# Named 2026-07-29. Bare, because you did not state a replacement and nobody
+# else gets to invent one for you.
+byte-for-byte
+end-to-end
+oracle-registry
+
+# Second batch, named 2026-07-28. catches up moved to [phrasal], see below.
+vendored
+plain
+verbatim
+describe
+honestly
+stated
+predates
+promoted
+
+# Third batch, named 2026-07-28.
+bodies
+exactly
+loose
+identical
+declarations
+reach
+repoints
+ride
+
+# Inflections, added so the rule has no hole. Delete any single line.
+mirrors
+mirrored
+forge
+forges
+pin
+pins
+anchor
+rotations
+mismatches
+digests
+proves
+distil
+distill
+distills
+clobber
+clobbers
+resurrect
+resurrects
+recreate
+recreates
+vendor
+vendors
+plainly
+describes
+described
+describing
+seated
+honest
+predate
+predated
+promote
+promotes
+promotion
+# state and states fire on ordinary CRX technical prose. See the cost block above.
+state
+states
+
+# Inflections for the third batch. Delete any single line.
+body
+exact
+loosely
+loosen
+identically
+declaration
+declare
+declares
+declared
+reaches
+reached
+reaching
+repoint
+repointed
+repointing
+rides
+rode
+riding
+the one
+still
+rail
+goes
+the rest
+untouched
+land
+knob
+ordinary
+clamps
+over
+witnesses
+witness
+against
+lands
+landed
+landing
+clamp
+clamped
+clamping
+witnessed
+assignment
+grant
+retires
+symmetric
+breaks
+key-binding
+golden
+wide-math
+vkey-affecting
+saturates
+truncates
+lexicographic
+non-negative
+exceeds
+artifact
+dated
+provenance
+roster
+fuzzily
+carried
+inspection
+literal
+whose
+whenever
+beyond
+magnitude
+choice
+unparseable
+split
+researched
+preserving
+fail-closed
+disagreement
+malformed
+strictly-increasing
+fresh
+site
+recomputes
+holds
+pigeonhole
+say
+hence
+sibling
+lone
+also
+per-account
+opaque
+ceil
+host-attested
+write-once
+nine-field
+inherited
+surplus
+inert
+single-use
+mutually-signed
+tear-up
+substitution
+kind
+round-trip
+four-copy
+drift
+deliberate
+alongside
+arity
+re-export
+printed
+cheaply
+strictly
+re-asserts
+transcribed
+tripwire
+welded
+handoff
+payee
+own
+unseen
+fallback
+stays
+stay
+breakdown
+lacked
+interpolation
+rational
+toward
+conservative
+thread
+semantics
+gateway
+sweep
+subadditive
+weaker
+opt-in
+flips
+nothing
+kernel
+fixed-point
+changes
+every
+per-position
+withheld
+count-equal
+strand
+stripping
+seams
+them
+conservation
+themselves
+stands
+authoritative
+itself
+adverse
+within
+till
+concern
+
+# Named 2026-08-01. Bare. Already banned above and NOT repeated here: exactly,
+# honest, regardless, strictly, verbatim, handoff, digest, consent.
+# re-multiplied is covered by the re- prefix regex in [pattern].
+# soundly stands in for the named "soudly".
+surfaced
+core 2.0
+honor
+honoring
+honors
+honored
+soundly
+relieving
+whole
+accrues
+remainder
+unchanged
+belt
+future
+clause
+dropped
+program
+freshness
+ISDA
+saturating
+generous
+mis-scale
+defence
+which
+behind
+yielding
+malleable
+precondition
+strictly-ascending
+would
+upward
+restore
+canonicalize
+coverage-compares
+kind-tagged
+redundant
+refuses
+vacuous
+resting
+ratcheted
+underneath
+widen
+towards
+reseated
+behaves
+dormant
+bring-up
+narrowing
+genuinely
+canonical
+corpus
+corpora
+merely
+cadence
+phantom
+machinery
+enumerate
+enumerated
+enumerates
+simply
+mitigation
+mitigations
+mitigated
+mitigates
+plumbing
+poisoned
+poisons
+spine
+quietly
+swallowed
+swallows
+doctrine
+doctrines
+corroborate
+corroborates
+corroborated
+corroboration
+vacuously
+vacuity
+tautology
+incumbent
+essence
+perennial
+watchman
+watchtower
+thereafter
+hygiene
+greenfield
+harvested
+neuters
+neutered
+apparatus
+smuggled
+laundered
+enshrines
+enshrined
+vestigial
+impasse
+dignity
+thereby
+load-bearing
+stranger
+strangers
+outright
+blast radius
+precisely
+artefact
+artefacts
+honour
+honours
+honoured
+honouring
+cliff
+refutation
+refutations
+wants
+invented
+invents
+inventing
+sharpest
+knows
+concedes
+wholesale
+entirety
+notices
+likewise
+trusts
+decorative
+catalogue
+rot
+symmetry
+promises
+story
+lies
+cares
+subsequent
+subsequently
+believes
+pretends
+happily
+worries
+complains
+learns
+remembers
+robust
+sophisticated
+faithfully
+forgets
+silently
+silent
+actually
+kills
+dies
+dead
+bites
+obviously
+obvious
+is able to
+worth noting
+baked into
+baked in
+chases
+eats
+flood
+flooded
+disguise
+note that
+teeth
+toothless
+the fact that
+starve
+starved
+choke point
+chassis
+skeleton
+organ
+papered over
+foot-gun
+footgun
+in order to
+recipe
+pathological
+calculus
+of course
+grave
+buried
+bait
+death sentence
+time bomb
+hostage
+crippled
+paralysis
+wound
+bleed
+masquerade
+storm
+by construction
+deliberately
+entirely
+really
+at will
+discipline
+instantly
+the price of
+legitimately
+for free
+in practice
+loudly
+cleanly
+literally
+freely
+trivially
+footprint
+backbone
+symptom
+shield
+maximally
+weapon
+fallout
+posture
+scaffolding
+squarely
+comfortably
+ritual
+appetite
+fossil
+refuse
+refusal
+refused
+shape
+shapes
+judge
+judges
+judged
+verdict
+verdicts
+plausible
+lever
+levers
+residue
+residues
+demand
+demands
+genuine
+throwaway
+per se
+bump
+bumped
+bumps
+hand-written
+seam
+headline
+trio
+caveat
+caveats
+unmoved
+from scratch
+lockstep
+source of truth
+behaviour
+behaviours
+behavioural
+cancelled
+uncancelled
+favour
+favours
+favourable
+disfavours
+neighbour
+neighbours
+neighbouring
+organise
+organised
+organisation
+reorganise
+optimise
+optimised
+optimisation
+analyse
+analysed
+normalise
+normalised
+serialise
+modelled
+labelled
+licence
+recognise
+at face value
+hand-rolled
+on the table
+best-effort
+moving target
+word for word
+second class
+on its face
+clears the bar
+belt-and-braces
+survives
+survive
+survived
+surviving
+collapse
+collapses
+collapsed
+admits
+admit
+lives
+kill
+killed
+killing
+inherits
+inherit
+drifts
+drifted
+died
+dying
+rots
+rotted
+blanket
+alive
+instant
+answers
+answered
+decides
+decided
+forever
+nobody
+just
+
+# Named 2026-08-13, harvest round 1 (3-repo scan, sheet ~/crx-ban-harvest-decisions.html).
+# All bare: the fix is Max's call. Ruled keep, NOT here: band ceiling tier frozen
+# sentinel watchdog heartbeat headroom deadlock starvation bloat warehouse naked
+# hostile attacker hot leverage deep leaked orphan wrapper mutants legacy latent
+# lane shim drain (D2), and the crutch words gate row read carry window path flow
+# book layer surface therefore via covenant verb leaf record (D5).
+
+# D1 decorative ops metaphors
+driven
+drives
+drive
+fires
+fire
+health
+healthy
+parked
+seeded
+poke
+flatten
+narrows
+degrades
+churn
+hole
+thin
+quiet
+loudest
+purge
+battery
+walk
+slice
+chips
+flip
+breaching
+rails
+scaffolded
+guardrail
+harden
+hop
+stall
+
+# D3 latinate with a plain equal
+ensure
+facilitate
+obtain
+permit
+maintain
+sufficient
+additional
+demonstrates
+initiated
+prerequisite
+condensed
+tabulates
+sanctioned
+vetted
+census
+rubric
+unrehearsed
+organizational
+adequacy
+designations
+terminations
+nexus
+utilization
+instrumentation
+coexist
+distinguishable
+substitutes
+naive
+undisclosed
+inherently
+orthogonal
+superseded
+supersedes
+diverted
+omits
+downgraded
+understates
+overstates
+derivation
+monotonicity
+reachability
+indirection
+legibility
+
+# D4 abstraction nouns
+infrastructure
+framework
+methodology
+granularity
+observability
+mechanism
+capability
+workflow
+overhead
+governance
+visibility
+availability
+integrity
+composability
+scalability
+tooling
+consolidation
+inventory
+composition
+assessment
+treatment
+qualifier
+burden
+consequence
+approach
+vocabulary
+dimension
+axis
+regime
+stance
+framing
+telemetry
+deliverable
+handover
+idempotency
+
+# D6 slop adjectives
+seamless
+comprehensive
+crucial
+essential
+elegant
+ergonomic
+ecosystem
+granular
+paradigm
+landscape
+centerpiece
+vast
+flexible
+lightweight
+rigorous
+thorough
+significant
+materially
+sanity
+durable
+weakest
+hairiest
+grounded
+ruthlessly
+opportunistic
+unanimous
+traceable
+exhaustively
+graceful
+gracefully
+smart
+defensive
+cheap
+near-perfect
+unlock
+
+# D7 hedges
+roughly
+likely
+usually
+often
+mostly
+typically
+arguably
+potentially
+presumed
+effectively
+however
+nonetheless
+rather
+additionally
+granted
+explicitly
+correctly
+
+# D8 dramatics
+enemy
+villain
+catastrophe
+toxic
+ghost
+ghost town
+scar
+brain
+heart
+steal
+smell
+glue
+magic
+academic
+decoration
+dead end
+on the hook
+shock absorber
+moving parts
+journey
+picture
+truth
+conveyor
+embodies
+choreography
+erosion
+fragile
+
+# D9 British + inflection holes
+colour
+grey
+centre
+authorise
+judgement
+analogue
+minimise
+offence
+defenceless
+modelling
+serialises
+serialised
+recognises
+
+# D10 invented words
+canonicality
+regraded
+unescapable
+erects
+
+# Inflections for the 08-13 batch, so the rules have no hole. Delete any single
+# line. sanction/sanctions deliberately NOT added (OFAC sanctions is a real noun);
+# steal kept bare (stolen is security prose); breach family untouched (protocol).
+ensures
+ensured
+ensuring
+obtains
+obtained
+permits
+permitted
+maintains
+maintained
+demonstrate
+demonstrated
+initiate
+initiates
+coexists
+substitute
+substituted
+divert
+diverts
+omit
+omitted
+downgrade
+downgrades
+understate
+understated
+overstate
+overstated
+supersede
+superseding
+tabulate
+tabulated
+condense
+condenses
+fired
+driving
+degrade
+degraded
+flattens
+flattened
+churns
+churned
+purges
+purged
+walks
+walked
+slices
+hops
+stalls
+stalled
+embody
+embodied
+hardened
+mechanisms
+frameworks
+methodologies
+capabilities
+workflows
+dimensions
+consequences
+approaches
+assessments
+deliverables
+qualifiers
+treatments
+inventories
+paradigms
+ecosystems
+prerequisites
+colours
+centres
+judgements
+analogues
+authorised
+authorises
+minimised
+minimises
+
+# Named 2026-08-13, harvest round 2 (sheet ~/crx-ban-harvest-round2-decisions.html).
+# All A except D8 = B: only facade/harness/probe from the jargon card; the other
+# 27 jargon words stay allowed. Bare throughout.
+
+# R2-D1 latinate
+contention
+mandatory
+exercised
+remediation
+precedent
+unconditionally
+cumulative
+equivalent
+structurally
+mechanically
+crystallized
+characterization
+ephemeral
+internalization
+informational
+simplification
+spurious
+practicable
+deterministically
+concretely
+thus
+respectively
+hypothesis
+premise
+falsifier
+conformance
+nomination
+admission
+decomposition
+standardization
+asymmetry
+deviation
+
+# R2-D2 abstraction nouns
+authority
+parity
+ordering
+publication
+extraction
+resilience
+purity
+fidelity
+opacity
+tension
+narrative
+hierarchy
+orientation
+subsystem
+substance
+boilerplate
+
+# R2-D3 decorative metaphors
+dial
+campaign
+prologue
+twin
+alarm
+blind spot
+blind
+mined
+zone
+wall
+ceremony
+corner
+corners
+rung
+ladder
+streak
+creep
+reflex
+reaper
+folklore
+moat
+scapegoat
+mid-air
+gravitational
+money shot
+long tail
+clothing
+gloved
+in the same breath
+ink
+beats
+earns
+invisible
+loud
+
+# R2-D4 slop adjectives
+visible
+worked
+solid
+neutral
+rare
+deepest
+niche
+dominant
+strategic
+narrow
+trivial
+classic
+bespoke
+straightforward
+careful
+monochrome
+cinematic
+literate
+defining
+strongest
+widest
+sound
+harmless
+cosmetic
+credible
+amateurish
+dangerous
+fatal
+enormous
+
+# R2-D5 dramatics
+seizure
+pain
+fear
+emotional
+intensity
+victim
+death
+anxiety
+survival
+drowning
+stillborn
+blunt
+bluntly
+void
+
+# R2-D6 hedges
+almost
+nearly
+largely
+mainly
+meanwhile
+currently
+essentially
+eventually
+overwhelmingly
+factually
+assumed
+up front
+tends to be
+
+# R2-D7 British + backwards
+recognised
+standardised
+realised
+recapitalised
+centred
+summarised
+labour
+backwards
+
+# R2-D8 subset only (Max's 8B)
+facade
+harness
+probe
+
+# Named 2026-08-13 by Max, found in contract comments.
+hoisted
+hoist
+hoists
+
+# Round 4 (comment harvest, sheet ~/crx-ban-harvest-round4-decisions.html).
+# D2 = A: the hoisted species. D3 = B subset: theory-speak with a plain equal
+# (soundness named by Max); guest/crank/bucket/grace/limb/waterfall/envelope/
+# preimage/permutation/sponge/reentrancy/mock/stub/alias/requirement/invariant
+# and status green/red stay ALLOWED.
+shadowed
+rematerialize
+elision
+inlined
+hermetic
+hermetically
+pedantic
+mechanized
+emergent
+notion
+conflates
+evaporate
+exfiltration
+repudiation
+reenactment
+reimplementation
+socialize
+socialized
+roster
+rationale
+advisory
+consideration
+intrinsic
+ambiguous
+unambiguous
+contiguous
+aggregate
+obligation
+assertion
+ungated
+unseated
+backdated
+realizes
+realized
+realization
+noise
+sibling
+conjunct
+congruent
+degenerate
+degenerates
+quotient
+truncated
+truncation
+interpolates
+interpolated
+extrapolate
+extrapolates
+canonicalises
+canonicalisation
+neutralises
+soundness
+predicate
+predicates
+monotone
+monotonic
+liveness
+quadratic
+logarithmic
+asymptotic
+
+# Named 2026-08-13, round 3 residue (sheet ~/crx-ban-harvest-round3-decisions.html D8).
+one of the
+not only
+as well as
+establishes
+enables
+wholly
+as such
+accordingly
+indeed
+at the same time
+what this means
+
+# Inflections for round 2, so the rules have no hole. Delete any single line.
+# seize/seizes stay allowed (GuaranteeFund.seize); assume/assumes stay allowed
+# (assumed is the hedge); sounds stays allowed (a system sounds an alert is rare,
+# "sounds like" is hedging but collides with nothing banned here).
+# NOT banned, on purpose: mandate/mandates (GLOSSARY noun), beat (market prose),
+# current ("current epoch" protocol prose), seize/seizes (GuaranteeFund.seize),
+# assume/assumes (only the hedge form assumed is banned), sounds.
+contentions
+exercise
+exercises
+remediations
+precedents
+equivalents
+hypotheses
+premises
+falsifiers
+deviations
+authorities
+hierarchies
+narratives
+subsystems
+tensions
+dials
+campaigns
+prologues
+twins
+alarms
+zones
+walls
+ceremonies
+rungs
+ladders
+streaks
+creeps
+reapers
+seizures
+pains
+fears
+victims
+deaths
+probes
+probed
+probing
+harnesses
+facades
+earned
+earning
+louder
+careless
+sounder
+fatally
+dangerously
+eventual
+
+# ---------------------------------------------------------------------------
+# Named 2026-08-14. Five rulings, all bare, all measured on the contracts repo.
+# Every inflected form below was grepped for and occurs; no form was invented.
+#
+# NOT BANNED, ruled out by name so nobody proposes it again:
+#   determinism, deterministic   excluded by the owner. They stay allowed.
+#   intent                       the withdraw intent is a protocol noun. Only
+#                                intentionally and intentional are banned.
+#   true                         a boolean literal. Only truly is banned.
+#
+# ratchet is banned although GLOSSARY.md carries it, and dark and lineage are
+# banned although both are house vocabulary. The owner overrode all three.
+#
+# Five forms named by these rulings were ALREADY in this section and are not
+# repeated: ratcheted, strand, structurally, saturates, contiguous.
+
+# Ruling 2.
+counterpart
+versus
+divergence
+eligibility
+invocation
+restatement
+
+# Ruling 3, closing holes where the sibling form is already banned above.
+ratchet
+strands
+stranded
+structural
+saturation
+forgery
+survivors
+contiguity
+intentionally
+
+# Ruling 4.
+lineage
+trips
+fleet
+engine
+door
+doors
+virgin
+dark
+banner
+
+# Ruling 5.
+anyway
+afterwards
+truly
+meaningless
+
+# Ruling 6, the fallback. A [pattern] rule for the un- coinage was written and
+# measured first, and it does not ship. Ordinary English carries too many
+# legitimate un- words: the broad form scored 2,056 hits at 6 in 10 innocent
+# (under 645, until 108, units 84, unless 27), and restricting it to a
+# participle ending still scored 936 at 7 in 10 innocent (unreachable,
+# unrecoverable, unsorted, unverified). Both are far over the 30% floor, so the
+# ten live coinages are banned as literals instead.
+unbroken
+unprovable
+unwritten
+unqueued
+unconsumed
+unaltered
+untagged
+payerless
+emptiness
+markability
+
+# Inflections for the 08-14 batch, so the rules have no hole. Every one occurs
+# in the corpus. Delete any single line.
+counterparts
+diverge
+diverges
+diverged
+diverging
+divergent
+eligible
+invocations
+invokes
+invoked
+restate
+restates
+restated
+restating
+ratchets
+stranding
+saturations
+saturate
+saturated
+survivor
+intentional
+trip
+tripped
+tripping
+engines
+banners
+afterward
+# ---------------------------------------------------------------------------
+# sales adjectives with no meaning, one per line
+
+[phrasal]
+# catches up is a two-word verb, so it belongs here, not in [banned].
+# One plain verb replaces it.
+catch up
+catches up
+caught up
+catching up
+
+[hedge]
+# filler that delays the sentence
+
+# Second person is fixed by RESTRUCTURING the sentence into the imperative, not by
+# swapping the word. "You must set the flag" becomes "Set the flag". Never trade
+# "you" for "one". The imperative is already what STE asks for in a procedure, so
+# there is no replacement word to record here.
+# you, your and you're were named. The other six close the same hole: a check that
+# catches "you" and misses "you've" is not a check. Delete any line you disagree with.
+[address]
+you
+your
+you're
+you've
+you'll
+you'd
+yours
+yourself
+yourselves
+
+# Order matters. The first regex to claim a span wins, and every literal entry above
+# wins over every regex, so dry-run scores once, not twice.
+[pattern]
+# re- prefix. A subset of the compound rule below, kept separate so it reports on
+# its own line and you can delete it without losing the general rule.
+\bre-[a-z]+\b -> re- prefix: name the action, or drop the prefix
+# Two or more hyphens in one word. Named 2026-08-01: never two hyphens in a word.
+# Placed before the single-hyphen rule so it claims the span first and reports
+# on its own line.
+\b[a-z]+(?:-[a-z]+){2,}\b -> two hyphens in one word: never
+# Any word-hyphen-word compound. FLAG AND TRIAGE, not an absolute ban: your "almost
+# all" is doing real work here. Code, inline code, CLI flags, URLs, paths, numeric
+# ranges, and an end-of-line soft wrap are all excluded before this runs.
+\b[a-z]+-[a-z]+\b -> hyphen compound: split it into two words, or pick one word
+# Rule 7, named 2026-08-13: the negative appositive ("findings, not filler",
+# "Bounded, not open"). The audit package used it once every 28 lines — the
+# single loudest AI-rhythm tell. FLAG AND TRIAGE: one instance is a good
+# sentence, a density is a tic.
+\b[a-z]+, not [a-z]+ -> X-not-Y appositive: state the fact directly
+# Rule 8, named 2026-08-13: the path:line citation (Foo.sol:124,
+# src/libraries/ArmLib.sol:732-738). A line number rots the moment the file
+# shrinks, and every citation into it dies with it. It broke a repo gate twice
+# in one day. The path or the symbol survives an edit, so cite one of those.
+\b[\w./-]+\.(?:sol|rs|sh|toml|md|py|js|ts|json|yaml|yml):\d+(?:-\d+)?\b -> cite the path or the symbol, never the line
+# ---------------------------------------------------------------------------
+# Rules 9 to 14, named 2026-08-13: AI-typical SENTENCE CONSTRUCTIONS, the way
+# everything above this line catches AI-typical WORDS. Harvested from the
+# comments in src/, test/ and prover/ and from every .md in the contracts repo,
+# 30,505 lines of prose. Every one of the six fires on real lines in that
+# corpus; nine other shapes were written, measured and cut, and the reasons are
+# recorded with them at the end of this block so nobody rebuilds them.
+#
+# ALL SIX ARE CASE-FORCED with (?-i:...). Read this before editing one. The
+# loader compiles every [pattern] with re.I, so a bare [a-z] matches CAPS too,
+# the span claim then eats an acronym, and the all-capitals rule below silently
+# loses the hit. Measured: the first draft moved that rule from 4625 to 4435
+# and the dash rule from 2705 to 2327. With the case forced, rules 1 to 8 score
+# to the character what they scored before this block existed.
+#
+# Rule 9, the negative litany. "No admin, no clock, no listing, no whitelist,
+# no proof". Three or six negations in a row where one sentence carries the
+# fact. 97 hits, 1 in 10 innocent: a genuine gap list in an incident document
+# reads the same way. FLAG AND TRIAGE.
+(?-i:\bno [a-z]+(?: [a-z]+){0,2}, (?:and )?no [a-z]+) -> negative litany: say what the thing does have, once
+# Rule 10, rule 7's blind spot. Rule 7 reads `clocks, not one` and stops, so
+# the SECOND negation in "Two clocks, not one, and not bounded alike"
+# (`src/libraries/ArmLib.sol`, ArmLib._armWindow) never scored. This one starts
+# after the span rule 7 claims, which is the only place it can start. 14 hits,
+# 0 innocent.
+(?-i:, and not [a-z]+\b) -> a second negated alternative: name the fact and stop
+# Rule 11, the antithesis pair. "The guard is not in the code. It is
+# `overflow-checks = true`." The fact is in the second sentence; the first
+# exists to set it up. 8 hits, 0 innocent.
+(?-i:\b(?:is|was) not [a-z][a-z ,'()]{0,70}[.,;] [Ii]t (?:is|was)\b) -> antithesis: drop the setup, state the fact
+# Rule 12, the repeated numeral. "two calls, two appends", "three chains,
+# three heads". The numeral repeats to make a rhythm, not to count. 14 hits,
+# 2 in 10 innocent: a fixture that really does run one deposit and one open
+# takes the same shape.
+(?-i:\b(one|two|three|four) [a-z]+, \1 [a-z]+\b) -> repeated numeral: write the two facts as two clauses
+# Rule 13, the commentary tail. "..., and that is all this verb enforces on
+# chain." The clause restates the sentence instead of adding to it. 67 hits,
+# 1 in 10 innocent, where the tail carries a new fact.
+(?-i:\band that is\b) -> commentary tail: the sentence ends at the fact
+# Rule 14, the rhetorical question. A question mark mid-line, answered by the
+# writer in the next breath. The lookahead is what makes it precise: a heading
+# phrased as a question ends the line, so it never fires. 5 hits, 0 innocent.
+(?-i:\b[a-z]+)\?(?= ) -> rhetorical question: ask nothing, state the answer
+#
+# MEASURED AND CUT. Nine more shapes were written and run over the same corpus.
+# None ships, and each line says why, so the work is not repeated:
+#   neither X nor Y           33 hits, 10 in 10 innocent. Standard English, not
+#                             a tell. "the leg is neither settled nor lost".
+#   the tricolon              99 hits, 10 in 10 innocent. Every hit was a real
+#                             three-item list. No regex can read "three items
+#                             where two would do".
+#   the drama colon           59 hits, 5 in 10 innocent. Tightened to "The
+#                             <noun>:" it falls to 17 hits and 4 in 10, still
+#                             too blunt. "Positive control:" and "The happy
+#                             path:" are labels a writer meant.
+#   em dash appositive        redundant. The dash rule below already charges
+#                             every em dash, and a stacking rule either steals
+#                             that count or, written with lookarounds so it
+#                             cannot, reads the same asides a second time.
+#   not just / not merely /   0 hits, and it can never have one. just, merely,
+#   not only X, but Y         only and simply are all [banned] literals, the
+#                             literal rules claim their spans first, and the
+#                             pattern is skipped on the overlap.
+#   not because X, but        0 hits in the corpus.
+#   "It isn't X. It's Y."     0 hits. The contracted form does not occur.
+#   less X than Y             4 hits, below the floor where a rule is worth its
+#                             line.
+#   anaphora, 3 or more       0 hits. A .sol comment reaches the linter one
+#   openings in a row         line at a time, so a rule spanning three
+#                             sentences has nothing to span.
+# ---------------------------------------------------------------------------
+# Arrows, em dash, en dash, and a hyphen used as sentence punctuation. The plain
+# hyphen inside a word is NOT banned here, the compound rule above handles that.
+→|⟶|—|–|(?<= )->(?= )|(?<= )-(?= ) -> use a period, a comma, or a colon
+§ -> write section numbers as words: section 4, not §4
+(?-i:\b[A-Z]{2,}\b) -> no full capital words: write it lowercase
+# ---------------------------------------------------------------------------
+# Rules 15 to 17, named 2026-08-13. A second hunt over the same corpus, this
+# time for the tells ABOVE and BELOW the sentence: document shape, connective
+# habit, micro-habit. Three ship. Eighteen were written, measured and cut, and
+# the reasons are recorded at the end of this block so nobody rebuilds them.
+#
+# THESE THREE SIT LAST ON PURPOSE. Every rule above claims its spans first, so
+# 1 to 14 score to the character what they scored before this block existed:
+# 15,195 pattern hits over src/, test/, prover/ and every .md in the contracts
+# repo, before and after. The three add 88.
+#
+# CASE-FORCED with (?-i:...), same trap as rules 9 to 14. The loader compiles
+# every [pattern] with re.I, so a bare [a-z] matches CAPS too and the
+# all-capitals rule silently loses the hit.
+#
+# Rule 15, the appositive gloss. "Groth16Verifier.sol, the contract that
+# decides whether a proof is valid, passed every gate", "incoming alone, the
+# seat that signs the takeover". The comma-noun-that clause restates the thing
+# just named instead of adding to it. Your own commentary-tail rule bans it by
+# name and nothing here caught it. 36 hits, 6 in 32 innocent: a three-item list
+# whose middle item opens the same way reads identically. FLAG AND TRIAGE.
+(?-i:, (?:the|a|an) [a-z]+ (?:that|which) ) -> appositive gloss: name the thing once
+# Rule 16, the emphatic tail. "The keeper picks the endpoint and no more."
+# "a payer rich enough pays it, full stop." The bound is already in the
+# sentence, and the tail repeats it for the rhythm. 25 hits, 0 innocent with
+# the "no more than" comparative excluded, which is what the lookahead is for.
+# and nothing else / nothing more are NOT in this rule: `nothing` is a [banned]
+# literal, the literal rules claim their spans first, and the pattern is
+# skipped on the overlap. and no less carries 0 hits and stays, so the pair has
+# no hole.
+(?-i:(?:, )?\b(?:full stop|and no more|and no less)\b(?! than)) -> emphatic tail: the bound is already stated
+# Rule 17, the pointer restatement. "This is the freeze class." "This is the
+# check that names the gap." A sentence whose whole job is to label the
+# sentence before it. It is the summary-paragraph tell shrunk to one sentence,
+# which is the only size a line-by-line linter can see. 27 hits, 1 in 16
+# innocent, where the pointer carries a claim the prose had not made.
+(?m)(?-i:(?:^|(?<=\. ))This is (?:the|a|an) [a-z]+) -> pointer restatement: say the fact, not that it is the fact
+#
+# MEASURED AND CUT. Eighteen more shapes were written and run over the same
+# corpus. None ships, and each line says why:
+#   , so <the|it|this> X       1382 hits, 9 in 10 innocent. The commonest tail
+#                              in the package and almost always a NEW fact.
+#                              The tic is restatement, which no regex sees.
+#   , because <the|a> X        97 hits, 6 in 10 innocent. Same verdict.
+#   , leaving|making|giving X  11 hits, 6 in 10 innocent.
+#   bold-lead bullet run,      307 hits raw, 11 in 16 innocent even tightened
+#   3 or more `**Term** — ...` to a separator and a 25-character tail. THE TELL
+#                              IS REAL and sits in DEPLOY.md, SECURITY.md,
+#                              TRUST-MODEL.md and audit/static-analysis/
+#                              BASELINE.md. It is the PIPELINE that cannot see
+#                              it: md_clean strips the list marker and splits
+#                              every table row into one line per cell, so after
+#                              preprocessing a bullet, a table cell and a bold
+#                              run inside a paragraph are the same string.
+#                              Catching it needs a reader that sees the
+#                              Markdown before md_clean does.
+#   heading restated by the    3 hits, 1 innocent. Below the floor where a rule
+#   line under it              is worth its line.
+#   3 headings, same opener    0 hits. 3 headings, same gerund shape: 0 hits.
+#   Note that / This means /   9 hits between all ten, 6 of them innocent
+#   In short / That said /     ("what it is worth" is a value, not a hedge) and
+#   Importantly / Crucially /  2 in a vendored LICENSE. note that and in
+#   Ultimately / As a result   practice are already [banned] literals.
+#   two hedges in one sentence 2 hits, and it can never have many: roughly,
+#                              likely, usually, often, mostly, typically,
+#                              arguably, potentially, almost, nearly, largely,
+#                              mainly, essentially and eventually are all
+#                              [banned] literals, so the literal rules claim
+#                              their spans first.
+#   3 sentences, same opener   0 hits, in .md as well as .sol. The .md finding
+#                              is the new one: the whole file reaches the
+#                              linter as one chunk, so the rule COULD span
+#                              three sentences there, and the corpus has none.
+#   two parentheticals in one  60 hits, 16 in 16 innocent. mask_noise blanks
+#   sentence                   numbers and citations, so what survives is
+#                              parallel counts and path lists, never asides.
+#   simply / just / essentially / effectively as filler: already [banned], all four.
+#   , which is|means X         0 hits.   It is the X that: 4 hits.
+#   What the X does is Y       0 hits.   that is, / namely, : 1 hit.
+#   There is no X              77 hits, 9 in 10 innocent. A security document
+#                              states absences for a living. Same verdict rule
+#                              9 already carries.
+#   And so the X               24 hits, 11 in 12 innocent. Nearly every hit is
+#                              ordinary ellipsis: "A real Safe approves a hash,
+#                              and so does this."
+#   gerund-lead sentence       19 hits, innocent throughout. "Fixing the guest
+#                              does not fix the leaves" is a plain subject.
+#   the whole X, not Y         1 hit.
+#
+# CANNOT BE A REGEX, and saying so is the finding. The linter reads a .sol
+# comment ONE LINE AT A TIME, and md_clean has already thrown the layout away
+# by the time any pattern runs. These four need a reader that holds a whole
+# document and compares its parts, not a line matcher:
+#   uniform bullet length across a list
+#   every section opening with the same grammatical shape
+#   the summary paragraph that restates the section it closes
+#   a two-column table used where a sentence would do
+# ---------------------------------------------------------------------------
+# Rules 18 and 19, named 2026-08-14. A third hunt, this one against a NAMED
+# list of twenty AI-typical sentence constructions rather than a free read of
+# the corpus. Two ship. Eighteen were measured and cut, and the reasons sit at
+# the end of this block so nobody rebuilds them.
+#
+# Corpus, frozen once before any measurement because the repo moves under other
+# editors: every comment, docstring and prose string literal in src/, test/ and
+# prover/, plus every .md outside lib/, notes/, target/, out/ and cache/.
+# 14,264 chunks, 1,758,563 characters. Rules 1 to 17 score 6,713 pattern hits on
+# it before this block and 6,713 after, rule by rule, zero drift.
+# audit/readiness/TRUST-MODEL.md: 43 before, 43 after. src/libraries/ArmLib.sol:
+# 56 before, 56 after. The two new rules add 47.
+#
+# THESE TWO SIT LAST, same reason rules 15 to 17 do, and both are CASE-FORCED
+# with (?-i:...), same trap: the loader compiles every [pattern] with re.I, so a
+# bare [a-z] matches CAPS too and the all-capitals rule silently loses the hit.
+#
+# Rule 18, the pseudo-cleft. "What the loop tests is the half that matters",
+# "What the liquidator cannot get is units the core cannot price". The sentence
+# announces its own subject before naming it, so the reader waits through a
+# whole clause for a fact that fits in a plain subject and verb. 39 hits, 1 in
+# 14 innocent: a glossary headword whose definition opens "What one unit of a
+# token is worth" is a noun clause, not a cleft. The widest reach of the twenty
+# candidates tested. FLAG AND TRIAGE.
+(?m)(?-i:(?:^|(?<=\. ))What [a-z]+(?: [a-z]+){0,5} is\b) -> pseudo-cleft: name the subject, then the verb
+# Rule 19, the elliptical mirror. "Warnings pass; errors do not." "The role is
+# range-checked; the address is not." The second clause carries no word of its
+# own: it repeats the first and negates it for the rhythm. 8 hits, 0 innocent.
+# The period is what makes it precise. Let the clause run on and the count goes
+# to 20 at 7 in 20 innocent, because a second clause with room to speak usually
+# says something new. STE already charges every semicolon on its own key, so a
+# hit here is the SECOND finding on that sentence, not the first.
+(?-i:; [a-z][a-z ,'()]{0,45}\b(?:does|do|is|are|was|were|can|will|has|have) not\.) -> the second clause only negates the first: cut it, or give it a fact
+#
+# MEASURED AND CUT. Eighteen of the twenty named candidates. Each line says why.
+# A rule the corpus cannot exercise teaches the reader to ignore the linter.
+#   the only X that Y is Z     31 hits, 8 in 10 innocent. A security package
+#                              states uniqueness for a living: "the only cast
+#                              that can panic", "the only order that works".
+#                              Tightened to the full frame it falls to 3.
+#   reads, computes, commits   10 hits, 7 in 10 innocent, and most were NOUN
+#                              lists, not verbs: "actors, roles and privileges".
+#                              Same verdict the tricolon already carries.
+#   This matters because /     0, 1 and 0 hits. Widened to "that is why" it
+#   The point is / The upshot  reaches 9 hits at 9 in 10 innocent, because a
+#                              causal connective almost always adds a fact.
+#   It is not that X, but      1 hit raw, 0 after the literal rules claim it.
+#   Which means, sentence-lead 1 hit raw, 0 after the literal rules claim it.
+#   exactly one X              16 hits raw, 0 in the pipeline: exactly is a
+#                              [banned] literal and claims the span first.
+#   nothing more, nothing less 2 hits raw, 0 in the pipeline, same reason:
+#                              nothing is a [banned] literal. no more, no less:
+#                              0 hits.
+#   Every X, without exception 0 hits, and in every case: 0 hits.
+#   once X, always Y           0 hits.
+#   Should X occur, Y          0 hits. The inverted conditional does not occur
+#                              in this corpus in any form.
+#   and it does so by          0 hits.
+#   which is to say            0 hits.
+#   such that                  0 hits. Worth recording because the shape is not
+#                              a tic anyway: in a mathematical statement it is
+#                              the correct word and nothing replaces it.
+#   first, ... second, ...     1 hit.
+#   One rule — never ...       1 hit for the capitalized sentence opener. The
+#                              loose form reads 80, all of them mid-sentence
+#                              fragments on a continuation line, not openers.
+#   `term` — definition,       0 comment blocks carry three. 48 carry two. The
+#   3 or more in one block     block is the limit, not the writing: a .sol //
+#                              comment reaches the linter ONE LINE AT A TIME, so
+#                              three definition lines are three chunks. Even
+#                              given a block, the rule is unwritable: the dash
+#                              rule claims every em dash before it runs, and a
+#                              span reaching three dashes must contain them.
+#
+# THE CROSS-SENTENCE TRAP, tested rather than assumed. A rule spanning two
+# sentences CAN fire: a whole .md file reaches the linter as one chunk, and a
+# .sol line holding two short sentences reaches it whole. Both were proved on
+# this corpus, and both candidates still failed on count:
+#   Not X. Not Y.              0 hits, cased and uncased.
+#   It is X. It is Y.          2 hits, one of them case-forced. Below the floor
+#                              where a rule is worth its line. The rule fires,
+#                              so the shape is reachable; the corpus has none.
+# ---------------------------------------------------------------------------
+# Rules 20 to 27, named 2026-08-14. A fourth hunt, aimed at ONE finding rather
+# than at a list of shapes: rules 7, 9 and 10 all require a COMMA. The
+# comma-less half of the identical habit walks free, about 400 instances of a
+# tic this block already names. These eight close that gap.
+#
+# Corpus, frozen once before any measurement because the repo moves under other
+# editors: every comment, docstring and prose string literal in src/, test/,
+# prover/ and scripts/, plus every .md outside lib/, notes/ and target/. 14,875
+# chunks, 1,804,012 characters. Rules 1 to 19 score 7,119 pattern hits on it
+# before this block and 7,119 after, rule by rule, zero drift.
+# audit/readiness/TRUST-MODEL.md: 43 before, 57 after. src/libraries/ArmLib.sol:
+# 56 before, 63 after. The eight new rules add 683.
+#
+# THESE EIGHT SIT LAST, same reason rules 15 to 19 do: every rule above claims
+# its spans first, so nothing here can steal a count from anything there. ALL
+# EIGHT ARE CASE-FORCED with (?-i:...), same trap: the loader compiles every
+# [pattern] with re.I, so a bare [a-z] matches CAPS too and the all-capitals
+# rule silently loses the hit.
+#
+# Rule 20, the negated alternative with the comma dropped. "a slot above moves
+# the core's copy and not the lens's", "stamped once, as an end and not a begin
+# time". Rule 7 reads "X, not Y" and rule 10 reads ", and not Y". Both need the
+# comma, and this is the same appositive without one. 241 hits, 1 in 10
+# innocent. The lookbehind only blocks a comma touching the word; what keeps
+# this rule off rule 10's ground is the mask, which claims 9 spans first.
+# FLAG AND TRIAGE.
+(?-i:(?<!,)\band not [a-z]+) -> negated alternative: name the fact and stop
+# Rule 21, the never-coordination. "binds a proof and never asks where", "keyed
+# by curator and never lifted", "carries one payer and never two". The second
+# clause negates the first for the rhythm. 108 hits, 2 in 10 innocent: a real
+# prohibition takes the same shape. FLAG AND TRIAGE.
+(?-i:\band never [a-z]+) -> never-coordination: state the rule once, positively
+# Rule 22, the emphatic "at all". "a fee-on-transfer asset cannot deposit at
+# all", "it did not move at all". The negation is already absolute, so the tail
+# adds volume and no fact. 116 hits, 1 in 10 innocent.
+(?-i:\bat all\b) -> at all: the negation is already absolute, cut the tail
+# Rule 23, the doubled absence with no comma. "no scheduled change and no
+# pending refund", "no nonce and no deadline", "no swap and no notice". Rule 9
+# catches the same litany when a comma separates the terms. 65 hits, 1 in 10
+# innocent.
+(?-i:\bno [a-z]+(?: [a-z]+){0,2} and no [a-z]+) -> doubled absence: name the one absence that matters
+# Rule 24, the is-what frame. "a nonzero entry is what makes a feed forward",
+# "which is what makes the owner's immediate remedy real", "is what the chain
+# folds". The verb sits behind a relative clause the sentence does not need.
+# Rule 18 catches this shape when the sentence OPENS with What; this catches it
+# mid-sentence. Tested for a double charge against rule 18 and there is none:
+# on this corpus the two share zero spans, and each scores the same count with
+# the other removed. 55 hits, 2 in 10 innocent. FLAG AND TRIAGE.
+(?-i:\b(?:is|are) what (?:makes|shows|carries|separates|the|a|an|it) ) -> is-what frame: state the effect directly
+# Rule 25, the commentary tail in its verb form. "warps afterwards, and that
+# moves the deadline", "asserts its arm hashes as bare hex literals, and that
+# ties Rust to Rust". Rule 13 catches ", and that is" and this catches ", and
+# that <verb>", so the two PARTITION: the lookahead drops is, was and are, and
+# removing rule 13 does not change this count by one hit. 43 hits, 1 in 10
+# innocent, where the tail carries a new fact.
+(?-i:, and that (?!is|was|are\b)[a-z]+(?:s|ed|ies) ) -> commentary tail: end at the fact, or give the clause one of its own
+# Rule 26, the exclusivity tail. "Those four, and no others", "This exposes it
+# and no other field", "the minimum and no other check". The scope is already
+# stated and the tail closes it a second time. 41 hits, 3 in 10 innocent: a
+# test that really does read one slot and no other is naming its assertion.
+# One further span goes to rule 23 first, which is the mask working. FLAG AND
+# TRIAGE.
+(?-i:\band no other(?:s)?\b) -> exclusivity tail: the scope is already stated
+# Rule 27, the pointer restatement on That. "That is the point: a paused core
+# cranks, claims, reroutes and folds", "That is the case the escape exists
+# for." Rule 17 carries the same tic on This. The demonstrative changes, the
+# habit does not. 14 hits, 2 in 10 innocent.
+(?m)(?-i:(?:^|(?<=\. ))That is (?:the|a|an) [a-z]+) -> pointer restatement: name the thing, not the pointing
+#
+# MEASURED AND CUT, so nobody proposes them again. Four more shapes were
+# written and run over the same corpus and every one is too noisy to ship:
+#   X alone                    213 hits, 4 in 10 innocent. "on latency alone",
+#                              "the seat alone" name a real sole cause.
+#   and it is / does / has     73 hits, 5 in 10 innocent. Half the tails carry
+#                              a new fact about a second subject.
+#   what the X does            38 hits, 5 in 10 innocent. Often a plain noun
+#                              clause, the same reading rule 18 already excuses.
+#   The point / effect /       25 hits, 6 in 10 innocent, and the innocent half
+#   result is                  is a label a writer meant.
+# ---------------------------------------------------------------------------
+# Rules 28 and 29, named 2026-08-14. A fifth hunt, aimed at the two shapes the
+# comment prose repeats hardest: the sentence that opens on a participle, and
+# the noun frame that splits a thing into halves. Two ship. Nine more were
+# measured and cut, and their rates sit at the end of this block so nobody
+# proposes them again.
+#
+# Corpus, frozen into a copy before any measurement because the repo moves
+# under another editor: every comment, docstring and prose string literal in
+# src/, test/, prover/ and scripts/, plus every .md outside lib/, notes/,
+# target/, out/ and cache/. 293 files, 14,832 chunks, 1,796,761 characters.
+# Rules 1 to 27 score 7,248 pattern hits on it before this block and 7,248
+# after, rule by rule, zero drift. audit/readiness/TRUST-MODEL.md: 45 before,
+# 47 after. src/libraries/ArmLib.sol: 56 before, 58 after. The two new rules
+# add 176.
+#
+# THESE TWO SIT LAST, same reason rules 15 to 27 do: every rule above claims
+# its spans first, so nothing here can steal a count from anything there. BOTH
+# ARE CASE-FORCED with (?-i:...), same trap, and it has now been hit twice: the
+# loader compiles every [pattern] with re.I, so a bare [a-z] matches CAPS too,
+# the span claim then eats an acronym, and the all-capitals rule silently drops
+# from 4,625 hits to 4,435.
+#
+# Rule 28, the participial sentence opener. "Bounded at the core's cap",
+# "Keyed by curator", "Capped at the tenor floor", "Measured on the deploy
+# profile". The sentence starts on a past participle, so the subject arrives
+# late or never and the line reads as a caption rather than a statement.
+# 115 hits, 3 in 10 innocent: a table cell that really is a verdict ("Merged
+# into one row.") and a provenance note ("Ported from the host suite.") take
+# the same shape. FLAG AND TRIAGE.
+(?m)(?-i:(?:^|(?<=\. ))[A-Z][a-z]{2,}(?:ed|en|pt|ut) (?:at|by|from|after|to|in|on|with|under|over|once|only|here)) -> participial opener: name the subject, then the verb
+# Rule 29, the "X half" frame. "the chain half", "the payout half", "the write
+# half", "the half that matters". One thing is cut in two and each piece is
+# named by the cut instead of by what it does. 91 hits, 3 in 10 innocent: a
+# literal half of a machine word is a real measurement ("the upper half of the
+# u128 band"). FLAG AND TRIAGE.
+(?-i:\b(?:the [a-z]+ half|the half|half of the)\b) -> the X half frame: name the part by what it does
+#
+# MEASURED AND REJECTED, so nobody proposes them again. Nine shapes were
+# written and run over the same corpus and every one is too noisy to ship. The
+# count is hits, the rate is how many of ten sampled hits were innocent:
+#   consecutive identical      98 hits, 4 in 10 innocent. Parallel assertions
+#   4-token skeleton           in a test really do repeat their skeleton.
+#   verb + no X                253 hits, 5 in 10 innocent. "carries no fee",
+#                              "reads no slot" state a real absence.
+#   participial appositive,    299 hits, 6 in 10 innocent. Rule 28 catches the
+#   ", keyed by"               same participle where it does damage, at the
+#                              head of the sentence. Mid-sentence it is a
+#                              standard reduced clause.
+#   carry-family verb          361 hits, 5 in 10 innocent. carry, carries and
+#                              carried are the plainest verbs available for a
+#                              field that holds a value.
+#   sits in / on / at          249 hits, 5 in 10 innocent. The plain word for
+#                              where a thing is in a struct or a tree.
+#   is asserted                111 hits, 7 in 10 innocent. A test asserts, and
+#                              the passive is what the sentence is about.
+#   repeated content word      215 hits, 6 in 10 innocent. A clause naming one
+#   inside one clause          contract twice usually needs it twice.
+#   both directions / ways /   105 hits, 7 in 10 innocent. A symmetric check
+#   ends                       really does run in both directions.
+#   anadiplosis, the last      60 hits, 5 in 10 innocent. Half the hits are an
+#   word of a clause opening   ordinary subject repeat across a sentence
+#   the next                   boundary, not a rhetorical hinge.
+#
+# VERB REPETITION IS NOT A TIC, and recording it is the finding, because it is
+# the first thing a reader assumes about generated prose. Measured over the
+# same corpus: 5,976 verb tokens across 756 distinct types, the top ten types
+# taking 23% and the top fifty taking 53%. That is an ordinary Zipf shape for
+# technical English, so no rule was written and none should be.
+#
+# THE TIC A REGEX CANNOT SCORE. `, so ` opens 2,149 sentences in this corpus,
+# 15.4% of every sentence and 82% of every causal connective (because 293,
+# therefore 83, since 122, thus 0, hence 0). Each use is innocent and carries a
+# real fact, measured at 9 in 10 innocent by an earlier round, so the tic lives
+# only in the RATE. A line matcher sees one sentence at a time and can never
+# see a rate. rate-check.py, beside this file, scores it per file against the
+# corpus.
+# ---------------------------------------------------------------------------
+# Rules 30 to 33, named 2026-08-14. A sixth hunt, and the first one measured
+# against KNOWN-HUMAN prose rather than against a reader's ear: the vendored
+# OpenZeppelin and forge-std comments under lib/, and the Python 3.9 standard
+# library. Four SENTENCE STRUCTURES, banned outright by the owner. Every rule
+# below carries the human rate, the package rate and the multiple between
+# them, because two of these four are shapes this package overuses and one is
+# a shape it UNDERUSES, and a reader must be able to tell which is which.
+#
+# Corpus, frozen into a copy before any measurement because the repo moves
+# under another editor: every comment, docstring and prose string literal in
+# src/, test/, prover/ and scripts/, plus every .md outside lib/, notes/,
+# target/, out/ and cache/. 293 files, 14,833 chunks, 1,811,130 characters.
+# Rules 1 to 29 score 7,606 pattern hits on it before this block and 7,606
+# after, rule by rule, zero drift. audit/readiness/TRUST-MODEL.md: 47 before,
+# 69 after. src/libraries/ArmLib.sol: 58 before, 76 after. The four new rules
+# add 1,366.
+#
+# THESE FOUR SIT LAST, same reason rules 15 to 29 do: every rule above claims
+# its spans first, so nothing here can steal a count from anything there. ALL
+# FOUR ARE CASE-FORCED with (?-i:...), same trap, and it has now been hit
+# twice: the loader compiles every [pattern] with re.I, so a bare [a-z]
+# matches CAPS too, the span claim then eats an acronym, and the all-capitals
+# rule silently drops from 4,625 hits to 4,435.
+#
+# Rule 30, named 2026-08-14: the negated-alternative tail ("derived, never a
+# constant", "the slot is read back, never the receipt"). 1.83% of this
+# package's sentences against 0.10 to 0.21% in the human corpora, nine to
+# thirty times too many. Rules 7, 20 and 21 own most of the ", not" half
+# already, and the mask measures the split rather than guessing it: 189 spans
+# survive those three, 149 of them the ", never" tail no live rule can reach
+# and 40 of them ", not" where rule 7's [a-z]+ lookbehind failed on a bold run
+# or a bracket. 149 plus 40 is 189, so the partition is exact and nothing is
+# charged twice. 189 hits, 1 in 10 innocent, where never is the main clause's
+# own adverb. FLAG AND TRIAGE.
+(?-i:, (?:not|never) [a-z]+) -> negated alternative: name the fact and stop
+# Rule 31, named 2026-08-14: the semicolon in prose. 5.11% of this package's
+# sentences against 0.36 to 1.76% in the human corpora, three to fourteen
+# times too many. THE BUILT-IN semicolon KEY ALREADY COUNTS THESE CHARACTERS,
+# so a prose semicolon now scores twice, once as semicolon and once as
+# pattern_hit. Read that as a double charge before reading a score. It ships
+# under the ruling anyway, and the two counts are not the same measurement:
+# the built-in counts every semicolon in the chunk, code included, and this
+# one counts only the semicolon joining two prose clauses. The [a-z];
+# lookbehind is the whole of the excluding, and it was tested rather than
+# assumed. A Solidity or Rust statement ends on a bracket, a digit or a masked
+# identifier, so none of the 110 statement semicolons reaching this stage can
+# match. for (;;) leaves a bare semicolon with no letter in front of it. A
+# backtick code span is gone before any pattern runs. The corpus holds no HTML
+# entity at all. 805 hits, 0 in 10 innocent.
+(?-i:[a-z]; [a-z]) -> semicolon: write two sentences
+# Rule 32, named 2026-08-14: the colon introducing a clause ("different
+# buckets: this one credits the payer's escape slot", "It is destroyed: the
+# target applies in this segment"). 8.05% of this package's sentences against
+# 2.4 to 3.7% in the human corpora, two to three times too many. The list, the
+# time, the URL, the path and the NatSpec tag never reach this rule: the noise
+# mask and the code-token mask blank all five, measured at zero surviving
+# spans. Three parts of the pattern do the rest of the excluding. Two
+# lowercase words before the colon drop the capitalized banner label ("Control
+# two:", "Seat revocation:"). A determiner after it drops key: value. A finite
+# verb after that drops the appositive and the bare list. 347 hits, 2 in 10
+# innocent, both of them a lead-in label a writer meant ("The happy path:",
+# "The cell rule:"), which is the same reading that cut the drama colon from
+# rules 9 to 14. FLAG AND TRIAGE.
+(?-i:[a-z]+ [a-z]+: (?:the|a|an|it|this|that|they|there) [a-z]+(?: [a-z]+){0,3} (?:is|are|was|were|has|have|had|does|do|did|can|will|must|may|cannot|[a-z]{3,}s|[a-z]{3,}ed)\b) -> colon before a clause: end the sentence and start another
+# Rule 33, named 2026-08-14: the fronted subordinate opener ("Once the seat
+# carries the token, the same outsider's deposit credits the balance", "If the
+# book must reopen first, run one fold that consumes no rows"). READ THE
+# MEASUREMENT BEFORE ASSUMING WHY THIS RULE IS HERE. The human corpora use
+# this shape MORE than this package does, 4.2 to 4.3% of their sentences
+# against 0.71% of these, so it is the one rule in this file that no evidence
+# of machine writing supports and the only one a sweep must not cite as an AI
+# tell. It is banned by the owner's ruling, on the house voice: the fact goes
+# first and the condition after it. 25 hits, 0 in 10 innocent, which is what a
+# rule the corpus barely exercises looks like.
+(?m)(?-i:(?:^|(?<=\. ))(?:When|If|Once|Because|While|After|Before|Unless) [a-z][^.\n]{0,70}, [a-z]) -> fronted opener: state the fact, then the condition
+# ---------------------------------------------------------------------------
+
+[allow]
+# built-in or custom rules to stop flagging, phrase only, no arrow
+
+# CRX protocol nouns: the code and GLOSSARY.md define these. Renaming them drifts
+# terminology away from the source rather than simplifying it. Recovered 2026-08-13
+# from a bad paste that had left them dead inside the header comment (the linter
+# skipped them as "entry before any section"). arm-time went to [compound-allow],
+# where the hyphen pattern rule reads.
+arm
+arms
+armed
+arming
+seat
+seats
+guest
+
+# GLOSSARY.md headwords: Wire, Cure floor, Escape hatch, Listed destination.
+# Moved out of [banned] 2026-08-13, with the inflections the list already held.
+wire
+wires
+wired
+floor
+floors
+floored
+hatch
+destination
+
+# ---------------------------------------------------------------------------
+# NAMES a [pattern] rule may never flag. The hyphen compound rule cannot tell
+# run-aderyn from fail-closed, because the shape is identical. Only a list can.
+#
+# One token per line, or a prefix family ending in *. The WHOLE token is tested
+# and never a fragment, so EIP-* quiets EIP-712 and leaves end-of-day alone, and
+# end-to-end here does not quiet end-to-start. Matching is case-insensitive.
+#
+# 1673 distinct hyphen compounds in the contracts repo were read one by one.
+# 250 are names and are listed here. 1423 are prose and still flag. 33 of those
+# were a genuine coin-toss, listed in the unsure block at the end of this
+# section: promote one by moving it up, or leave it flagging.
+#
+# on-chain, off-chain and every re- compound are NOT here. You banned all three.
+# Delete any line you disagree with. Nothing else has to change.
+#
+# THE TEST, restated 2026-07-29, because the first pass got it wrong.
+# A hit is a false positive ONLY when the token is not prose AT ALL: a name, or
+# something a machine wrote. A standard, a tool, a CLI flag, a chain, a file, a
+# finding ID, a version pin, a log namespace. Everything else is prose, and
+# JARGON IS PROSE. pre-Cancun, high-water and mark-to-market are dense domain
+# language, and whether to keep or cut one is a judgement made per instance. So
+# they must keep firing. A whitelist that quiets jargon takes that judgement
+# away.
+#
+# 17 entries were removed on that test. Each was here because its hyphen is
+# grammatically required, which is not the same thing as being a name:
+#   high-s, low-s        prose in the tests: "the high-s twin recovers the SAME
+#                        signer", "canonical (low-s) form". Jargon.
+#   mark-to-market       finance jargon.
+#   stack-too-deep       solc writes "Stack too deep". The hyphenated form is
+#                        the writer's, not the compiler's.
+#   s-complement         never a token. It is the tail of two's-complement, cut
+#                        at the apostrophe, which the widener cannot cross. It
+#                        now reports as that fragment. The fragment is ugly and
+#                        the jargon under it is real, so it flags.
+#   byte-for-byte, checks-effects-interactions, compare-and-swap,
+#   defense-in-depth, end-to-end, fee-on-transfer, fixed-point, MSB-first,
+#   non-fast-forward, off-by-one, prefix-free, Value-at-Risk
+#                        the whole old "terms of art" block. Every one is jargon.
+# All 17 are parked, commented out, in the [term-of-art] block at the end of
+# this file. Uncomment a line and set term_of_art = allow to restore it.
+#
+# SECOND PASS, same day, after you ruled on byte-for-byte, end-to-end and
+# oracle-registry. All three are now in [banned] at the top of this file. You
+# have now rejected a grammar-based exemption twice, so the standard was applied
+# once more across the whole list. Four more went:
+#   memory-safe   kept an hour earlier for the Solidity keyword in
+#                 assembly ("memory-safe"). Wrong, and for a reason worth
+#                 keeping: that string has no space in it, so is_prose_string
+#                 refuses it and the keyword NEVER REACHES THE LINTER. The only
+#                 use that does reach it is prose in an audit table. The entry
+#                 protected nothing and hid one real hit.
+#   personal-sign the identifier is personal_sign, with an underscore. The
+#                 hyphen is the writer's: "the EIP-191 personal-sign prefix".
+#   rho-form      prose: "the ISDA rho-form died with the scenario-ES migration".
+#                 Jargon naming a model form, used as a noun in a sentence.
+#   scenario-ES   prose: "INERT since scenario-ES", "scenario-ES IM over acct's
+#                 positions". Same species. pre-scenario-es stays: it names an
+#                 archive directory.
+#
+# Three were judged again and KEPT, because each names a thing rather than says
+# one:  via-IR (the solc mode behind --via-ir), RISC-V (an instruction set),
+# JSON-RPC (a protocol). The slither and forge-lint detector IDs stay too:
+# naming-convention, low-level-calls, missing-zero-check and the rest are the
+# literal strings those tools emit.
+#
+# KNOWN SIDE EFFECT of banning oracle-registry. The literal rules match on a
+# letter boundary, and a hyphen is not a letter, so oracle-registry also fires
+# INSIDE pair-oracle-registry, which is a different contract and is whitelisted
+# below. The whitelist cannot stop it: [banned] runs first, by design, which is
+# the same ordering that makes your ban unconditional. Left as measured. Cut the
+# pair-oracle-registry line from [compound-allow] if you would rather see it
+# once as a name than once as a ban.
+# ---------------------------------------------------------------------------
+[compound-allow]
+
+# families. One line covers a whole numbered standard, repo, or generation.
+EIP-*
+ERC-*
+BIP-*
+RFC-*
+CVE-*
+SPDX-*
+crx-*
+crxfx-*
+sp1-*
+terms3-*
+terms3f2-*
+round12-*
+aderyn-*
+solc-*
+
+# build triples
+aarch64-apple-darwin
+aarch64-unknown-linux-gnu
+x86_64-apple-darwin
+x86_64-unknown-linux-gnu
+
+# standards and specs
+JSON-RPC
+RISC-V
+via-IR
+
+# static analysis and lint rule IDs
+costly-loop
+cyclomatic-complexity
+disable-next-line
+divide-before-multiply
+incorrect-equality
+low-level-calls
+missing-inheritance
+missing-zero
+missing-zero-check
+mixed-case-variable
+naming-convention
+reentrancy-events
+reentrancy-no-eth
+screaming-snake-case-immutable
+uninitialized-local
+unused-return
+
+# tools, plugins, packages, crates
+audit-context-building
+building-secure-contracts
+cargo-audit
+core30-d67d957-src
+differential-review
+dimensional-analysis
+docker-compose
+entry-point-analyzer
+entry-point-analyzer-as-plugin
+forge-lint
+forge-std
+fp-check
+graph-avax
+graph-base
+graph-celo
+im-calibration
+im-crypto
+im-math
+im-recompute
+im-scenario-table
+im-state
+im-types
+overflow-checks
+run-aderyn
+run-slither
+sc-auditor
+solidity-auditor
+spec-to-code-compliance
+supply-chain-risk
+twap-core
+variant-analysis
+x-ray
+
+# repos, containers, hosts
+netcup-vps2
+openzeppelin-contracts-upgradeable
+vps2-new
+zk-app
+zk-rfq
+
+# CLI flags, config keys, script verbs
+chain-id
+deploy-chain
+deploy-env
+deploy-stack
+dev-deploy
+env-file
+exclude-dependencies
+include-libs
+ir-minimum
+password-file
+private-key
+record-provenance
+registry-deploy
+render-env
+rpc-url
+seed-pairs
+set-acceptance
+size-assert
+sync-deployments
+transmitter-deploy
+validate-manifest
+
+# chains and networks
+avax-fuji
+base-sepolia
+celo-sepolia
+
+# deployment and generation labels
+avax-fuji-curator
+avax-fuji-transmitter
+base-sepolia-transmitter
+celo-sepolia-core2
+celo-sepolia-live-core
+celo-sepolia-transmitter
+collateral-registry
+EURUSD-FEED
+pair-oracle-registry
+pre-scenario-es
+pre-terms3
+promote-terms3-f2
+s-core2
+
+# files and documents
+A-interface
+AUDIT-COMPLETENESS-SCAN
+AUDIT-COVERAGE-LEDGER
+AUDIT-cyfrin-checklist-solodit
+AUDIT-offchain-trust
+AUDIT-round11
+AUDIT-round8
+AUDIT-STATUS
+AUDIT-xray
+contracts-manifest
+core-cutover-rewire-map
+cutover-runbook
+Cyfrin-checklist
+FAILOVER-NOVATION-offchain
+public-values-golden
+pv-gpu
+RECONCILE-WITH-RUST
+RECONCILE-WITH-SOLIDITY
+REVIEW-GOALS
+REVIEW-GUIDE
+ROTATION-RUNBOOK
+STATIC-ANALYSIS
+sync-targets
+TWAP-CANONICAL
+x-ray-a8a8ca9
+
+# audit finding IDs and lane labels
+A-H1
+A-L1
+A-L10
+A-L11
+A-L12
+A-L13
+A-L14
+A-L15
+A-L2
+A-L3
+A-L4
+A-L5
+A-L6
+A-L7
+A-L8
+A-L9
+A1-A6
+L-MEV-1
+MP-P1
+Q2-TABLE
+S-I1
+S-I2
+S-I3
+S-I4
+S-I5
+S-L1
+S-L2
+S-L3
+S-L4
+S-M1
+S-M2
+S-M3
+S-M4
+S-M5
+S-M6
+S-O1
+Sol-H1
+
+# branches
+belt-usd-key
+fix-ra1-ra2
+fix-termsid-unique
+fix-twap-guardian
+lane-f-graph-terms3
+lane-g3-premium-replay
+
+# test string literals
+A-B-position
+A-leg
+A-leg-dup
+A-leg-fuzz
+A-leg-xfold
+an-unrelated-position
+another-crx-deployment-domain
+cap-pos
+cap-pos-2
+UNPUBLISHED-TABLE
+
+# other names
+audit-kit
+Morpho-Blue
+zk-im
+arm-time
+
+# unsure. Classified as prose and STILL FLAGGING, because a false whitelist
+# hides a real hit and a false flag costs ten seconds. Move a line up into a
+# group above to whitelist it. The number is how often it occurs.
+#
+# Re-read 2026-07-29 against the corrected test above. NOTHING was promoted.
+# Every line marked "term of art" is jargon, so it is prose, so it stays.
+# oracle-registry left this list UPWARD, into [banned]. It is the one you named.
+#
+#   public-values  (27)  SP1 output name
+#   tear-up  (15)  derivatives term of art
+#   matched-principal  (10)  finance term of art
+#   rank-m  (9)  quantile term of art
+#   Historical-Simulation  (6)  risk method name
+#   netting-set  (6)  Basel term of art
+#   m-th  (5)  ordinal notation
+#   oracle-registry  (5)  file name and prose
+#   front-run  (4)  security term of art
+#   fixed-width  (3)  near term of art
+#   AUTO-CHAIN  (2)  named script mode
+#   front-runnable  (2)  security term of art
+#   set-cover  (2)  algorithm term
+#   ACCOUNTS-ROOT  (1)  state var label
+#   audit-differential  (1)  maybe doc name
+#   core-addr  (1)  abbreviated identifier
+#   DATA-AVAILABILITY  (1)  error label
+#   dry-runs  (1)  plural prose
+#   failover-plan  (1)  doc label
+#   field-for-field  (1)  term-of-art variant
+#   file-emit-restart  (1)  cutover verb
+#   fixture-from-config  (1)  named rule
+#   front-runner  (1)  security term of art
+#   front-runs  (1)  security term of art
+#   guest-three  (1)  internal label
+#   K-PAUSE  (1)  internal label
+#   panic-on-overflow  (1)  rust behavior name
+#   public-value  (1)  SP1 output name
+#   Sham-C  (1)  coined guard name
+#   SORTED-UNIQUE  (1)  named precondition
+#   sub-additivity  (1)  math term, usually unhyphenated
+#   twap-guest-vkey  (1)  README placeholder
+#   vkey-from-step-3  (1)  README placeholder
+
+# ---------------------------------------------------------------------------
+# JARGON YOU MAY OR MAY NOT WANT. This block is OFF, twice over: every line is
+# commented out, and term_of_art = flag in [options]. Both switches must move
+# before one word of it counts.
+#
+# Every entry is a hyphenation English requires: remove the hyphen and you get
+# a non-word or a different meaning. That makes the SPELLING mandatory. It does
+# NOT make the WORD a name. high-water, stand-in and mark-to-market are dense
+# domain language, and you said you want to see dense domain language, one
+# instance at a time, and decide. So the default is that you see it.
+#
+# Turn it on only when you have decided, once and for all, that this vocabulary
+# is settled and you no longer want to be asked. Uncomment the lines you agree
+# with, then set  term_of_art = allow  in [options] at the top.
+#
+# These are the entries removed from [compound-allow] on 2026-07-29, plus more
+# read out of the same corpus and never shipped as live names.
+#
+# byte-for-byte and end-to-end are NOT here. They passed straight through this
+# block into [banned]. A parked line that a live ban contradicts is a trap for
+# whoever reads the file next, so they were cut rather than left commented.
+[term-of-art]
+# checks-effects-interactions
+# compare-and-swap
+# defense-in-depth
+# fee-on-transfer
+# fixed-point
+# high-s
+# low-s
+# mark-to-market
+# MSB-first
+# non-fast-forward
+# off-by-one
+# prefix-free
+# s-complement
+# stack-too-deep
+# Value-at-Risk
+#
+# read out of the contracts corpus, never shipped live
+# arm's-length
+# fail-closed
+# fail-open
+# field-for-field
+# front-run
+# high-water
+# in-circuit
+# matched-principal
+# netting-set
+# no-op
+# one-shot
+# panic-on-overflow
+# set-cover
+# sign-extends
+# stand-in
+# sub-additivity
+# tear-up
+# well-formed
+# write-once
+# ---------------------------------------------------------------------------

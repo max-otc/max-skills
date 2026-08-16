@@ -16,7 +16,7 @@ Once. From inside Claude Code:
 /plugin install max-skills@max-skills
 ```
 
-That installs all seventeen skills below as a single bundle. Use this if you want the lot.
+That installs all twenty-one skills below as a single bundle. Use this if you want the lot.
 
 ## Install a single skill
 
@@ -129,6 +129,30 @@ Invoke with "structuring memorandum", "draft the memorandum", "legal opinion ver
 A formal whitepaper in Jake Schkolnick's CRX-litepaper voice — terse, third-person, present-tense, define-by-negation, run-in bold labels, no em-dash, no hype. Nine-dimension style fingerprint plus a twelve-axis replication checklist.
 
 Invoke with "write the litepaper", "in Jake's voice", "whitepaper version".
+
+### formatting-marketmaker-documents
+
+Format and render formal CRX market-maker documents to the CRX document standard — Margin and Settlement Overview, Collateral Overview, methodologies, mechanism memos. One locked LaTeX-style document class with a conformance gate that renders HTML to PDF locally.
+
+Invoke with "format this CRX doc", "match the CRX standard", "render to PDF".
+
+### max-decisions
+
+Every open decision as one clickable HTML sheet — question, zero-context explanation, options with pros/cons, one recommendation, one verdict line per card. Answer inside the page, press Send.
+
+Invoke with "what decisions are needed", "make a decisions file", "what do I need to rule on".
+
+### max-plan-itteration
+
+Verify a plan, report, or agent-produced doc by fresh adversarial verifier pairs until a full round adds nothing.
+
+Invoke with "verify", "check this", "is this true", "gate it".
+
+### max-blacklist
+
+The ban-word and anti-AI-slop blacklist — banned words, phrases, and 26 measured sentence-structure pattern rules, matched by a Python linter, never by the model. Ships ste-lint.py, ste-lint-code.py, md-structure.py, words.txt.
+
+Invoke with "run the blacklist", "slop check", "AI tells", "banned words".
 
 ## Update
 

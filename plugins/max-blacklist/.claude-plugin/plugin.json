@@ -1,0 +1,9 @@
+{
+  "name": "max-blacklist",
+  "description": "Max's ban-word and anti-AI-slop blacklist — a dictionary of banned words, phrases, and 26 measured sentence-structure pattern rules, matched by a Python linter (never by the model). Ships ste-lint.py for prose, ste-lint-code.py for prose inside source, md-structure.py for document-level tells.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Max OTC"
+  },
+  "keywords": ["blacklist", "banned-words", "slop", "ai-tells", "sentence-structures", "linter", "ste", "prose-quality"]
+}

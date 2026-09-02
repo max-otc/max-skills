@@ -12,7 +12,7 @@
     {
       "name": "max-skills",
       "source": "./plugins/max-skills",
-      "description": "Bundle — installs every Max OTC skill at once (max-persona-research, max-hook, max-marketing, max-doc, formatting-marketmaker-documents, max-ux-flow, max-compress, jake-writing, max-x, max-decisions, max-plan-itteration, max-blacklist, max-audit-loop, max-clean-computer, max-hard-audit, max-merge). One install, every skill.",
+      "description": "Bundle — installs every Max OTC skill at once (max-persona-research, max-hook, max-marketing, max-doc, formatting-marketmaker-documents, max-ux-flow, max-compress, jake-writing, max-x, max-decisions, max-plan-itteration, max-blacklist, max-audit-loop, max-clean-computer, max-hard-audit, max-merge, max-musk, max-urgency). One install, every skill.",
       "version": "2.0.0",
       "category": "bundle",
       "tags": [
@@ -310,6 +310,36 @@
         "worktrees",
         "consolidate",
         "clean-main"
+      ]
+    },
+    {
+      "name": "max-musk",
+      "source": "./plugins/max-musk",
+      "description": "Musk's five-step algorithm applied to agent orchestration — question every requirement, delete, simplify, accelerate, automate last. Target is 10x, never 10%.",
+      "version": "1.0.0",
+      "category": "workflow",
+      "tags": [
+        "orchestration",
+        "subagents",
+        "algorithm",
+        "simplify",
+        "delete",
+        "10x"
+      ]
+    },
+    {
+      "name": "max-urgency",
+      "source": "./plugins/max-urgency",
+      "description": "Deadline-mode orchestration — a hard clock, ten or more subagents live at all times, the critical path starved of everything else, incremental pushes, a standby for every single point of failure.",
+      "version": "1.0.0",
+      "category": "workflow",
+      "tags": [
+        "deadline",
+        "urgency",
+        "orchestration",
+        "parallel-agents",
+        "critical-path",
+        "ship"
       ]
     }
   ]

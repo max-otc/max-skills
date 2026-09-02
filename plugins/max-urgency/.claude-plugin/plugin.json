@@ -1,0 +1,16 @@
+{
+  "name": "max-urgency",
+  "description": "Deadline-mode orchestration — a hard clock, ten or more subagents live at all times, the critical path starved of everything else, incremental pushes, a standby for every single point of failure.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Max OTC"
+  },
+  "keywords": [
+    "deadline",
+    "urgency",
+    "orchestration",
+    "parallel-agents",
+    "critical-path",
+    "ship"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "name": "max-skills",
-  "description": "Install every Max OTC skill in one shot — max-persona-research, max-hook, max-marketing, max-doc, formatting-marketmaker-documents, max-ux-flow, max-compress, jake-writing, max-x, max-decisions, max-plan-itteration, max-blacklist, max-audit-loop, max-clean-computer, max-hard-audit, max-merge. Bundles the entire marketplace into a single plugin so one install command equips Claude with every skill.",
+  "description": "Install every Max OTC skill in one shot — max-persona-research, max-hook, max-marketing, max-doc, formatting-marketmaker-documents, max-ux-flow, max-compress, jake-writing, max-x, max-decisions, max-plan-itteration, max-blacklist, max-audit-loop, max-clean-computer, max-hard-audit, max-merge, max-musk, max-urgency. Bundles the entire marketplace into a single plugin so one install command equips Claude with every skill.",
   "version": "2.0.0",
   "author": {
     "name": "Max OTC"
@@ -38,6 +38,9 @@
     "disk",
     "cleanup",
     "git",
-    "merge"
+    "merge",
+    "orchestration",
+    "deadline",
+    "urgency"
   ]
 }

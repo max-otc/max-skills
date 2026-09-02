@@ -16,7 +16,7 @@ Once. From inside Claude Code:
 /plugin install max-skills@max-skills
 ```
 
-That installs all sixteen skills below as a single bundle. Use this if you want the lot.
+That installs all eighteen skills below as a single bundle. Use this if you want the lot.
 
 ## Install a single skill
 
@@ -125,6 +125,18 @@ Invoke with "merge everything", "one clean main", "collapse the branches".
 Free disk on a Mac while builds run. Finds regenerable storage — caches, build targets, temp — and cleans only what is safe.
 
 Invoke with "clean storage", "free disk", "disk full", "ENOSPC".
+
+### max-musk
+
+Musk's five-step algorithm applied to running agents — question every requirement, delete the part, simplify, accelerate, automate last. Steps run in that order. Target is 10x, never 10%.
+
+Invoke with "max-musk", "run it Musk-style", "apply the algorithm", "this pipeline is bloated".
+
+### max-urgency
+
+Deadline-mode orchestration. A hard clock, ten or more subagents live at all times, the critical path found and starved of everything else, incremental pushes, a standby for every single point of failure.
+
+Invoke with "we ship in N hours", "accelerate", "we are late", "keep pushing".
 
 ## Update
 

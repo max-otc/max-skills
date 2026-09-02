@@ -1,0 +1,16 @@
+{
+  "name": "max-musk",
+  "description": "Musk's five-step algorithm applied to agent orchestration — question every requirement, delete, simplify, accelerate, automate last. Target is 10x, never 10%.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Max OTC"
+  },
+  "keywords": [
+    "orchestration",
+    "subagents",
+    "algorithm",
+    "simplify",
+    "delete",
+    "10x"
+  ]
+}

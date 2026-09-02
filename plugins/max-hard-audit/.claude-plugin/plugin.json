@@ -1,0 +1,16 @@
+{
+  "name": "max-hard-audit",
+  "description": "The 10-agent parallel audit loop — rounds of read-only lenses, a dedup file, verifier pairs + fixer on one consolidated table, cold closes, solutions per fix owner, decision sheets, one serial builder, incremental pushes.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Max OTC"
+  },
+  "keywords": [
+    "audit",
+    "security",
+    "parallel-agents",
+    "verify",
+    "fix",
+    "loop"
+  ]
+}

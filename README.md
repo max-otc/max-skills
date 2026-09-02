@@ -16,7 +16,7 @@ Once. From inside Claude Code:
 /plugin install max-skills@max-skills
 ```
 
-That installs all twenty-one skills below as a single bundle. Use this if you want the lot.
+That installs all sixteen skills below as a single bundle. Use this if you want the lot.
 
 ## Install a single skill
 
@@ -40,23 +40,6 @@ Ten neurologically-engineered video ad hooks for TikTok / Reels / Shorts / Meta.
 
 Invoke with "write a hook", "give me scroll-stoppers", "first 2 seconds for my ad".
 
-### max-explainer-video
-
-Scene-by-scene scripts for stick-figure / whiteboard / Notion-style explainer videos — hand-drawn characters, emoji section headers, callout boxes, a "wait... what?" moment in scene one. Loop ladder: hook → key concept → mechanism → three pillars → examples → rules → conclusion.
-
-Invoke with "write an explainer", "script a whiteboard video about X".
-
-### max-video
-
-One worked YouTube video end-to-end. Nine sequential phases — idea, research, angle, title & thumbnail, script, voice-over, edit, publish, statistics — one artifact per phase in `videos/<slug>/`. For long-form storytelling videos (15 minutes to an hour), not shorts. Method from What a Fail!'s *Comment faire des vidéos (travaillées)*.
-
-Invoke with "make a YouTube video about X", "script a long-form video on Y".
-
-### max-ai-video
-
-An AI-tool / trading-creator YouTube script in the recent DaviddTech mould — hook-first cold open, stacked authority, an enemy, a buddy-talk demo, a funnel staircase, the sign-off jingle. Eleven-part anatomy, ten sentence laws. Built part by part, sentence by sentence.
-
-Invoke with "write a video like DaviddTech", "script my AI tool video".
 
 ### max-x
 
@@ -76,35 +59,11 @@ Write or rewrite documentation in Max's house style — learning paths per reade
 
 Invoke with "write the docs", "rewrite this doc", "document this".
 
-### max-circle
-
-Refactor documentation page by page to the level of Circle's developer docs. Four tiers mined from the Circle corpus: the page system, seven sentence habits, per-mode section choreography, the Circle lexicon. Default mode rebuilds each page from its blueprint; an opt-in pass mode polishes sentences only. Every page survives a register trial before delivery.
-
-Invoke with "circle-quality", "refactor the docs like Circle", "raise the level of English".
-
-### max-eli5
-
-Rewrite any concept "explain like I'm 5" — answer-first, one everyday analogy carried all the way, one mechanism, jargon defined on use, one repeatable takeaway. Built on Feynman, Curse of Knowledge, Hofstadter, Made to Stick.
-
-Invoke with "ELI5", "explain this simply", "in plain English".
-
 ### max-compress
 
 Hyper-compress any text for a human reader — keep every load-bearing point, incinerate the filler. Chain of Density held at its readable middle, output shaped like Fabric's digest. Roughly 3x by default, obeys explicit targets. Not token-soup for a model — readable prose for a person.
 
 Invoke with "compress this", "cut this down", "make it a third the length".
-
-### max-walkthrough
-
-Annotated product screenshots and a step-by-step visual walkthrough, produced by running the real web app in a build-time mock mode, capturing clean shots, and baking arrows and callouts in. The visual companion to `max-doc` — a screenshot the build regenerates never lies.
-
-Invoke with "screenshot every step", "redo the docs with screenshots", "product tour with arrows".
-
-### max-video-walkthrough
-
-An animated Remotion walkthrough video built from scratch — a faux browser holding real captured screen states, a bezier cursor that glides and clicks, typed inputs, rolling numbers, page-load bars, popup callouts, a wallet-approval popup, all driven by a beat timeline. The motion companion to `max-walkthrough`.
-
-Invoke with "walkthrough video", "animated product demo", "cursor demo video".
 
 ### max-ux-flow
 
@@ -112,17 +71,6 @@ Design a UX flow finance-first (regulated, but modern) and general-capable — w
 
 Invoke with "design the flow", "map the screens", "what goes in this table".
 
-### max-ch-article
-
-Culturally adapt an English article into a Chinese one — cultural adaptation, not translation. Skopos, Nida, Venuti, Hall, 起承转合, Hofstede, the 研报 trust economy, verified against 665 real X-Articles. Rebuilt inductive, genre-tagged, bent toward being saved. Glass-box, with an English back-translation.
-
-Invoke with "adapt this article for Chinese readers", "write the Chinese version".
-
-### max-legal
-
-A formal legal structuring memorandum — privileged-and-confidential opinion-letter register, letter header, decimal-numbered sections, case-cited rule-application, jurisdiction-by-jurisdiction analysis, "Things to Watch Out For" lists, a structure diagram, a step plan, a limitations footer.
-
-Invoke with "structuring memorandum", "draft the memorandum", "legal opinion version of this".
 
 ### jake-writing
 
@@ -153,6 +101,30 @@ Invoke with "verify", "check this", "is this true", "gate it".
 The ban-word and anti-AI-slop blacklist — banned words, phrases, and 26 measured sentence-structure pattern rules, matched by a Python linter, never by the model. Ships ste-lint.py, ste-lint-code.py, md-structure.py, words.txt.
 
 Invoke with "run the blacklist", "slop check", "AI tells", "banned words".
+
+### max-audit-loop
+
+Full security audit of a smart-contract + zk-guest codebase, optionally benchmarked against a named auditor's public findings. Cross-maps the standard onto the repo, deep-hunts protocol surfaces, fans out specialist auditors, false-positive-gates every finding before it ships.
+
+Invoke with "audit against <auditor>", "do the audit loop", "check if things they flag we flag too".
+
+### max-hard-audit
+
+The 10-agent parallel audit loop — read-only lenses in rounds, a dedup file, verifier pairs plus a fixer on one consolidated table, cold closes, solutions per fix owner, decision sheets, one serial builder, incremental pushes.
+
+Invoke with "audit X hard", "keep auditing in loops", "audit + fix + push to main".
+
+### max-merge
+
+Consolidate branches, worktrees, or clones of one repo into a single clean main. Subagents hand-pick and rebase each branch; pushes go out serially; zero parked branches remain.
+
+Invoke with "merge everything", "one clean main", "collapse the branches".
+
+### max-clean-computer
+
+Free disk on a Mac while builds run. Finds regenerable storage — caches, build targets, temp — and cleans only what is safe.
+
+Invoke with "clean storage", "free disk", "disk full", "ENOSPC".
 
 ## Update
 

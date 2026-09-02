@@ -46,17 +46,22 @@ Serving over HTTP is required. A `file://` page has an opaque origin and cannot 
 open -a "Google Chrome" "http://127.0.0.1:$PORT/"
 ```
 
-**4. Wait for the answer, then read it.** Max clicks in the page and presses Send. The server writes `~/<topic>-decisions-answers.json` and `~/<topic>-decisions-answers.md`, then exits. Poll for the file:
+**4. Watch for the answer — the agent is ALWAYS looking.** Max clicks in the page and presses Send. The server writes `~/<topic>-decisions-answers.json` and `~/<topic>-decisions-answers.md`, then exits. Waiting is layered — every layer runs, because polls get killed and Max's answers must never sit unread:
+
+- **Layer 1 — Monitor (preferred).** If the `Monitor` tool is available (load via `ToolSearch "select:Monitor"`), start a monitor that fires when `~/<topic>-decisions-answers.json` exists. It survives turn ends and re-invokes the agent on its own.
+- **Layer 2 — background poll (fallback).** If no Monitor, run the poll in the background (`run_in_background`, not foreground):
 
 ```bash
-for i in $(seq 1 240); do
+for i in $(seq 1 720); do
   [ -f ~/<topic>-decisions-answers.json ] && break
-  sleep 15
+  sleep 60
 done
-cat ~/<topic>-decisions-answers.md
+cat ~/<topic>-decisions-answers.md 2>/dev/null || echo "NO ANSWER"
 ```
 
-Do NOT ask Max to type `1A 2B` in the chat. Tell him the sheet is open and answerable in the page, then wait. If he answers in the chat anyway, take it and kill the server.
+- **Layer 3 — the standing check (ALWAYS, regardless of layers 1-2).** While any sheet is outstanding, `cat` the answers file **at the start of every turn** — on every user message, every task notification, every wakeup — before doing anything else. A killed poll or dead monitor is NOT "no answer"; the file is the truth. The sheet is outstanding until the answers file is read or Max cancels it. If a watcher gets killed, do not treat that as a signal to stop watching — restart a layer or rely on layer 3, and say so in one line.
+
+Do NOT ask Max to type `1A 2B` in the chat. Tell him the sheet is open and answerable in the page, then watch. If he answers in the chat anyway, take it and kill the server. If he says "I answered" and the file is missing, check `pgrep -f serve.py` — a dead server means the Send fell back to clipboard; ask him to paste.
 
 The server stops itself 12 hours after start if no answer arrives, so nothing lingers.
 
@@ -85,6 +90,15 @@ Where the options differ in outcome, end the example with the fork made concrete
 
 **If a decision cannot be given a money example, it is not ready to be a decision** — either it is an implementation detail that should not be on the sheet, or it has not been understood well enough to ask about. Do not ship a decision with a hand-waved example.
 
+## The mechanism rule (MANDATORY — every option card)
+
+A label Max cannot picture is a decision he cannot make. Earned by a real failure: a card titled "O(1) barrier + span guard" forced him to ask what it was before he could rule.
+
+- **Every option card opens with a `<p class="how">` line** — first element of the `.pc` block, before pros. One or two short sentences, plain words: what this option actually does. Shape: what exists today → what this option changes → what new rule guards it. The "None of these" card is exempt.
+- **The option `h3` title names the mechanism in plain words** ("Two saved numbers replace the walk"), never a term of art ("O(1) barrier", "payee-consent variant"). Jargon may appear only in parentheses after its plain name.
+- **Define every term the first time it appears anywhere on the sheet** — recut → "regenerating the proof key", guest → "the audited program that runs inside the proof", fixture → "the stored real proof the tests replay".
+- **Never one wall of prose.** ctx carries the today-state and the stake (2–4 sentences); each card's `how` carries that option's mechanics; pros/cons carry the trade. Mechanics of all options crammed into one ctx paragraph is a defect — split them onto the cards.
+
 ## Structure, in order
 
 1. `<h1>`: `{Topic} — the decisions you need to make`.
@@ -98,6 +112,7 @@ Where the options differ in outcome, end the example with the fork made concrete
 
 - The `h2` is a question.
 - A worked money example after `ctx`, per the rule above. No exceptions.
+- A plain-language `how` line opening every option card, per the mechanism rule above. No exceptions.
 - At most ONE `rec` card, always placed first, tag `Recommended`, letter `A`. When there is genuinely no recommendation (a pure cost/appetite call), no card gets `rec`: all cards tagged `Option`, and the verdict opens `Your call —` naming the number that decides it.
 - The sheet's letters are canonical. Reletter freely so the rec is `A`; never reference the source material's original option letters or names ("option (b)") — Max answers with the sheet's letters only.
 - 2–4 options. Two is fine. Never more than four.
@@ -135,3 +150,6 @@ Opened as a plain file with no server, the Send button copies the answer to the 
 | Opening the `file://` path | Open `http://127.0.0.1:$PORT/` — a file page cannot post back |
 | Asking Max to type `1A 2B` in the chat | He answers in the page; wait for the answers file |
 | Dropping the `None of these` card or the comment box | Both stay on every decision |
+| Option title is a term of art ("O(1) barrier") | Rename to the plain mechanism; jargon in parentheses only |
+| Option card with no `how` line | Every card opens with one — what it does, today → change → guard |
+| All options' mechanics crammed into ctx | ctx keeps today-state + stake; each card's `how` carries its own mechanics |

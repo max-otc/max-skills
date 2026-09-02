@@ -45,6 +45,7 @@ code{font-family:var(--mono);font-size:.82em;background:var(--code);padding:1px 
 .opt h3{font-family:var(--disp);font-size:1.02rem;line-height:1.25;margin-top:3px}
 .opt .effort{font-size:.72rem;color:var(--ink3);margin-top:4px}
 .pc{padding:11px 14px;display:flex;flex-direction:column;gap:9px;flex:1}
+.pc .how{font-size:.85rem;color:var(--ink);line-height:1.4;padding:8px 10px;background:var(--code);border-radius:8px}
 .pc b.h{display:block;font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;margin-bottom:5px}
 .pc .pro b.h{color:var(--pro)} .pc .con b.h{color:var(--con)}
 .pc ul{list-style:none;display:flex;flex-direction:column;gap:5px}
@@ -120,8 +121,9 @@ footer{color:var(--ink3);font-size:.78rem;border-top:1px solid var(--line);paddi
 
     <label class="opt rec"> <!-- exactly ONE rec card per decision, always FIRST -->
       <input class="pick" type="radio" value="A">
-      <header><div class="tag">Recommended</div><h3>A · {{option name}}</h3><div class="effort">Effort: {{ZERO/TRIVIAL/SMALL/MED/LARGE}} · {{qualifier}}</div></header>
+      <header><div class="tag">Recommended</div><h3>A · {{plain-mechanism name — what it does, not a term of art}}</h3><div class="effort">Effort: {{ZERO/TRIVIAL/SMALL/MED/LARGE}} · {{qualifier}}</div></header>
       <div class="pc">
+        <p class="how">{{HOW: what this option actually does, 1–2 plain sentences — what exists today → what this changes → what new rule guards it. MANDATORY on every option card.}}</p>
         <div class="pro"><b class="h">Pros</b><ul class="pro">
           <li>{{≤4 bullets, each one line}}</li>
         </ul></div>
@@ -133,8 +135,9 @@ footer{color:var(--ink3);font-size:.78rem;border-top:1px solid var(--line);paddi
 
     <label class="opt">
       <input class="pick" type="radio" value="B">
-      <header><div class="tag">Option</div><h3>B · {{option name}}</h3><div class="effort">Effort: {{...}}</div></header>
+      <header><div class="tag">Option</div><h3>B · {{plain-mechanism name}}</h3><div class="effort">Effort: {{...}}</div></header>
       <div class="pc">
+        <p class="how">{{HOW: this option's mechanics, 1–2 plain sentences.}}</p>
         <div class="pro"><b class="h">Pros</b><ul class="pro"><li>{{...}}</li></ul></div>
         <div class="con"><b class="h">Cons</b><ul class="con"><li>{{...}}</li></ul></div>
       </div>

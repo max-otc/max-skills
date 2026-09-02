@@ -1,9 +1,0 @@
-{
-  "name": "max-video-walkthrough",
-  "description": "Build an animated Remotion walkthrough video of a web app from scratch — a faux browser holding real captured screen states, a bezier cursor that glides and clicks, typed inputs, rolling numbers, page-load bars, popup callouts, and a wallet-approval popup, all driven by a beat timeline. The motion companion to max-walkthrough.",
-  "version": "1.0.0",
-  "author": {
-    "name": "Max OTC"
-  },
-  "keywords": ["walkthrough", "video", "remotion", "screen-recording", "product-demo", "cursor", "mock-mode", "onboarding-video"]
-}

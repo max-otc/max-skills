@@ -1,0 +1,16 @@
+{
+  "name": "max-audit-loop",
+  "description": "Full security audit of a smart-contract + zk-guest codebase, optionally benchmarked against a named auditor's public findings. Cross-maps the external standard, deep-hunts protocol surfaces, fans out specialist auditors, false-positive-gates every finding.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Max OTC"
+  },
+  "keywords": [
+    "audit",
+    "security",
+    "smart-contracts",
+    "zk",
+    "cross-map",
+    "false-positive-gate"
+  ]
+}

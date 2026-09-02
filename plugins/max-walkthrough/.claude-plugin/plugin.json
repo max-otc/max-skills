@@ -1,9 +1,0 @@
-{
-  "name": "max-walkthrough",
-  "description": "Generate annotated product screenshots and a step-by-step walkthrough docs page by running the real web app in a build-time mock mode, capturing clean shots, and baking arrows + callouts. The visual companion to max-doc.",
-  "version": "1.0.0",
-  "author": {
-    "name": "Max OTC"
-  },
-  "keywords": ["walkthrough", "screenshots", "annotated", "mock-mode", "playwright", "docs", "product-tour", "onboarding"]
-}

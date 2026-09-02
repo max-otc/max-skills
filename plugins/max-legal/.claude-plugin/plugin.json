@@ -1,9 +1,0 @@
-{
-  "name": "max-legal",
-  "description": "Write a formal legal structuring memorandum — privileged-and-confidential opinion-letter register with a letter header, decimal-numbered sections, case-cited rule-application, jurisdiction-by-jurisdiction analysis, Things to Watch Out For lists, a structure diagram, a step plan, and a limitations footer.",
-  "version": "1.0.0",
-  "author": {
-    "name": "Max OTC"
-  },
-  "keywords": ["legal", "memorandum", "structuring", "opinion-letter", "law-firm", "jurisdiction", "compliance", "privileged", "legal-writing"]
-}

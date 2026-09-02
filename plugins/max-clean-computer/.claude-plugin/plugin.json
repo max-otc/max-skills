@@ -1,0 +1,15 @@
+{
+  "name": "max-clean-computer",
+  "description": "Free disk on a Mac safely while builds run — finds regenerable storage (caches, build targets, temp) and cleans only what is safe.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Max OTC"
+  },
+  "keywords": [
+    "disk",
+    "cleanup",
+    "storage",
+    "enospc",
+    "mac"
+  ]
+}

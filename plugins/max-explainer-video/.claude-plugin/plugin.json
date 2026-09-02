@@ -1,9 +1,0 @@
-{
-  "name": "max-explainer-video",
-  "description": "Generate scene-by-scene scripts for stick-figure / whiteboard / Notion-style explainer videos. Hook → concept → mechanism → 3 pillars → examples → rules → conclusion. Visual-first, sound-off readable, loop-laddered.",
-  "version": "1.0.0",
-  "author": {
-    "name": "Max OTC"
-  },
-  "keywords": ["video-script", "explainer", "whiteboard", "stick-figure", "rsa-animate", "teaching-video", "content-script", "notion-style"]
-}

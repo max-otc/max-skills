@@ -1,9 +1,0 @@
-{
-  "name": "max-video",
-  "description": "Produce one worked YouTube video end-to-end — idea, research, angle, title & thumbnail, script, voice-over, edit, publish, stats — using the method from What a Fail!'s 'Comment faire des vidéos (travaillées)'. Title is set before writing so the script honours its promise.",
-  "version": "1.0.0",
-  "author": {
-    "name": "Max OTC"
-  },
-  "keywords": ["video", "youtube", "scriptwriting", "storytelling", "production-pipeline", "long-form", "content-creation"]
-}

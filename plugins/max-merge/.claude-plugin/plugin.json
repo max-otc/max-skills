@@ -1,0 +1,16 @@
+{
+  "name": "max-merge",
+  "description": "Consolidate several branches, worktrees, or clones of one repo into a single clean main — fans out subagents to hand-pick and rebase each branch, pushes serially, zero parked branches.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Max OTC"
+  },
+  "keywords": [
+    "git",
+    "merge",
+    "branches",
+    "worktrees",
+    "consolidate",
+    "clean-main"
+  ]
+}

@@ -1,9 +1,0 @@
-{
-  "name": "max-eli5",
-  "description": "Rewrite any concept \"explain like I'm 5\" — answer-first, one everyday analogy carried all the way, one mechanism, jargon defined on use, one repeatable takeaway. Built on the explanation canon (Feynman, Curse of Knowledge, Hofstadter, Made to Stick) and the recurring moves in top r/explainlikeimfive answers.",
-  "version": "1.0.1",
-  "author": {
-    "name": "Max OTC"
-  },
-  "keywords": ["eli5", "explain-like-im-5", "plain-english", "simplify", "feynman", "analogy", "explainer", "curse-of-knowledge", "made-to-stick", "reddit"]
-}

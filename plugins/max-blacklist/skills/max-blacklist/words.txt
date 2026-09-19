@@ -2398,3 +2398,1672 @@ arm-time
 # well-formed
 # write-once
 # ---------------------------------------------------------------------------
+
+# ===========================================================================
+# 2026-09-19: PUBLIC SOURCE IMPORT. Four published slop lists were read against
+# this file and only the gap was taken. Nothing above this line was touched.
+#
+# Sources, with the date each was last moved, because a list that stopped
+# moving is a list that stopped learning:
+#   sam-paech/slop-score          data/slop_list*.json, last updated 2025-11-22.
+#                                 OLDER THAN THE REST, read it as a 2025 list.
+#   hardikpandya/stop-slop        references/structures.md, references/phrases.md
+#   JMill/deslop                  docs/ANTI-SLOP-STYLE-GUIDE.md
+#   Wikipedia:Signs of AI writing raw wikitext, last edit 2026-09-19
+#
+# SCREENING, and it cut more than it kept. Every candidate was counted over two
+# frozen CRX corpora before it was allowed in: 5.8 MB of contracts prose (every
+# .md, .sol and .rs comment under crxfx-contracts-ref) and a 12.7 MB corpus that
+# adds the mono and ui docs and the session notes. A candidate scoring 3 or more
+# in either corpus was DROPPED, and the drops are recorded below by name so
+# nobody imports them again.
+#
+# slop_list.json holds 1,648 entries and 1,000 of them are fantasy character
+# names harvested from fiction (aelric, xylothians, zorvathian). Those are not
+# imported: they cannot occur here and a rule that cannot fire teaches the
+# reader to ignore the linter. The non-fiction tail of 648 essay words is the
+# part that matters; 32 were already banned, 616 survived, 282 ship.
+#
+# DROPPED ON A TERM-OF-ART COLLISION, measured not guessed:
+#   underscore/underscores/underscored  16 hits, every one the CHARACTER `_` in
+#                                       a naming rule. deslop's headline word,
+#                                       and it cannot be banned here.
+#   unpack/unpacks/unpacking            5 hits, bit unpacking and tarballs.
+#   in this section                     9 hits, a real cross-reference.
+#   scrutinize, scrutinizing            audit verbs, the job this repo does.
+#   rigor, mitigate, mitigating         "scale the rigor", "mitigation".
+#   align, aligns, aligning             alignment is a struct layout word here.
+#   iterate, iterative, iteratively     the plan loop is named for it.
+#   optimize, optimizes, optimizing     gas optimization.
+#   vulnerabilities, traceability       audit nouns.
+#   volatilities, profitability,        finance nouns.
+#   diversification, downturns,
+#   asymmetries, externalities
+#   incentivize and family              mechanism design.
+#   determinant, determinants           a matrix word.
+#   misalignment, misaligned            layout again.
+#   methodological                      the IM methodology documents.
+#   stewardship                         the Base steward.
+#   scalable, scalability, algorithmic, monolithic, integration family,
+#   bottlenecks, frictions, commodification, enforceability, preempt,
+#   decentralizing, recalibrate, responsiveness, oversights, geopolitical
+#   actionable, measurable              4 and 3 hits in the audit prose.
+#   rather than                         796 hits. Ordinary English.
+#   refers to, represents a             3 and 1 hits, and both name a real
+#                                       encoding relation in a layout document.
+# ---------------------------------------------------------------------------
+
+[banned]
+# --- from sam-paech/slop-score, data/slop_list.json, list last updated
+# 2025-11-22. The non-fiction tail only. 282 entries, every one measured at
+# 0, 1 or 2 hits across 18.5 MB of CRX prose.
+accentuates
+adaptability
+adaptable
+adeptly
+adherence
+advancements
+amid
+amplifies
+amplify
+amplifying
+aspirational
+astutely
+averting
+ballooned
+bedrock
+blueprinting
+borderless
+burgeoning
+cementing
+centricity
+characterized
+cohesion
+collaboratively
+competencies
+complexities
+conducive
+confluence
+contextualize
+contextualized
+contextualizing
+contextually
+conversely
+cornerstone
+counterarguments
+critiqued
+critiquing
+cultivate
+cultivates
+cultivating
+curbing
+deceptively
+deconstruct
+deconstructs
+delineate
+delineates
+delineating
+democratize
+democratized
+democratizes
+democratizing
+demonstrable
+demonstrably
+demystifies
+demystify
+digitalization
+dilemmas
+dismantles
+dissecting
+dissects
+dynamism
+elevates
+elucidates
+elucidating
+embodying
+empathetic
+emphasizes
+emphasizing
+encapsulate
+encapsulates
+encapsulating
+encompass
+encompasses
+encompassing
+encourages
+endures
+enduring
+engenders
+enhance
+enhances
+enhancing
+enriches
+entails
+entrenching
+epitomize
+epitomized
+epitomizes
+equitable
+ethical
+ethically
+evidenced
+evoking
+evolves
+evolving
+exacerbate
+exacerbated
+exacerbates
+exacerbating
+exemplified
+exemplifies
+exemplify
+exemplifying
+explores
+facilitating
+falters
+foregrounding
+foregrounds
+fortifies
+fortifying
+foundational
+fourthly
+fraught
+fueled
+functionalities
+grapple
+grappled
+grapples
+hampers
+heightens
+highlighting
+hinder
+hindering
+holistic
+holistically
+hurdles
+illuminates
+imbue
+imbues
+imbuing
+immense
+impactful
+impacting
+imperatives
+implications
+indelible
+indispensable
+inefficiencies
+inextricably
+infrastructural
+ingrained
+initiatives
+innovate
+insidiously
+interconnected
+interconnectedness
+interdependence
+interplay
+interrelated
+interrogates
+intertwined
+intertwines
+intertwining
+interventions
+intricacies
+intricate
+intrinsically
+irrevocably
+judicious
+judiciously
+juxtaposes
+juxtaposing
+logistical
+luster
+masterclass
+masterfully
+masterstroke
+meaningfully
+mentorship
+meticulous
+meticulously
+multifaceted
+multipronged
+nascent
+necessitate
+necessitates
+necessitating
+nuanced
+nuances
+nurtures
+outpacing
+overarching
+overemphasis
+overextension
+overreach
+overreliance
+oversimplification
+oversimplifies
+oversimplify
+paradoxical
+paradoxically
+paramount
+performative
+permeates
+permeating
+perpetuates
+perpetuating
+perpetuation
+pertains
+perils
+pervasive
+personalization
+personalized
+policymakers
+poignantly
+posits
+positing
+powerfully
+practicalities
+predicated
+prioritization
+prioritize
+prioritized
+prioritizes
+prioritizing
+proactive
+proactively
+profound
+profoundly
+proliferates
+pronouncements
+propels
+quintessential
+recognizing
+redefines
+reengineering
+reframing
+reimagining
+reinforces
+reinforcing
+relentless
+reshaping
+resonated
+resonates
+reverberate
+revolutionized
+revolutionizing
+safeguarding
+scorecard
+shaping
+simplistic
+societal
+socioeconomic
+solidify
+solidifying
+spotlighted
+stakeholders
+starkly
+stifles
+strategically
+streamline
+streamlines
+streamlining
+subtly
+suboptimal
+surged
+sustainability
+synergies
+synergistic
+synergistically
+tailored
+tangible
+tapestry
+technological
+thirdly
+thrives
+touchpoints
+transcending
+transcends
+transformative
+unburdened
+undeniably
+underpin
+underpinned
+underpinning
+underpinnings
+underpins
+unflinching
+unshakeable
+unvarnished
+unwavering
+unyielding
+upheavals
+wellspring
+
+# --- from Wikipedia:Signs of AI writing, "words to watch" boxes, page last
+# edited 2026-09-19. Only the entries this file did not already carry.
+boasts
+garner
+garners
+garnered
+garnering
+showcase
+showcases
+showcasing
+showcased
+vibrant
+testament
+nestled
+groundbreaking
+renowned
+diverse array
+in the heart of
+natural beauty
+additionally
+
+# --- from hardikpandya/stop-slop, references/phrases.md, and JMill/deslop,
+# docs/ANTI-SLOP-STYLE-GUIDE.md, both read 2026-09. Throat-clearing openers,
+# emphasis crutches, business jargon, meta-commentary and the vague
+# declarative. The adverb half of stop-slop's list was already banned here,
+# fourteen of fifteen; only the five below were missing.
+deeply
+fundamentally
+inevitably
+interestingly
+importantly
+crucially
+here's the thing
+here's what
+here's why
+here's how
+the uncomfortable truth is
+it turns out
+let me be clear
+the truth is
+i'll say it again
+i'm going to be honest
+can we talk about
+let that sink in
+this matters because
+make no mistake
+here's why that matters
+navigate
+navigates
+navigated
+navigating
+lean into
+leans into
+leaning into
+game-changer
+double down
+doubles down
+deep dive
+deep dives
+take a step back
+moving forward
+on the same page
+at its core
+in today's
+it's worth noting
+at the end of the day
+when it comes to
+in a world where
+the reality is
+plot twist
+spoiler
+you already know this
+but that's another post
+dressed up as
+let me walk you through
+as we'll see
+i want to explore
+creeps in
+i promise
+actually matters
+the reasons are structural
+the implications are significant
+the stakes are high
+the consequences are real
+delve
+delves
+delved
+delving
+pivotal
+multifaceted
+comprehend
+bolster
+bolsters
+bolstered
+bolstering
+pinpoint
+pinpoints
+foster
+fosters
+fostered
+fostering
+elevate
+elevates
+realm
+realms
+one size fits all
+double-edged sword
+silver bullet
+not to mention
+in essence
+in conclusion
+to sum up
+that being said
+that said
+with that said
+
+# --- from sam-paech/slop-score, data/slop_list_trigrams.json, same 2025-11-22
+# list. The file stores them stopword-stripped ("plays crucial role"), so each
+# one is written back into the form a sentence actually takes. 101 entries,
+# every one measured at ZERO hits across both CRX corpora. The fiction half of
+# the trigram file ("voice barely whisper", "heart pounding chest") is not
+# imported, same reason the fiction words are not.
+plays a crucial role
+plays a pivotal role
+plays a vital role
+plays a critical role
+plays a significant role
+play a crucial role
+play a pivotal role
+played a crucial role
+played a pivotal role
+played a significant role
+crucial role in shaping
+pivotal role in shaping
+extends far beyond
+extend far beyond
+extends beyond mere
+goes far beyond
+goes beyond simply
+moving beyond simple
+must move beyond
+move beyond simplistic
+a one-size-fits-all approach
+a double-edged sword
+a multi-faceted approach
+a multi-pronged approach
+requires a multifaceted approach
+requires a multi-pronged approach
+address the root causes
+addressing the root causes
+addressing the challenges requires
+another critical aspect
+another critical component
+another critical factor
+another layer of complexity
+an increasingly interconnected world
+in an increasingly
+the ever-evolving landscape
+a rapidly evolving landscape
+the landscape continues to evolve
+the industry continues to evolve
+as the industry continues
+provide valuable insights
+provides valuable insights
+offers valuable insights
+gain a deeper understanding
+requires a deep understanding
+requires careful consideration
+a closer examination reveals
+a complex interplay of factors
+a complex tapestry woven
+a tapestry woven
+built upon a foundation
+serves as a stark reminder
+serves as a cautionary tale
+a significant turning point
+marked a turning point
+marked a significant turning
+marked a pivotal moment
+made significant strides
+faces several challenges
+faced significant challenges
+far-reaching implications
+far-reaching consequences
+a testament to the enduring power
+the driving force behind
+a virtuous cycle
+creates a virtuous cycle
+fostering a culture of
+a culture of continuous improvement
+a culture of continuous learning
+fostering a sense of community
+fostering a sense of belonging
+foster a sense of
+unlock the full potential
+unlock its full potential
+a level playing field
+a delicate balancing act
+a crucial step towards
+a unique value proposition
+a growing body of research
+confront uncomfortable truths
+challenge the status quo
+in today's fast-paced
+an era defined by
+navigating the complexities
+navigate the complexities
+navigate a complex landscape
+beyond the surface level
+a forward-thinking approach
+distinct yet interconnected
+it is crucial to acknowledge
+it is important to acknowledge
+however, it is crucial
+essential for long-term
+key performance indicators
+short-term gains
+evidence-based strategies
+evidence-based approach
+cutting-edge technology
+without fear of reprisal
+manifest in various ways
+manifest in various forms
+
+# ---------------------------------------------------------------------------
+[pattern]
+# Rules 34 to 48, named 2026-09-19. A seventh hunt, and the first one run
+# against PUBLISHED lists rather than against this repo's own prose: the
+# sentence structures in hardikpandya/stop-slop (references/structures.md),
+# the layer-2 shapes in JMill/deslop, and the named structures on
+# Wikipedia:Signs of AI writing. Fifteen ship. Five were measured and cut, and
+# their rates sit at the end of this block so nobody proposes them again.
+#
+# THESE FIFTEEN SIT LAST, same reason rules 15 to 33 do: every rule above
+# claims its spans first, so nothing here can steal a count from anything
+# there. ALL FIFTEEN ARE CASE-FORCED with (?-i:...), the same trap this file
+# has now hit three times: the loader compiles every [pattern] with re.I, so a
+# bare [a-z] matches CAPS too, the span claim then eats an acronym, and the
+# all-capitals rule silently loses the hit.
+#
+# READ THE COUNTS BEFORE READING THE RULES. Most of these score ZERO on the
+# CRX corpus, and that is the finding rather than a defect. These shapes belong
+# to essay, blog and landing-page prose, which is the half of the writing this
+# repo's own corpus cannot exercise. A zero-hit rule carries a zero false-
+# positive rate, which is the bar this file ships against; where a rule DID
+# fire on CRX prose the count is stated and the innocent rate with it.
+#
+# Rule 34, FALSE AGENCY, the one stop-slop names and nothing here caught. An
+# abstract noun is given a human verb, so the sentence never names who acted:
+# "a complaint becomes a fix", "the decision emerges", "the culture shifts",
+# "the market rewards". The first draft matched ANY noun and scored 232 hits at
+# 10 in 12 innocent, because a router, a fold and a keeper genuinely do decide:
+# machine agency is real agency and must not be charged. The shipped rule holds
+# a CLOSED list of abstract subjects, which is the only form that separates the
+# tell from the fact. 0 hits on the contracts corpus, 2 on the wider one, both
+# of them the literal example sentence quoted in a note.
+(?-i:\b(?:[Tt]he|[Aa]n?) (?:complaint|decision|culture|conversation|dialogue|discourse|narrative|story|journey|landscape|ecosystem|experience|relationship|trend|momentum|sentiment|market|data|insight|idea|truth|bet|process|outcome|community|industry|technology) (?:becomes|become|emerges|emerge|shifts|shift|evolves|evolve|rewards|reward|tells us|wants|knows|decides|chooses|demands|remembers|forgets|speaks|learns|teaches|understands|believes|feels|cares|lives or dies)\b) -> false agency: name the person who acted
+# Rule 35, the faceless source. "research shows", "the data tells us",
+# "experts say". deslop's provenance test in one line: a claim with no name on
+# it cannot be checked. 2 hits, both "the data suggests", 0 innocent.
+(?-i:\b(?:research|studies|the research|the data|the evidence|experts|science|history) (?:shows|show|tells us|suggests|suggest|says|say|proves|prove|reveals|reveal)\b) -> name the source and the affiliation
+# Rule 36, the throat-clearing opener. "Here's the thing", "Here's what I
+# mean", "Here is why that matters". The sentence announces a point instead of
+# making it. 1 hit on the contracts corpus, 4 on the wider one, 0 innocent.
+(?-i:\bHere(?:'s| is) (?:the|a|an|what|why|how|where|another|my|your)\b) -> throat-clearing: state the point
+# Rule 37, the contracted antithesis. Rule 11 carries "is not X. It is Y" and
+# was measured at 0 hits for the CONTRACTED form in 2026-08. The form occurs
+# now: 1 hit, 0 innocent. The two partition, rule 11 cannot reach an apostrophe.
+(?-i:\b(?:isn't|aren't|wasn't|weren't) [a-z][a-z ,'()]{0,60}[.,;] [Ii]t'?s\b) -> antithesis: drop the setup, state the fact
+# Rule 38, the reframe on a named noun. "The question isn't X. It's Y", "The
+# answer is not speed", "The problem isn't the code". A misdirection that
+# spends a clause denying a question nobody asked. 1 hit, 0 innocent.
+(?-i:\b[Tt]he (?:question|answer|problem|issue|point|goal|risk|truth) (?:isn't|is not)\b) -> reframe: name the thing directly
+# Rule 39, dramatic fragmentation. "That's it. That's the whole rule." "Let
+# that sink in." Performative simplicity: the fragment carries no fact the
+# sentence before it did not. 0 hits.
+(?-i:\bThat'?s it\b|\bThat'?s the [a-z]+\.|\bLet that sink in\b) -> fragment drama: write the complete sentence
+# Rule 40, the narrator at a distance. "This is why", "This happens because",
+# "People tend to", "What if". The writer floats above the scene and lectures
+# rather than naming what happened. Rule 17 carries the pointer restatement on
+# This; this carries the causal lecture. 0 hits.
+(?m)(?-i:(?:^|(?<=\. ))(?:This is why|This happens because|People tend to|Nobody designed|What if )) -> narrator distance: put the reader in the room
+# Rule 41, the transformation arc. "stops being a hedge and starts being a
+# bet". The thing did not transform, somebody changed it. The bare "stops
+# being" was tested and left out: 25 hits at 5 in 10 innocent, because a row
+# really does stop being eligible. Only the full arc ships. 1 hit, 0 innocent.
+(?-i:\bstops? being [a-z]+(?: [a-z]+){0,2} and starts? being\b) -> false transformation: name who changed it
+# Rule 42, importance announced instead of shown. "The implications are
+# significant", "The stakes are high", "The reasons are structural". stop-slop
+# calls it the vague declarative: a sentence that says a thing matters and
+# never says which thing. 0 hits.
+(?-i:\b[Tt]he (?:implications|stakes|consequences|reasons|risks|results) are (?:significant|structural|real|high|clear|profound|staggering)\b) -> name the specific thing, not its importance
+# Rule 43, the ready-made figure. "one-size-fits-all", "a double-edged sword",
+# "a silver bullet", "a feature, not a bug". A phrase the writer did not
+# choose. 0 hits.
+(?-i:\bone[- ]size[- ]fits[- ]all\b|\bdouble[- ]edged sword\b|\bsilver bullet\b|\ba feature,? not a bug\b) -> ready-made figure: write the plain fact
+# Rule 44, copulative avoidance, named on Wikipedia and corroborated there by
+# a measured 10% fall in "is" and "are" in academic prose after 2023. "functions
+# as the exhibition arm" for "is the exhibition arm". The verb is longer and the
+# sentence says less. THE RULE SHIPPED WIDE AND WAS NARROWED THE SAME HOUR, so
+# read the cut before widening it again. serve, serves and served as scored 7
+# hits on the contracts corpus and 3 in 3 innocent: "stablecoins cannot serve as
+# initial margin" is the correct sentence and no copula replaces it. stands,
+# stand and stood as scored 25 on the wider corpus at 24 in 25 innocent, house
+# idiom throughout ("the row stands as built", "the [OK] stands as stated").
+# Both families are out. What ships is the two verbs no CRX sentence needs:
+# 0 hits on the contracts corpus, 1 on the wider one, 0 innocent.
+(?-i:\b(?:functions|function|operates|operate) as\b) -> copulative avoidance: write is or are
+# Rule 45, the vague connection. "associated with", "in connection with",
+# "connected to". Wikipedia's AICONNECT: two subjects are placed near each
+# other and the relation between them is never stated. 0 hits. FLAG AND
+# TRIAGE, because a risk really can be associated with a path.
+(?-i:\b(?:associated with|in connection with|connected (?:with|to)|in association with)\b) -> name the relation, not the association
+# Rule 46, the significance frame. "a testament to", "an indelible mark", "the
+# focal point", "setting the stage for", "plays a crucial role", "the evolving
+# landscape". Wikipedia's AIPUFFERY, and the commonest shape in the whole
+# import. 0 hits.
+(?-i:\b(?:a testament to|a stark reminder|indelible mark|focal point|turning point|setting the stage for|reflects broader|evolving landscape|plays? an? (?:crucial|pivotal|vital|significant|key|central|important) role)\b) -> significance frame: state what the thing does
+# Rule 47, the outline-shaped conclusion. "Despite these challenges", "Looking
+# ahead", "as the field continues to evolve". A closing paragraph generated
+# from a template rather than from the argument. 0 hits.
+(?-i:\bDespite these challenges\b|\bDespite its\b|\bLooking ahead\b|\bFuture Outlook\b|\bcontinues to evolve\b) -> outline conclusion: end on the last fact
+# Rule 48, the curly quotation mark and apostrophe. Wikipedia lists them
+# because a model emits them and a keyboard does not, and they break a grep,
+# a diff and a shell quote on the way past. 0 hits on the contracts corpus,
+# 723 on the wider one, every one of them in machine-written session notes,
+# which is the rule working. 0 innocent.
+# A LINE THAT OPENS ON "[" IS READ AS A SECTION HEADER AND DROPPED, with one
+# warning on stderr, so the character class is wrapped in a group it does not
+# need. The rule shipped bare for one run and loaded as nothing.
+(?:[\u2018\u2019\u201c\u201d]) -> curly quotation mark: write the straight one
+#
+# MEASURED AND CUT, so nobody imports them again. Five shapes from the same
+# four sources were written and run over both corpora and every one is too
+# noisy to ship. The count is hits on the 12.7 MB corpus, the rate is how many
+# of twelve sampled hits were innocent:
+#   false agency, any noun     232 hits, 10 in 12 innocent. "the router
+#                              decides", "the fold decides", "the caller
+#                              chooses". A machine that computes an answer
+#                              really does decide, and a human subject really
+#                              does want. Rule 34 ships the closed-list form.
+#   Wh- sentence opener        52 hits, 8 in 12 innocent. stop-slop bans an
+#   (Why How Where Which Who)  opening What, When, Where, Which, Who, Why and
+#                              How. Rules 18 and 33 already carry What and
+#                              When. The remaining five are almost all
+#                              headings ("## 3. Where the risk hides") and
+#                              real subordinate openers.
+#   rather than                796 hits. Wikipedia's "Y rather than X" negative
+#                              parallelism. Ordinary English at this density.
+#   refers to                  3 hits, all innocent. A glossary refers to a
+#   represents a               1 hit, innocent. A word represents a layout.
+#                              Both are Wikipedia copulative-avoidance entries
+#                              that collide with what an encoding document has
+#                              to say.
+#   not just X but Y           0 hits, and it can never have one, for the
+#                              reason recorded at rules 9 to 14: just, only,
+#                              merely and simply are [banned] literals and the
+#                              literal rules claim their spans first.
+# ---------------------------------------------------------------------------
+
+# ===========================================================================
+# 2026-09-19, SECOND IMPORT: berelevant-ai/slopless, a textlint plugin whose
+# last commit is 2026-09-06, the newest-moving list of the five read today.
+#
+# THE TOOL WAS EVALUATED BEFORE THE LIST WAS COPIED, and the evaluation is the
+# reason no Node process runs here. slopless v0.2.38 installs clean and offline
+# in 4 seconds, 189 packages, 58 MB, no network at run time. Its 51 rule
+# modules read as parser-backed and are not: five of the six structure rules
+# are literal phrase lists over a sentence splitter, and the sixth adds two
+# part-of-speech gates. Nothing in it needs a parser this file cannot match
+# with a regex.
+#
+# Measured on a 22-line fixture, 11 reworded slop lines and 11 verbatim CRX
+# doc lines: slopless caught 6 of 11 slop and flagged 2 of 11 CRX lines, both
+# on demonstrative-emphasis, both plain short declaratives in the house voice
+# ("The base token is the only collateral, valued at par."). A catcher that
+# charges this package for writing short sentences is not wired in. The phrase
+# data ships; the dependency does not.
+#
+# Sources inside the package: syntactic-patterns/closers/summative-closer.ts,
+# lead-ins/llm-openers.ts, lead-ins/boilerplate-framing.ts,
+# closers/boilerplate-conclusion.ts, closers/affirmation-closers.ts,
+# authority/uncited-authority.ts, generalization/universalizing-claims.ts.
+# Every literal below scored 0 hits on both CRX corpora.
+# ---------------------------------------------------------------------------
+
+[banned]
+the interesting part is
+in the ever-evolving landscape
+in the realm of
+in the world of
+in today's digital age
+in today's fast-paced world
+to be clear
+to be honest
+let me be honest
+in all honesty
+truth be told
+if i'm being honest
+if i'm being perfectly honest
+let me level with you
+i'll be straight with you
+i'll be frank
+no sugarcoating
+i won't sugarcoat it
+not to put too fine a point on it
+let's be real
+let's be honest
+here's the deal
+here's the kicker
+here's the truth
+here's where it gets interesting
+the fact of the matter is
+in the grand scheme of things
+it's fair to say
+there are no easy answers
+we are at an inflection point
+this is the important part
+it is worth considering that
+frankly
+candidly
+all in all
+in summary
+to summarize
+the bottom line is
+the key takeaway is
+the main takeaway is
+the practical takeaway
+the real lesson is
+the takeaway is
+and that's what makes
+that's the reason
+and that's the key
+that's what matters
+that's the good stuff
+the whole point
+the real shift
+the research is clear
+the science is clear
+decades of research
+research leaves no doubt
+is not a luxury
+the rest is detail
+the whole trick
+the core fact
+the important part
+the practical point
+most people want
+everyone knows
+everybody knows
+nobody wants
+
+# --- from berelevant-ai/slopless, src/rules/phrases/data/cliches.json, 829
+# entries, read 2026-09-19. These are ordinary English cliches rather than AI
+# tells: a phrase the writer reached for instead of choosing one. 821 ship.
+# EIGHT WERE DROPPED on a measured collision with CRX prose, and they are named
+# so nobody re-imports them: for free (23 hits), on the money (11), on the spot
+# (8), a clean slate (2), in a word (2), off the wall (2), on the same page (2,
+# and already carried above from stop-slop), holds the key to (1).
+a chip off the old block
+a dark and stormy night
+a far cry
+a fate worse than death
+a fine kettle of fish
+a loose cannon
+a penny saved is a penny earned
+a tough row to hoe
+a word to the wise
+ace in the hole
+acid test
+add insult to injury
+against all odds
+air your dirty laundry
+alas and alack
+all fun and games
+all hell broke loose
+all in a day's work
+all talk, no action
+all thumbs
+all your eggs in one basket
+all's fair in love and war
+all's well that ends well
+almighty dollar
+american as apple pie
+an axe to grind
+another day, another dollar
+armed to the teeth
+as luck would have it
+as old as time
+as the crow flies
+at loose ends
+at my wits end
+at the end of the day
+avoid like the plague
+babe in the woods
+back against the wall
+back in the saddle
+back to square one
+back to the drawing board
+bad to the bone
+badge of honor
+bald faced liar
+bald-faced lie
+ballpark figure
+banging your head against a brick wall
+baptism by fire
+barking up the wrong tree
+bat out of hell
+be all and end all
+beat a dead horse
+beat around the bush
+been there, done that
+beggars can't be choosers
+behind the eight ball
+bend over backwards
+benefit of the doubt
+bent out of shape
+best thing since sliced bread
+bet your bottom dollar
+better half
+better late than never
+better mousetrap
+better safe than sorry
+between a rock and a hard place
+between scylla and charybdis
+between the devil and the deep blue see
+betwixt and between
+beyond the pale
+bide your time
+big as life
+big cheese
+big fish in a small pond
+big man on campus
+bigger they are the harder they fall
+bird in the hand
+bird's eye view
+birds and the bees
+birds of a feather flock together
+bit the hand that feeds you
+bite the bullet
+bite the dust
+bitten off more than he can chew
+black as coal
+black as pitch
+black as the ace of spades
+blast from the past
+bleeding heart
+blessing in disguise
+blind ambition
+blind as a bat
+blind leading the blind
+blissful ignorance
+blood is thicker than water
+blood sweat and tears
+blow a fuse
+blow off steam
+blow your own horn
+blushing bride
+boils down to
+bolt from the blue
+bone to pick
+bored stiff
+bored to tears
+bottomless pit
+boys will be boys
+bright and early
+brings home the bacon
+broad across the beam
+broken record
+brought back to reality
+bulk large
+bull by the horns
+bull in a china shop
+burn the midnight oil
+burning question
+burning the candle at both ends
+burst your bubble
+bury the hatchet
+busy as a bee
+but that's another story
+by hook or by crook
+call a spade a spade
+called onto the carpet
+calm before the storm
+can of worms
+can't cut the mustard
+can't hold a candle to
+case of mistaken identity
+cast aspersions
+cat got your tongue
+cat's meow
+caught in the crossfire
+caught red-handed
+chase a red herring
+checkered past
+chomping at the bit
+cleanliness is next to godliness
+clear as a bell
+clear as mud
+close to the vest
+cock and bull story
+cold shoulder
+come hell or high water
+comparing apples and oranges
+compleat
+conspicuous by its absence
+cool as a cucumber
+cool, calm, and collected
+cost a king's ransom
+count your blessings
+crack of dawn
+crash course
+creature comforts
+cross that bridge when you come to it
+crushing blow
+cry like a baby
+cry me a river
+cry over spilt milk
+crystal clear
+curiosity killed the cat
+cut and dried
+cut through the red tape
+cut to the chase
+cute as a bugs ear
+cute as a button
+cute as a puppy
+cuts to the quick
+cutting edge
+dark before the dawn
+day in, day out
+dead as a doornail
+decision-making process
+devil is in the details
+dime a dozen
+divide and conquer
+dog and pony show
+dog days
+dog eat dog
+dog tired
+don't burn your bridges
+don't count your chickens
+don't look a gift horse in the mouth
+don't rock the boat
+don't step on anyone's toes
+don't take any wooden nickels
+down and out
+down at the heels
+down in the dumps
+down the hatch
+down to earth
+draw the line
+dressed to kill
+dressed to the nines
+drives me up the wall
+dubious distinction
+dull as dishwater
+duly authorized
+dyed in the wool
+eagle eye
+ear to the ground
+early bird catches the worm
+easier said than done
+easy as pie
+eat your heart out
+eat your words
+eleventh hour
+even the playing field
+every dog has its day
+every fiber of my being
+everything but the kitchen sink
+eye for an eye
+eyes peeled
+face the music
+facts of life
+fair weather friend
+fall by the wayside
+fan the flames
+far be it from me
+fast and loose
+feast or famine
+feather your nest
+feathered friends
+few and far between
+fifteen minutes of fame
+fills the bill
+filthy vermin
+fine kettle of fish
+first and foremost
+fish out of water
+fishing for a compliment
+fit as a fiddle
+fit the bill
+fit to be tied
+flash in the pan
+flat as a pancake
+flip your lid
+flog a dead horse
+fly by night
+fly the coop
+follow your heart
+for all intents and purposes
+for the birds
+for what it's worth
+force of nature
+force to be reckoned with
+forgive and forget
+fox in the henhouse
+free and easy
+free as a bird
+fresh as a daisy
+full steam ahead
+fun in the sun
+garbage in, garbage out
+gentle as a lamb
+get a kick out of
+get a leg up
+get down and dirty
+get the lead out
+get to the bottom of
+get with the program
+get your feet wet
+gets my goat
+gilding the lily
+give and take
+go against the grain
+go at it tooth and nail
+go for broke
+go him one better
+go the extra mile
+go with the flow
+goes without saying
+good as gold
+good deed for the day
+good things come to those who wait
+good time was had by all
+good times were had by all
+greased lightning
+greek to me
+green thumb
+green-eyed monster
+grist for the mill
+growing like a weed
+hair of the dog
+hand to mouth
+happy as a clam
+happy as a lark
+hasn't a clue
+have a nice day
+have a short fuse
+have high hopes
+have the last laugh
+haven't got a row to hoe
+he's got his hands full
+head honcho
+head over heels
+hear a pin drop
+heard it through the grapevine
+heart's content
+heavy as lead
+hem and haw
+high and dry
+high and mighty
+high as a kite
+his own worst enemy
+his work cut out for him
+hit paydirt
+hither and yon
+hobson's choice
+hold your head up high
+hold your horses
+hold your own
+hold your tongue
+honest as the day is long
+horns of a dilemma
+horse of a different color
+hot under the collar
+hour of need
+i beg to differ
+icing on the cake
+if the shoe fits
+if the shoe were on the other foot
+if you catch my drift
+in a jam
+in a jiffy
+in a nutshell
+in a pig's eye
+in a pinch
+in hot water
+in the gutter
+in the last analysis
+in the nick of time
+in the thick of it
+in your dreams
+innocent bystander
+it ain't over till the fat lady sings
+it takes all kinds
+it takes one to know one
+it's a small world
+it's not what you know, it's who you know
+it's only a matter of time
+ivory tower
+jack of all trades
+jockey for position
+jog your memory
+joined at the hip
+judge a book by its cover
+jump down your throat
+jump in with both feet
+jump on the bandwagon
+jump the gun
+jump to conclusions
+just a hop, skip, and a jump
+just the ticket
+justice is blind
+keep a stiff upper lip
+keep an eye on
+keep it simple, stupid
+keep the home fires burning
+keep up with the joneses
+keep your chin up
+keep your fingers crossed
+kick the bucket
+kick up your heels
+kick your feet up
+kid in a candy store
+kill two birds with one stone
+kiss of death
+knock it out of the park
+knock on wood
+knock your socks off
+know him from adam
+know the ropes
+know the score
+knuckle down
+knuckle sandwich
+knuckle under
+labor of love
+ladder of success
+land on your feet
+lap of luxury
+last but not least
+last hurrah
+last-ditch effort
+law of the jungle
+law of the land
+lay down the law
+leaps and bounds
+let sleeping dogs lie
+let the cat out of the bag
+let the good times roll
+let your hair down
+let's talk turkey
+letter perfect
+lick your wounds
+lies like a rug
+life's a bitch
+life's a grind
+light at the end of the tunnel
+lighter than a feather
+lighter than air
+like clockwork
+like father like son
+like taking candy from a baby
+like the plague
+like there's no tomorrow
+lion's share
+live and learn
+live and let live
+long and short of it
+long lost love
+look before you leap
+look down your nose
+look what the cat dragged in
+looking a gift horse in the mouth
+looks like death warmed over
+loose cannon
+lose your head
+lose your temper
+loud as a horn
+lounge lizard
+loved and lost
+low man on the totem pole
+luck of the draw
+luck of the irish
+make a mockery of
+make hay while the sun shines
+make money hand over fist
+make my day
+make the best of a bad situation
+make the best of it
+make your blood boil
+male chauvinism
+man of few words
+man's best friend
+mark my words
+meaningful dialogue
+missed the boat on that one
+moment in the sun
+moment of glory
+moment of truth
+money to burn
+more in sorrow than in anger
+more power to you
+more sinned against than sinning
+more than one way to skin a cat
+movers and shakers
+moving experience
+my better half
+naked as a jaybird
+naked truth
+neat as a pin
+needle in a haystack
+needless to say
+neither here nor there
+never look back
+never say never
+nip and tuck
+nip in the bud
+nip it in the bud
+no guts, no glory
+no love lost
+no pain, no gain
+no skin off my back
+no stone unturned
+no time like the present
+no use crying over spilled milk
+nose to the grindstone
+not a hope in hell
+not a minute's peace
+not in my backyard
+not playing with a full deck
+not the end of the world
+not written in stone
+nothing to sneeze at
+nothing ventured nothing gained
+now we're cooking
+off the top of my head
+off the wagon
+old hat
+olden days
+older and wiser
+older than dirt
+older than methuselah
+on a roll
+on cloud nine
+on pins and needles
+on the bandwagon
+on the nose
+on the rocks
+on the tip of my tongue
+on the wagon
+on thin ice
+once bitten, twice shy
+one bad apple doesn't spoil the bushel
+one born every minute
+one brick short
+one foot in the grave
+one in a million
+one red cent
+only game in town
+open a can of worms
+open and shut case
+open the flood gates
+opportunity doesn't knock twice
+out of pocket
+out of sight, out of mind
+out of the frying pan into the fire
+out of the woods
+out on a limb
+over a barrel
+over the hump
+pain and suffering
+panic button
+par for the course
+part and parcel
+party pooper
+pass the buck
+patience is a virtue
+pay through the nose
+penny pincher
+perfect storm
+pig in a poke
+pile it on
+pillar of the community
+pin your hopes on
+pitter patter of little feet
+plain as day
+plain as the nose on your face
+play by the rules
+play your cards right
+playing the field
+playing with fire
+pleased as punch
+plenty of fish in the sea
+point with pride
+poor as a church mouse
+pot calling the kettle black
+presidential timber
+pretty as a picture
+pull a fast one
+pull your punches
+pulled no punches
+pulling your leg
+pure as the driven snow
+put it in a nutshell
+put one over on you
+put the cart before the horse
+put the pedal to the metal
+put your best foot forward
+put your foot down
+quantum jump
+quantum leap
+quick as a bunny
+quick as a lick
+quick as a wink
+quick as lightning
+quiet as a dormouse
+rags to riches
+raining buckets
+raining cats and dogs
+rank and file
+rat race
+reap what you sow
+red as a beet
+red herring
+redound to one's credit
+redound to the benefit of
+reinvent the wheel
+rich and famous
+rings a bell
+ripe old age
+ripped me off
+rise and shine
+road to hell is paved with good intentions
+rob peter to pay paul
+roll over in the grave
+rub the wrong way
+ruled the roost
+running in circles
+sad but true
+sadder but wiser
+salt of the earth
+scared stiff
+scared to death
+sea change
+sealed with a kiss
+second to none
+see eye to eye
+seen the light
+seize the day
+set the record straight
+set the world on fire
+set your teeth on edge
+sharp as a tack
+shirked his duties
+shoot for the moon
+shoot the breeze
+shot in the dark
+shoulder to the wheel
+sick as a dog
+sigh of relief
+signed, sealed, and delivered
+sink or swim
+six of one, half a dozen of another
+six of one, half a dozen of the other
+skating on thin ice
+slept like a log
+slinging mud
+slippery as an eel
+slow as molasses
+smart as a whip
+smooth as a baby's bottom
+sneaking suspicion
+snug as a bug in a rug
+sow wild oats
+spare the rod, spoil the child
+speak of the devil
+spilled the beans
+spinning your wheels
+spitting image of
+spoke with relish
+spread like wildfire
+spring to life
+squeaky wheel gets the grease
+stands as a testament to
+serves as a reminder that
+serves as a testament to
+paves the way for
+ushers in a new era
+speaks volumes about
+reflects a broader
+stands as a beacon of
+represents a paradigm shift
+embodies the spirit of
+cements its place as
+leaves an indelible mark
+heralds a new era
+signals a seismic shift
+drives home the point
+brings to the fore
+takes center stage
+reshapes the landscape
+charts a new course
+shines a spotlight on
+amplifies the need for
+redefines the boundaries of
+paints a vivid picture of
+stands out like a sore thumb
+start from scratch
+stick in the mud
+still waters run deep
+stitch in time
+stop and smell the roses
+straight as an arrow
+straw that broke the camel's back
+stretched to the breaking point
+strong as an ox
+stubborn as a mule
+stuff that dreams are made of
+stuffed shirt
+sweating blood
+sweating bullets
+take a load off
+take one for the team
+take the bait
+take the bull by the horns
+take the plunge
+takes one to know one
+takes two to tango
+than you can shake a stick at
+the cream of the crop
+the cream rises to the top
+the more the merrier
+the real deal
+the real mccoy
+the red carpet treatment
+the same old story
+the straw that broke the camel's back
+there is no accounting for taste
+thick as a brick
+thick as thieves
+thin as a rail
+think outside of the box
+thinking outside the box
+third time's the charm
+this day and age
+this hurts me worse than it hurts you
+thought leaders?
+three sheets to the wind
+through thick and thin
+throw in the towel
+throw the baby out with the bathwater
+tie one on
+tighter than a drum
+time and time again
+time is of the essence
+tip of the iceberg
+tired but happy
+to coin a phrase
+to each his own
+to make a long story short
+to the best of my knowledge
+toe the line
+tongue in cheek
+too good to be true
+too hot to handle
+too numerous to mention
+touch with a ten foot pole
+tough as nails
+trial and error
+trials and tribulations
+tried and true
+trip down memory lane
+twist of fate
+two cents worth
+two peas in a pod
+ugly as sin
+under the counter
+under the gun
+under the same roof
+under the weather
+until the cows come home
+unvarnished truth
+up the creek
+uphill battle
+upper crust
+upset the applecart
+vain attempt
+vain effort
+vanquish the enemy
+various and sundry
+vested interest
+viable alternative
+waiting for the other shoe to drop
+wakeup call
+warm welcome
+watch your p's and q's
+watch your tongue
+watching the clock
+water under the bridge
+wax eloquent
+wax poetic
+we've got a situation here
+weather the storm
+weed them out
+week of sundays
+went belly up
+wet behind the ears
+what goes around comes around
+what you see is what you get
+when it rains, it pours
+when push comes to shove
+when the cat's away
+when the going gets tough, the tough get going
+whet the appetite
+whet your appetite
+white as a sheet
+whole ball of wax
+whole hog
+whole nine yards
+wild goose chase
+will wonders never cease?
+wisdom of the ages
+wise as an owl
+wolf at the door
+wool pulled over our eyes
+words fail me
+work like a dog
+world weary
+worst nightmare
+worth its weight in gold
+writ large
+wrong side of the bed
+yanking your chain
+yappy as a dog
+years young
+you are what you eat
+you can run but you can't hide
+you only live once
+you're the boss
+young and foolish
+young and vibrant
+a watershed moment
+as we move forward
+at a pivotal moment
+beacon of hope
+contributing to the fabric of
+discover the wonders of
+drive engagement
+embrace the journey
+empower individuals to
+everything happens for a reason
+gain a comprehensive understanding
+gain valuable insights
+harness the power of
+has something for everyone
+has transformed the landscape of
+immerse yourself in
+in the not-too-distant future
+leave no stone unturned
+left an indelible mark
+navigate the complexities of
+nestled in the heart of
+offers valuable insights
+plays a pivotal role in shaping
+resonate with audiences
+revolutionized the way we
+rich cultural tapestry
+sheds light on
+significant contributions to the field
+step out of your comfort zone
+the stakes have never been higher
+there is no one-size-fits-all answer
+this changes everything
+thriving ecosystem of
+treasure trove of
+unlock the potential of
+unlock your true potential
+vibrant hub of
+we stand at a crossroads
+
+# ---------------------------------------------------------------------------
+[pattern]
+# Rules 49 to 51, named 2026-09-19, ported from berelevant-ai/slopless rather
+# than shelled out to it, for the reason recorded above the phrase block: its
+# structure rules are literal lists over a sentence splitter, so a regex reaches
+# the same shapes with no Node process and no second output format.
+#
+# THESE THREE SIT LAST, same reason rules 15 to 48 do, and all three are
+# CASE-FORCED with (?-i:...), the same trap this file has hit three times.
+#
+# Rule 49, the summative closer. "All in all", "the key takeaway is", "and
+# that's why it matters". A last paragraph that summarises instead of ending.
+# The literal forms are in the [banned] block above and the literal rules claim
+# them first; what this adds is the frame around a word the list cannot hold.
+# The bare "The point is" is NOT here: it was measured in 2026-08 at 25 hits
+# and 6 in 10 innocent, a label a writer meant, and it stays cut. 0 hits.
+(?-i:\b(?:[Tt]hat'?s|[Tt]his is|[Tt]hat is) why (?:it|this|that) (?:matters|works)\b|\b[Tt]he (?:bottom line|key takeaway|main takeaway|practical takeaway|real lesson|takeaway) is\b) -> summative closer: end on the last fact
+# Rule 50, uncited authority, slopless's own name for it. "experts agree",
+# "studies show", "widely accepted". Rule 35 carries the singular sources
+# (research, the data, science); this carries the plural ones and the passive
+# consensus frame, and the two partition: on both corpora they share zero
+# spans. deslop's provenance test again, and Wikipedia's AIVAGUE. 0 hits.
+(?-i:\b(?:experts?|studies|scientists|researchers) (?:agree|show|shows|say|says|warn|recommend|confirm|confirms|indicate|indicates|prove|proves|suggest|suggests|have found)\b|\b(?:commonly believed|widely accepted|well established|widely regarded|generally considered)\b) -> name the source and the affiliation
+# Rule 51, the universalizing claim. "most people want", "everyone knows",
+# "nobody wants". A claim about everyone is a claim nobody can check, and
+# stop-slop's lazy-extremes entry names the same habit. 0 hits on the contracts
+# corpus, 1 on the wider one, 0 innocent.
+(?-i:\b(?:most|many) (?:people|adults|parents|families|users|teams|readers|developers|writers) (?:want|wants|know|knows|believe|believes|assume|assumes|expect|expects|hope|hopes)\b|\b(?:everyone knows|nobody wants|everybody knows)\b) -> universalizing claim: name who, and how many
+#
+# MEASURED AND CUT from the same package, so nobody ports them again:
+#   fragment stacking          slopless splits "X. And Y. And Z." and gates it
+#                              on two part-of-speech checks. This file measured
+#                              the same shape in 2026-08 as "3 sentences, same
+#                              opener": 0 hits, in .md as well as .sol.
+#   triple sentence repeat     compares the first N words of three consecutive
+#                              sentences. 0 hits here, same measurement.
+#   demonstrative emphasis     the rule that flagged 2 of 11 verbatim CRX lines
+#                              in the fixture. It charges a short declarative
+#                              for being short, which is the house voice.
+#   response wrapper           "Sure, here's..." and its kin. A chat artifact.
+#                              It cannot reach a committed document, and the
+#                              throat-clearing half of it is rule 36 already.
+#   generic signposting        its own source comment records "as such" removed
+#                              as the dominant false positive. The rest of the
+#                              list is in the [banned] block above.
+# ---------------------------------------------------------------------------

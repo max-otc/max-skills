@@ -69,6 +69,24 @@ The headline of the system. Each `[pattern]` rule names an AI-typical sentence S
 | 31 | semicolon in prose | two clauses joined by ";" |
 | 32 | colon before a clause | "buckets: this one credits X" |
 | 33 | fronted subordinate opener | "Once X, then Y" (owner ban, not an AI tell) |
+| 34 | false agency | "a complaint becomes a fix", "the culture shifts" |
+| 35 | faceless source | "research shows", "the data tells us" |
+| 36 | throat-clearing opener | "Here's what I mean" |
+| 37 | contracted antithesis | "It isn't X. It's Y." |
+| 38 | reframe on a named noun | "The question isn't speed" |
+| 39 | dramatic fragmentation | "That's it. That's the rule." |
+| 40 | narrator at a distance | "This is why", "People tend to" |
+| 41 | transformation arc | "stops being X and starts being Y" |
+| 42 | importance announced | "The implications are significant" |
+| 43 | ready-made figure | "a double-edged sword", "a silver bullet" |
+| 44 | copulative avoidance | "functions as" for "is" |
+| 45 | vague connection | "associated with", "in connection with" |
+| 46 | significance frame | "a testament to", "plays a crucial role" |
+| 47 | outline conclusion | "Despite these challenges", "Looking ahead" |
+| 48 | curly quotation mark | the model's quote, not the keyboard's |
+| 49 | summative closer | "the key takeaway is", "that's why it matters" |
+| 50 | uncited authority | "experts agree", "widely accepted" |
+| 51 | universalizing claim | "most people want", "everyone knows" |
 
 Other `[pattern]` rules: hyphen compounds, `re-` prefixes, dashes and arrows, path:line citations, `§`, full-capital words. Many rules are FLAG AND TRIAGE: one instance can be a good sentence; a density is the tic. The dictionary records each rule's measured hit count and innocent rate in its comment.
 
@@ -79,3 +97,7 @@ A hit is a false positive only when the token is not prose at all — a name, an
 ## New rules
 
 A new `[pattern]` rule ships only with a measured false-positive rate under ~30% on a real corpus. Rules measured and cut are recorded in words.txt comments so nobody rebuilds them.
+
+## Imported lists
+
+Rules 34 to 51 and about 1,400 of the dictionary entries came in on 2026-09-19 from five published lists: `sam-paech/slop-score` (a 2025-11-22 list, the oldest of the five), `hardikpandya/stop-slop`, `JMill/deslop`, Wikipedia's *Signs of AI writing*, and `berelevant-ai/slopless`. Every candidate was counted over two frozen CRX corpora first and dropped on three or more hits; the drops are named in words.txt, word by word, with the reason. slopless was installed and measured before its phrase data was copied: its structure rules are literal lists over a sentence splitter, so they port to regex and no Node process runs here.

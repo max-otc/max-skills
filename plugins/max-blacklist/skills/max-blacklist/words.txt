@@ -1428,6 +1428,7 @@ banners
 afterward
 # ---------------------------------------------------------------------------
 # sales adjectives with no meaning, one per line
+Retry-After
 
 [phrasal]
 # catches up is a two-word verb, so it belongs here, not in [banned].

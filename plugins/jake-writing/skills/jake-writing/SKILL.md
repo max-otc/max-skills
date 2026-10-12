@@ -1,370 +1,245 @@
 ---
 name: jake-writing
-description: Use when the user wants a document written in Jake Schkolnick's whitepaper voice — the terse, institutional, define-by-negation register of the CRX litepaper. Produces formal whitepaper/litepaper documents only: Abstract, numbered sections, run-in bold labels, a figure, a Conclusion. Triggers on phrases like "write this as a litepaper", "in Jake's voice", "jake-wright this", "make it sound like the CRX paper", "whitepaper version of", "turn this into a litepaper", "Jake Schkolnick style", "draft the whitepaper", "institutional whitepaper tone".
+description: Use when the user wants a document written in Jake Schkolnick's whitepaper voice, the terse, institutional, define-by-negation register of the CRX litepaper. Writes formal whitepaper and litepaper documents only. Triggers on "write this as a litepaper", "in Jake's voice", "jake-wright this", "make it sound like the CRX paper", "whitepaper version of", "turn this into a litepaper", "Jake Schkolnick style", "draft the whitepaper", "institutional whitepaper tone". NOT for tweets, threads, landing pages, ad copy, emails or blog posts. NOT for marketing strategy, angles or hooks (use max-marketing or max-hook). NOT for docs in Max's Feynman house style (use max-doc).
 ---
 
 # Jake-Wrighting
 
-## Overview
+You write one thing: a formal **whitepaper** in the register of Jake Schkolnick's CRX litepaper. Abstract, numbered sections, run-in bold labels, one figure, a Conclusion. The user gives **[TOPIC / FACTS / WHAT THE THING IS + WHICH SECTIONS]**. You produce the complete document, not a summary of one.
 
-You write one thing in one voice: a formal **whitepaper** in the register of Jake Schkolnick's CRX litepaper. Nothing else. Not a tweet, not landing copy, not an email, not a blog post. A litepaper — Abstract, numbered sections, run-in bold labels, one figure, a Conclusion.
+The voice: the Bitcoin-paper lineage filtered through institutional finance. Third person, present tense, subject-verb-object. No hype, no metaphor, no em-dash. Precision carries the authority, not adjectives. Every abstract mechanism gets a concrete worked example with a real geography, instrument and tenor.
 
-The voice is the Bitcoin-paper lineage filtered through institutional finance: third-person, present tense, subject-verb-object, no hype, no metaphor, no em-dash. Authority comes from precision, not adjectives. Every abstract mechanism earns a concrete worked example with a real geography, instrument, and tenor. Things are defined as often by what they are *not* as by what they are.
+**Gold standard:** the CRX litepaper (Jake Schkolnick, May 2026, `jake@crxfx.com`), the only training sample. Quoted exemplars are drawn from it. When a stylistic choice is in doubt, match the closest litepaper passage. Working text beats any rule written here. This file's describing prose is Max's house voice (patient, Alexander-register, em-dashes welcome). The output is Jake's voice (terse, no em-dash, third person). Do not confuse the two. When writing the output, Jake's is the only register.
 
-The user provides:
+## Core principle
 
-> **[TOPIC / FACTS / WHAT THE THING IS + WHICH SECTIONS]**
+**Authority is structural, not decorative. State the fact, name the mechanism, land the consequence. Then stop.**
 
-You produce a complete whitepaper document in Jake's voice. Not a summary of one. The document itself.
+> "Pricing in the NDF market is structurally expensive. Participants pay 50 to 300 basis points or more to hedge through fragmented banking channels. That spread reflects the cost of the bank-intermediated model." *(closer: S9; exact term over hype: S5)*
 
-## The Gold Standard
+A claim, its measure, its cause. No adjective does the work a number can do. No sentence reaches for a second idea before the first has landed. A whitepaper that hedges, hypes or decorates is a brochure wearing section numbers.
 
-The entire style is calibrated against one corpus: the **CRX litepaper** (Jake Schkolnick, May 2026, `jake@crxfx.com`). It is the only training sample. Quoted exemplars throughout this skill are drawn from it. When in doubt about a stylistic choice, find the closest passage in the litepaper and match it. Working text beats any rule written here.
+## Scope and inputs
 
-## Core Principle
+**Use for:** a litepaper or whitepaper built from facts about a product, protocol or instrument; the CRX litepaper as the model ("like that"); a draft in another register rewritten as a formal whitepaper; an institutional-facing technical document (architecture, mechanism, regulatory posture).
 
-**Authority is structural, not decorative. State the fact, name the mechanism, land the consequence — then stop.**
+**Not for:** the formats and skills the description excludes, or anything that needs warmth, second person or a story. Asked for Jake's tone in a non-whitepaper format: say so, decline the format, offer the whitepaper.
 
-> "Pricing in the NDF market is structurally expensive. Participants pay 50 to 300 basis points or more to hedge through fragmented banking channels. That spread reflects the cost of the bank-intermediated model."
+**Inputs.** Get what the thing is, in one plain sentence; the core facts (what it does, how, the mechanism, the numbers, with sources if any); the incumbents by real name and the gap each leaves (the litepaper names CME, EBS, Hyperliquid, OpenFX…); at least one worked example per use case (geography + instrument + tenor); which sections (default CRX set, see Output format; the user may add or cut).
 
-Three sentences. A claim, its measure, its cause. No adjective is asked to do the work a number can do. No sentence reaches for a second idea before the first has landed.
+A number, source or incumbent name missing: ask once, in one combined message, then proceed. Omit what is still missing and state the gap. Never invent a statistic, a citation or a name. Fabricated data is worse than omitted data. An invented citation fails the whole document.
 
-A whitepaper that hedges, hypes, or decorates is not in this voice. It is a brochure wearing a whitepaper's section numbers.
+# Part I: the style fingerprint
 
-## When to Use
+Each dimension is measured against the litepaper. Hold every one.
 
-- User has facts about a product/protocol/instrument and asks for a **litepaper** or **whitepaper**
-- User points at the CRX litepaper and says "like that" / "in Jake's voice" / "jake-wright this"
-- User has a draft in some other register and wants it rewritten as a formal whitepaper
-- User is preparing an institutional-facing technical document (architecture, mechanism, regulatory posture)
+**The method** (stylometry: lexical, syntactic, punctuation and burstiness features). To copy any author, measure twelve axes in the corpus first, then write to them: person (1st, 2nd or 3rd; author and reader present?), tense (dominant; where it shifts), mean sentence length, burstiness (length variance, short beside long), clause depth (clauses per sentence; subordination), voice (active vs passive ratio), diction register (plain, technical, legal or conversational; intensifier density), figurative load (metaphor, simile, rhetorical question, hyperbole), punctuation profile (em-dash, semicolon, colon, parenthesis frequency), signature constructions (n-grams, run-in labels), rhetorical moves (recurring argument shapes), document skeleton (section scheme, titles, openers, closers). For Jake the values are filled: S1 to S10 and Output format.
 
-**Do NOT use for:**
-- Tweets, threads, landing pages, ad copy, emails, blog posts → wrong format; this skill writes whitepapers only
-- Marketing strategy, angles, hooks → use `max-marketing` / `max-hook`
-- Documentation in Max's Feynman house style → use `max-doc`
-- Anything that needs warmth, second person, or a story → that is the opposite of this voice
+## S1. Person: impersonal third
 
-If the user wants Jake's *tone* applied to a non-whitepaper format, stop and say so: this skill produces whitepaper documents. Decline the format, offer the whitepaper.
-
-## Mandatory Inputs
-
-Before writing, you need:
-
-- **What the thing is** — the protocol/product/instrument, in one plain sentence
-- **The core facts** — what it does, how, the mechanism, the numbers (with sources if any)
-- **The incumbents** — what exists today and the gap each leaves (the litepaper names CME, EBS, Hyperliquid, OpenFX… by real name)
-- **The worked examples** — at least one real-world scenario per use case (geography + instrument + tenor)
-- **Which sections** — default to the CRX section set (see Output Format); the user may add or cut
-
-If a number, a source, or an incumbent name is missing, ask once in a single combined message. Never invent a statistic or a citation. A whitepaper that fabricates its data is worse than one that omits it.
-
----
-
-# Part I — The Style Fingerprint
-
-Nine dimensions, each measured against the litepaper. These are the constraints. Hold every one.
-
-## S1. Person and voice — impersonal third person
-
-No *I*. No *we*. No *you*. The grammatical subject is always the system, the market, the instrument, or the participant.
+No *I*, *we* or *you*. The grammatical subject is always the system, the market, the instrument or the participant. Actors are roles, not people: *a taker, a maker, the contract, the protocol, participants*. The brand acts as a subject: *"CRX launches in emerging markets."* Never address the reader. Never insert the author.
 
 > "A taker submits a request specifying currency pair, tenor, notional, and direction. A maker returns a firm, signed quote, valid for a short window."
 
-The actors are roles, not people: *a taker*, *a maker*, *the contract*, *the protocol*, *participants*. The brand acts as a subject in its own right: *"CRX launches in emerging markets."* Never address the reader. Never insert the author.
+## S2. Tense: present, timeless
 
-## S2. Tense — present, timeless
-
-Present tense describes the system as a standing fact, not an event.
+The system is a standing fact, not an event. It simply *is*.
 
 > "The contract marks positions to market continuously and issues a margin call when a position breaches its maintenance level."
 
-Future tense appears **only** in the Roadmap, for things not yet built: *"It will register as a SEF to offer multi-dealer execution."* Everywhere else, the present. The system simply *is*.
+Future tense **only** in the Roadmap, for what is not yet built: *"It will register as a SEF to offer multi-dealer execution."*
 
-## S3. Sentence length — short, never past two clauses
+## S3. Sentence length: short, two clauses at most
 
-Mean sentence length runs ~15–18 words. Most sentences cluster between 12 and 22 words. The burstiness is moderate, not extreme: a rationed very-short closer of 5–8 words lands roughly once per paragraph, beside the medium sentences that carry the mechanism. Do not caricature the voice into telegraph-speak — 5-word sentences are rare (two in the whole litepaper).
+Mean ~15–18 words. Most sentences run 12 to 22. Clause depth is shallow. Burstiness is moderate: a rationed 5–8 word closer lands about once per paragraph, beside medium sentences that carry the mechanism. No telegraph-speak. The litepaper has two 5-word sentences in total, one being *"CRX launches in emerging markets."* (the 5-word flat closer, S3)
 
 > "Pricing in the NDF market is structurally expensive." *(8 words)*
 > "Trades flow through correspondent banking chains, where each link adds credit, capital, and operational cost to the spread." *(17 words)*
-> "The model is designed around legacy banking infrastructure." *(8 words — the closer)*
+> "The model is designed around legacy banking infrastructure." *(8 words, the closer)*
 
-No sentence carries more than two clauses. If a third idea wants in, it becomes the next sentence. When a sentence passes thirty words, split it.
+Two clauses at most. A third idea becomes the next sentence. Split any sentence past thirty words.
 
-## S4. Syntax — subject-verb-object, active, participial tails
+## S4. Syntax: active subject-verb-object, participial tails
 
-Active voice. The subject does the verb to the object. The one ornament permitted is a present-participle tail that states the *effect* of the main clause.
+Active voice dominates. The subject does the verb to the object. The one ornament: a present-participle tail (`, -ing`) that states the *effect* of the main clause. Use it as seasoning, not in every sentence.
 
 > "CRX enables institutional-grade FX hedging on-chain, removing the banking overhead embedded in the current cost of trading."
 > "An NDF locks in a future exchange rate, settling the difference between the locked rate and the market rate in cash at expiry."
 
-Main clause states the action; the `, -ing` tail states what it accomplishes. Use it, but not in every sentence — it is seasoning, not structure.
-
-**The one permitted fronting.** A short temporal or conditional prepositional phrase may precede the subject, marking the moment the system acts. It is comma-separated and never more than four words.
+**The one permitted fronting:** a temporal or conditional prepositional phrase of four words at most, comma-separated, marking the moment the system acts.
 
 > "On execution, the contract pulls initial margin from both participants…"
 > "At expiry, the contract computes the payout…"
 > "On clearance, the participant's wallet is added to an on-chain allowlist…"
 > "Today, FX activity flows through three channels."
 
-Outside this device the subject comes first. No inversion, no cleft, no fronted object.
+Otherwise the subject comes first. No inversion, no cleft, no fronted object.
 
-## S5. Diction — precise, domain-exact, zero hype
+## S5. Diction: domain-exact, legal-economic, zero hype
 
-Reach for the exact economic, legal, or technical term. *Structurally expensive. Bank-intermediated. Forward-dated. Non-custodial. Segregated balances. Deterministic. Atomic transaction.*
+Use the exact economic, legal or technical term: *structurally expensive, bank-intermediated, forward-dated, non-custodial, segregated balances, deterministic, atomic transaction.*
 
-**Banned:** marketing verbs and intensifiers — *unlock, leverage, empower, revolutionize, seamless, cutting-edge, game-changing, robust, powerful, best-in-class.* They are the tell of the brochure.
+**Banned** (marketing verbs and intensifiers, the tell of the brochure): *unlock, leverage, empower, revolutionize, seamless, cutting-edge, game-changing, robust, powerful, best-in-class.* Zero figurative load: no metaphor, simile, rhetorical question or hyperbole.
 
-**The one allowed quality adjective is `institutional-grade`** — and even that is a category marker, not praise. Adverbs are rare and structural when they appear: *continuously, directly, bilaterally, programmatically.*
+**The one allowed quality adjective is `institutional-grade`**, a category marker, not praise. Every other adjective is a category marker or a measurable fact. Adverbs are rare and structural: *continuously, directly, bilaterally, programmatically.*
 
-**Favourite words — lean on these.** The litepaper leans hard on a small load-bearing set; reuse them: *bilateral / bilaterally* (4×), *directly* — above all the phrase *"directly with one another"* (twice verbatim) — *segregated, forward-dated, counterparty, institutional* and *institutional-grade, non-custodial, structurally.* And the regulatory-negation frame *"is structured to sit outside."* These carry the voice more than half the technical nouns do.
+**Favourite words: reuse them.** They carry the voice more than half the technical nouns do: *bilateral / bilaterally* (4× in the litepaper), *directly* (above all *"directly with one another"*, twice verbatim), *segregated, forward-dated, counterparty, institutional, institutional-grade, non-custodial, structurally*, and the regulatory-negation frame *"is structured to sit outside."*
 
-Acronyms are defined on first use, then used bare:
+**Acronyms:** spell out, parenthesize the acronym, then use it bare and never spell it out again: NDF, RFQ, ECP, KYC, CSA, ACA, SEF, DCO, FCM, OFAC, BIS. Currency codes stay bare, never spelled out: *USD, BRL, PHP, INR, USDC, USDT, USD/INR.*
 
 > "Non-deliverable forwards are the primary instrument… An NDF locks in…"
 > "a request-for-quote (RFQ) engine… The RFQ engine sits off-chain…"
 
-Spell it out, parenthesize the acronym, then never spell it out again: NDF, RFQ, ECP, KYC, CSA, ACA, SEF, DCO, FCM, OFAC, BIS. Currency codes are the exception — *USD, BRL, PHP, INR, USDC, USDT, USD/INR* stay bare, never spelled out.
+## S6. Punctuation: periods carry the load
 
-## S6. Punctuation — periods carry the load
+Periods, colons and list commas only.
 
-- **Period.** The default. Many short sentences means high period density. When tempted to join two clauses, use a period instead.
-- **Colon.** Introduces a list or unpacks a definition: *"The protocol is non-custodial: collateral sits in each participant's own segregated balance…"* The colon means *here is the unpacking.*
-- **Comma.** For participial/relative tails and for lists of three or four: *"credit, capital, and operational cost"*; *"currency pair, tenor, notional, and direction."*
-- **No em-dash.** This voice never uses the chatty em-dash. Where another writer would dash, Jake uses a period or a colon.
-- **No semicolon.** Split into two sentences instead.
-- **No parentheses except for acronym definitions and citations.** `(RFQ)`, `(BIS, April 2025)`. Never an aside. Never a wink. The voice has no asides.
+- **Period:** the default, so period density is high. Tempted to join two clauses: use a period.
+- **Colon:** introduces a list or unpacks a definition (*here is the unpacking*): *"The protocol is non-custodial: collateral sits in each participant's own segregated balance…"* (S6)
+- **Comma:** participial or relative tails, and lists of three or four: *"credit, capital, and operational cost"*; *"currency pair, tenor, notional, and direction."*
+- **No em-dash.** Where another writer would dash, Jake uses a period or a colon.
+- **No semicolon.** Split into two sentences.
+- **Parentheses only for acronym definitions and citations:** `(RFQ)`, `(BIS, April 2025)`. Never an aside, never a wink.
 
-This is the single fastest way to break the voice. An em-dash, a semicolon, or a parenthetical aside reads instantly as *not Jake.*
+An em-dash, a semicolon or an aside parenthesis reads instantly as *not Jake*: the fastest way to break the voice.
 
-## S7. The signature device — run-in bold label
+## S7. Signature device: the run-in bold label
 
-The recurring structural unit inside a section: a **bold label ending in a period**, then a one-sentence definition, then a concrete worked example.
+The recurring unit inside a section: a **bold label ending in a period**, a one-sentence definition, a concrete worked example.
 
 > "**Collateral.** On execution, the contract pulls initial margin from both participants into segregated balances."
-> "**Platform distribution.** Stablecoin payment platforms serve businesses making cross-border payments across EM corridors. CRX allows them to offer hedging products embedded in their existing customer interface. A Brazilian importer with a 30-day USD payable can lock the BRL cost of that payment through their existing payment platform."
+> "**Platform distribution.** Stablecoin payment platforms serve businesses making cross-border payments across EM corridors. CRX allows them to offer hedging products embedded in their existing customer interface. A Brazilian importer with a 30-day USD payable can lock the BRL cost of that payment through their existing payment platform." *(geography + instrument + tenor, S7)*
 
-The label is one to four words. The definition is flat and exact. The example is always specific: a real geography, a real instrument, a real tenor. *A Brazilian importer. A 30-day USD payable. USD/INR at the matching tenor.* Abstraction states the rule; the example proves it can touch the ground.
+The label is one to four words. The definition is flat and exact. The example names a real geography, instrument and tenor: *a Brazilian importer, a 30-day USD payable, USD/INR at the matching tenor.*
 
-**The section scaffold.** A decomposed section does not open cold on a bold label. It opens with one overview sentence that names the whole and ends in a colon, then lists the parts as bold labels.
+**Section scaffold.** A decomposed section never opens cold on a bold label. It opens with one overview sentence that names the whole and ends in a colon. The parts follow as bold labels.
 
 > "CRX is composed of three components that let takers and makers trade NDFs directly with one another: standardized onboarding, an RFQ engine, and a smart contract."
 > "CRX is structured to sit outside the following registration categories:"
 
-## S8. Rhetoric — define by negation, name the incumbent, anchor on authority
-
-Three moves recur:
+## S8. Rhetoric: negation, incumbents, authority
 
 **Define by negation.** State what the thing is *not* as often as what it is.
-> "They do not create contracts to manage forward-dated FX exposure."
+> "They do not create contracts to manage forward-dated FX exposure." *(S8)*
 > "Perps have no expiry and mark continuously against an index."
 > "CRX takes no position." / "No CRX address sits in the value path."
 
-**Name the incumbent, then its gap.** Real names, then the space each leaves open. The internal order is fixed: bold label → real names + what they offer → one sentence naming the gap.
+**Name the incumbent, then its gap.** Fixed order: bold label → real names + what they offer → one sentence naming the gap.
 > "Stablecoin spot rails. OpenFX, Circle StableFX, Mento, and similar infrastructure use stablecoins to facilitate cheaper and faster spot transactions. They do not create contracts to manage forward-dated FX exposure."
 > "Institutional FX venues. CME, EBS Markets, 24 Exchange, and bank dealer platforms offer forward-dated contracts… Access requires a combination of FCM relationships, ISDA documentation, counterparty credit lines, and prime brokerage arrangements."
 
-**Anchor on authority.** Real data with inline source. Real names with their pedigree.
-> "Estimated daily NDF volume is $300 to $340 billion (BIS, April 2025)."
-> "Regulatory strategy is led by Orrick's Dan Ullman, formerly of the CFTC."
+**Anchor on authority.** Real data with an inline source. Real names with their pedigree.
+> "Estimated daily NDF volume is $300 to $340 billion (BIS, April 2025)." *(data with inline citation, S8)*
+> "Regulatory strategy is led by Orrick's Dan Ullman, formerly of the CFTC." *(name + pedigree, S8)*
 
-## S9. Paragraph architecture — one claim, landed flat
+## S9. Paragraph: one claim, landed flat
 
-Paragraphs run two to five sentences. Each carries **one** claim. The topic sentence states it; the body supports it; the last sentence restates the point as a flat structural observation that closes the door.
+Two to five sentences, **one** claim. The topic sentence states it. The body supports it. The last sentence restates the point as a flat structural observation that closes the door. No paragraph ends on a soft or open note.
 
 > "FX perpetuals. Hyperliquid, Ostium, and similar perp DEXs offer on-chain perpetuals on G10 pairs. Perps have no expiry and mark continuously against an index. That structure serves speculators on major pairs, not institutional hedging workflows."
 
-The closer — *"That structure serves speculators on major pairs, not institutional hedging workflows"* — does not summarize. It judges, flatly, and stops. No paragraph ends on a soft or open note.
+The closer, *"That structure serves speculators on major pairs, not institutional hedging workflows,"* does not summarize. It judges, flatly, and stops.
 
-A frequent closer opens with an anaphoric **That**, pointing back at the previous noun: *"That spread reflects the cost of the bank-intermediated model."* / *"That structure serves speculators on major pairs, not institutional hedging workflows."* The shape is *"That [spread / structure / model] [reflects / serves] X, not Y."*
+A frequent closer opens with an anaphoric **That** pointing back at the previous noun. Shape: *"That [spread / structure / model] [reflects / serves] X, not Y."* Examples: *"That structure serves speculators on major pairs, not institutional hedging workflows."* / *"That spread reflects the cost of the bank-intermediated model."*
 
-## S10. Structural tics — triads, no connectives, bookends
+## S10. Structural tics
 
-**Three is the organizing number.** Lists default to three items (sometimes four) with a serial comma: three architecture components, three FX channels, three use cases. *"credit, capital, and operational cost."* When the material groups into three, group it into three.
+- **Threes.** Lists default to three items, sometimes four, with a serial comma: three architecture components, three FX channels, three use cases; *"credit, capital, and operational cost."* When the material groups into three, group it into three.
+- **No connective tissue.** Almost no *however, therefore, moreover, in addition, as a result.* Sentences abut. Order and bold labels carry the logic. The one allowed connector: the causal *"As [X] accelerates, …"* opener.
+- **Bookends.** State the core phrase at the open. Restate it near-verbatim at the close. The litepaper opens and closes on *"institutional-grade."*
+- **Deadline tail.** A gerund clause that states what must finish first: *"before any trade", "before joining the network", "before being added."*
+- **Numbers as ranges.** Write *"X to Y"* in words, never *"X–Y"* (a dash breaks the no-dash rule). Hedge data honestly: *"Estimated", "Roughly", "or more."* Never hedge a product claim.
 
-**No connective tissue.** Almost no *however, therefore, moreover, in addition, as a result.* Sentences abut. Logic is carried by order and the bold labels, not by conjunctive adverbs. The one allowed connector is the causal *"As [X] accelerates, …"* opener.
+# Part II: process
 
-**Bookend the thesis.** State the core phrase at the open, restate it near-verbatim at the close. The litepaper opens and closes on *"institutional-grade."*
+`1 GATHER FACTS → 2 BUILD THE SKELETON → 3 DRAFT FLAT → 4 APPLY THE FINGERPRINT → 5 STRIP TELLS`
 
-**The deadline tail.** A recurring gerund clause states what must finish first: *"before any trade", "before joining the network", "before being added."*
+1. **Gather facts:** mechanism, numbers, incumbents, worked examples, regulatory posture. Mark every number with its source and every gap. Never start writing with holes where data should be (Inputs).
+2. **Build the skeleton** before any prose: the numbered sections, each with a 1–3 word noun-phrase title and the bold labels it will carry. The skeleton is the contract. The prose only fills it.
+3. **Draft flat.** Each paragraph: topic sentence, support, flat closer. Resist every adjective. Facts before voice.
+4. **Apply the fingerprint.** Pass over the draft with Part I, running the checklist below as actions.
+5. **Strip the tells.** Search the whole document:
+   - em-dash → period or colon; semicolon → two sentences;
+   - aside parenthesis → cut, or promote to a sentence;
+   - *I/we/you* → third person;
+   - intensifier or marketing verb → exact term or nothing;
+   - worked example without a real geography, instrument and tenor → make it concrete or cut it;
+   - a sentence that still reads like an ad → rewrite it until it reads like a fact.
 
-**Numbers as ranges.** Magnitudes are written *"X to Y"* in words, never *"X–Y"* (a dash would break the no-dash rule), and hedged honestly: *"Estimated", "Roughly", "or more."* Product claims are never hedged — only the data is.
+**Checklist.** Step 4 actions and the final check before delivering. Any miss: pass over the draft again with Part I.
+- Numbered whitepaper with an Abstract and a Conclusion.
+- No *I*, *we* or *you*: third person throughout (S1).
+- Present tense outside the Roadmap (S2).
+- Mean sentence ~15–18 words, most 12–22, a short closer about once per paragraph (S3).
+- Any sentence past two clauses or thirty words: split (S3).
+- A participial tail where a sentence states an action whose effect matters (S4).
+- Every hype word replaced by the exact term (S5).
+- Each acronym defined once, then bare (S5).
+- No em-dash, semicolon or aside parenthesis (S6).
+- Each decomposed section opens with an overview sentence ending in a colon (S7).
+- Flat itemizations turned into **bold label.** + definition + worked example; every use case and mechanism carries one (S7).
+- A define-by-negation sentence wherever the thing is best framed against what it is not; at least one per major section (S8).
+- Every number sourced, every authority named with its pedigree (S8).
+- Lists in threes where the material allows, with serial commas (S10).
+- Section titles are 1–3 word noun phrases.
+- Conclusion: three sentences that state the shift as already in motion.
+- Read aloud, no sentence sounds like an ad.
 
----
+# Output format
 
-# Part II — The Replication Checklist
-
-This is the general method for copying *any* author's style, with Jake's value filled in for each axis. Run a target text through these twelve axes to build a fingerprint; the right column is the calibration for this skill. (Drawn from stylometry: lexical, syntactic, punctuation, and burstiness features.)
-
-| # | Axis | What to measure | Jake's value |
-|---|---|---|---|
-| 1 | **Person** | 1st / 2nd / 3rd person; presence of author and reader | Third only. No *I/we/you*. |
-| 2 | **Tense** | Dominant tense; where it shifts | Present. Future only in Roadmap. |
-| 3 | **Mean sentence length** | Average words per sentence | ~15–18 words; most sentences 12–22. |
-| 4 | **Burstiness** | Variance in sentence length; short-beside-long rhythm | Moderate. A rationed 5–8 word closer ~once per paragraph. |
-| 5 | **Clause depth** | Clauses per sentence; subordination | Max two clauses. Shallow. |
-| 6 | **Voice** | Active vs passive ratio | Active dominant. |
-| 7 | **Diction register** | Plain / technical / legal / conversational; intensifier density | Domain-exact, legal-economic. Near-zero intensifiers. |
-| 8 | **Figurative load** | Metaphor, simile, rhetorical question, hyperbole | Zero. None. |
-| 9 | **Punctuation profile** | Em-dash, semicolon, colon, parenthesis frequency | Periods + colons + list commas only. No em-dash, no semicolon, no aside-parens. |
-| 10 | **Signature constructions** | Repeated structural units (n-grams, run-in labels) | **Bold label.** + definition + worked example. Participial `, -ing` tails. |
-| 11 | **Rhetorical moves** | Recurring argument shapes | Define-by-negation; name-incumbent-then-gap; data-with-citation. |
-| 12 | **Document skeleton** | Section scheme, titles, openers/closers | Abstract → numbered §§ → Figure → Conclusion. 1–3 word noun-phrase titles. |
-
-To copy a style you have not seen, fill this table from the corpus first, then write to the table. To copy Jake, the table is already filled — write to the right column.
-
----
-
-# Part III — The Process
-
-```
-1 GATHER FACTS → 2 BUILD THE SKELETON → 3 DRAFT FLAT → 4 APPLY THE FINGERPRINT → 5 STRIP TELLS
-```
-
-## Step 1 — Gather the facts
-
-Collect what the document asserts: the mechanism, the numbers, the incumbents, the worked examples, the regulatory posture. Mark every number with its source. Mark every gap. Do not start writing with holes where data should be — ask once, then proceed.
-
-## Step 2 — Build the skeleton
-
-Lay out the numbered sections before any prose (see Output Format for the default set). Give each section a 1–3 word noun-phrase title. Inside each, list the run-in bold labels it will carry. The skeleton is the contract; the prose only fills it.
-
-## Step 3 — Draft flat
-
-Write each paragraph as one claim: topic sentence, support, flat closer. Resist every adjective. State the fact, name the mechanism, land the consequence. Get the facts down before the voice.
-
-## Step 4 — Apply the fingerprint
-
-Pass over the draft with Part I in hand:
-- Convert any first/second person to third (S1).
-- Force present tense outside the Roadmap (S2).
-- Split any sentence past two clauses or thirty words (S3, S5).
-- Add a participial tail where a sentence states an action whose effect matters (S4).
-- Replace every hype word with the exact term (S5).
-- Define each acronym once, then bare (S5).
-- Convert flat itemizations into **bold label.** + definition + worked example (S7).
-- Add a define-by-negation sentence wherever the thing is best framed against what it is not (S8).
-
-## Step 5 — Strip the tells
-
-Search the whole document and delete every tell that breaks the voice:
-- Em-dashes → period or colon.
-- Semicolons → split into two sentences.
-- Aside parentheses → cut or promote to a sentence.
-- *I / we / you* → third person.
-- Intensifiers and marketing verbs → exact term or nothing.
-- Any worked example that lacks a real geography/instrument/tenor → make it concrete or cut it.
-
-If a sentence still reads like an ad, rewrite it until it reads like a fact.
-
----
-
-# Output Format — the document
-
-Produce a complete whitepaper. The default skeleton is the CRX section set; adapt the section list to the topic, but keep the shape.
+Default skeleton: the CRX section set. Adapt the sections to the topic; keep the shape.
 
 ### Header
 ```
 [PROJECT]                         [Month Year]
-[Brand]: [Plain noun-phrase title]      — e.g. "CRX: On-Chain FX Hedging"
-[Author Name] · [email]                 — name, middle dot ·, email; no title, no affiliation
+[Brand]: [Plain noun-phrase title]
+[Author Name] · [email]
 ```
-The title is a colon construction: brand, colon, plain noun phrase. The Bitcoin-paper form.
+Title: brand, colon, plain noun phrase, the Bitcoin-paper form ("CRX: On-Chain FX Hedging"). Byline: name, middle dot `·`, email. No title, no affiliation.
 
 ### Abstract
-Three to four sentences. What it does, the architecture in one list, where or how it launches. No citations, no hedging.
+Three to four sentences: what it does, the architecture in one list, where or how it launches. No citations, no hedging.
 
 > Model: *"CRX enables institutional-grade FX hedging on-chain, removing the banking overhead embedded in the current cost of trading. CRX's architecture has three components: standardized onboarding, a request-for-quote (RFQ) engine, and a smart contract. CRX launches in emerging markets."*
 
 ### 1. Introduction
-Sub-sections, each a 1–3 word noun phrase. The CRX set: **1.1 The Market**, **1.2 The Landscape**, **1.3 Why Now**, **1.4 The Entry Point**. Establish the instrument, name the incumbents and their gaps, state why the moment is now (supply + demand), name the underserved entry point. In **The Landscape**, each incumbent gets the fixed three-move block: bold label → real names + what they offer → one sentence naming the gap (S8).
+Sub-sections with 1–3 word noun-phrase titles. CRX set: **1.1 The Market**, **1.2 The Landscape**, **1.3 Why Now**, **1.4 The Entry Point**. Establish the instrument, name the incumbents and their gaps, state why the moment is now (supply + demand), name the underserved entry point. In The Landscape, each incumbent gets the fixed three-move block (S8).
 
 ### 2. Architecture
-The mechanism, decomposed. One sub-section per component (CRX: **2.1 Standardized Onboarding**, **2.2 RFQ Engine**, **2.3 Smart Contract**). Inside, the run-in **bold label.** device for each moving part: *Collateral. Oracle. Margin. Default. Settlement.*
+The mechanism, decomposed. One sub-section per component (CRX: **2.1 Standardized Onboarding**, **2.2 RFQ Engine**, **2.3 Smart Contract**). Inside, a run-in **bold label.** per moving part: *Collateral. Oracle. Margin. Default. Settlement.*
 
 ### 3. Use Cases
-Run-in **bold label.** per use case, each with a concrete worked example: real geography, real instrument, real tenor.
+A run-in **bold label.** per use case, each with a worked example: real geography, real instrument, real tenor.
 
 ### 4. Roadmap
-What is not yet built. **The only section in future tense.** Run-in labels per item.
+What is not yet built. **The only section in future tense.** A run-in label per item.
 
-### 5. Regulatory Approach (or domain-appropriate equivalent)
-The posture, framed by negation: what the thing is structured *not* to be. Name the categories it sits outside, one bold label each. Anchor on a named authority where possible.
+### 5. Regulatory Approach (or the domain-appropriate equivalent)
+The posture, framed by negation: what the thing is structured *not* to be. One bold label per category it sits outside. Anchor on a named authority where possible.
 
 ### Figure
-One figure with a flat caption: *"Figure N: [short noun phrase]."* — e.g. *"Figure 1: The architecture of CRX."* The default figure is a symmetric two-party swim-lane: the taker on the left, the maker on the right, the CRX component in the centre, one numbered row per lifecycle stage (Onboarding, RFQ, Settlement). Each centre box lists three feature bullets; each arrow carries a bidirectional action label. Row titles are small-caps (*"1 · STANDARDIZED ONBOARDING"*). Describe it in text if it cannot be rendered.
+One figure with a flat caption: *"Figure N: [short noun phrase]."* (*"Figure 1: The architecture of CRX."*). Default: a symmetric two-party swim-lane. Taker left, maker right, the CRX component in the centre. One numbered row per lifecycle stage (Onboarding, RFQ, Settlement). Each centre box lists three feature bullets. Each arrow carries a bidirectional action label. Row titles in small caps (*"1 · STANDARDIZED ONBOARDING"*). Cannot render it: describe it in text.
 
 ### 6. Conclusion
 Three sentences. Zoom out to the macro thesis. State the shift as a fact already in motion.
 
 > Model: *"As stablecoin adoption accelerates, demand for on-chain derivatives hedging grows with it. CRX brings institutional-grade products on-chain. Trading that previously required bank intermediation is moving to open infrastructure."*
 
----
+# Reference library
 
-# Strict Rules
+## R1. Tells of the voice
 
-- **Whitepaper only.** If asked for a tweet, page, or email in this voice, decline the format and offer the whitepaper.
-- **No em-dash. No semicolon. No aside parentheses.** Parentheses are for acronyms and citations only.
-- **No first or second person.** Third person throughout.
-- **No metaphor, no simile, no rhetorical question, no hyperbole.** Zero figurative load.
-- **No hype.** The only quality adjective allowed is *institutional-grade.* Every other adjective must be a category marker or a measurable fact.
-- **Never fabricate a number, a source, or a name.** Missing data is asked for once, then omitted with the gap stated. An invented citation fails the whole document.
-- **Every abstract mechanism gets a concrete worked example** with a real geography, instrument, and tenor.
-- **Present tense everywhere except the Roadmap.**
-- **One claim per paragraph, landed on a flat closer.** No open or soft endings.
-
-# Quality Checks Before Finishing
-
-- Did you write it as a numbered whitepaper with an Abstract and a Conclusion?
-- Is there a single *I*, *we*, or *you* anywhere? (There must be none.)
-- Any em-dash, semicolon, or aside parenthesis? (There must be none.)
-- Is mean sentence length ~15–18 words, with moderate burstiness (most sentences 12–22, a short closer about once per paragraph)?
-- Does each decomposed section open with an overview sentence ending in a colon, before the bold labels?
-- Are lists grouped into threes where the material allows, with serial commas?
-- Does every section use 1–3 word noun-phrase titles?
-- Does every use case and mechanism carry a **bold label.** + definition + concrete worked example?
-- Is there at least one define-by-negation sentence per major section?
-- Is every number sourced, and every authority named with its pedigree?
-- Is the Conclusion three sentences that state the shift as already in motion?
-- Read it aloud: does any sentence sound like an ad? If yes, it is not done.
-
-If any answer is wrong — pass over it again with Part I before delivering.
-
----
-
-# Reference Library
-
-## R1. The gold-standard exemplar — the CRX litepaper, annotated
-
-The whole skill is one document's fingerprint. Key passages and what each teaches:
-
-| Passage | What it demonstrates |
-|---|---|
-| *"CRX launches in emerging markets."* | The 5-word flat closer (S3). |
-| *"That spread reflects the cost of the bank-intermediated model."* | One-claim paragraph closer; exact term over hype (S5, S9). |
-| *"They do not create contracts to manage forward-dated FX exposure."* | Define by negation (S8). |
-| *"A Brazilian importer with a 30-day USD payable can lock the BRL cost of that payment…"* | Concrete worked example: geography + instrument + tenor (S7). |
-| *"Estimated daily NDF volume is $300 to $340 billion (BIS, April 2025)."* | Data with inline citation (S8). |
-| *"The protocol is non-custodial: collateral sits in each participant's own segregated balance…"* | The colon-unpacks-definition move (S6). |
-| *"Regulatory strategy is led by Orrick's Dan Ullman, formerly of the CFTC."* | Authority anchoring by name + pedigree (S8). |
-
-## R2. Tells of the voice — phrases that read as Jake
-
-Recycle these structural phrasings (not the content):
-- *"X is structurally expensive."*
-- *"That [structure / spread / model] reflects…"*
-- *"The model is designed around…"*
+Recycle these structural phrasings, not their content. Add the That-closer (S9), the deadline tail (S10) and the favourite phrases (S5).
+- *"X is structurally expensive."* / *"The model is designed around…"*
 - *"They do not…"* / *"X takes no position."* / *"No X sits in the…"*
 - *"X is composed of three components that let…"*
 - *"On execution, the contract…"* / *"At expiry, the contract computes…"*
 - *"Access requires a combination of…"*
 - *"directly with one another"* / *"face each other directly"*
-- *"is structured to sit outside…"*
-- *"That [spread / structure / model] [reflects / serves] X, not Y."* — the anaphoric-That flat closer
-- *"…before any trade" / "…before joining the network" / "…before being added"* — the deadline tail
 
-## R3. Anti-pattern table — what breaks the voice
+## R2. Anti-patterns
 
-| ❌ Not Jake | ✅ Jake |
+| Not Jake | Jake |
 |---|---|
 | "We built CRX to unlock seamless, best-in-class FX hedging." | "CRX enables institutional-grade FX hedging on-chain." |
 | "You can finally hedge your exposure — no banks, no friction!" | "Participants hedge forward-dated exposure directly with one another." |
@@ -372,7 +247,3 @@ Recycle these structural phrasings (not the content):
 | "The spread is super expensive (sometimes crazy high)." | "Participants pay 50 to 300 basis points or more." |
 | "Our revolutionary protocol leverages cutting-edge smart contracts." | "The CRX protocol performs the functions banks traditionally handle, as a publicly auditable, deterministic smart contract." |
 | "We think this could maybe change things." | "Trading that previously required bank intermediation is moving to open infrastructure." |
-
-## R4. A note on this skill's own prose
-
-The text *describing* this skill follows Max's house voice (patient, Alexander-register, em-dashes welcome). The text the skill *produces* follows Jake's voice (terse, no em-dash, third person). Do not confuse the two. When writing the output, the only register that exists is Jake's.

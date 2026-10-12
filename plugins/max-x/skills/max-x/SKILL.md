@@ -36,7 +36,7 @@ X is a *flux*, not a stock (A1, A4): a brilliant post shown to the wrong people 
 - First-2-second short-video hook lines → `max-hook`. Run it *after* this skill when a post or article title needs 10 first-frame hook treatments.
 - Full e-commerce ad creative slate (Meta/TikTok ads) → `max-marketing`. When the account feeds paid acquisition, its EPIC angle portfolio and awareness model complement the niche pull.
 - Qualitative Reddit persona deep-dive → `max-persona-research`. Run it *before* this skill to rebuild the niche's persona, language and pains, deepening the angle work.
-- Long-form YouTube video script → `max-video` or `max-ai-video`.
+- Long-form YouTube video script → `max-launch-video`.
 - The data article (output 7) in a finished voice → draft it here (title, data, CTA decided), then style it with `jake-writing` or `max-doc`.
 - Niches the algorithm refuses (e.g. quant trading, A6): a reach-out / DM problem, not a content problem. Say so.
 
@@ -52,10 +52,10 @@ Before generating, you need:
 - **Niche candidate(s)**: at least one topic the account could credibly post in.
 - **Goal**: followers, CTA clicks, app signups, or pure enjoyment. It changes the whole build (§V).
 - **Stage**: cold new account, existing account that plateaued, or multi-account rig.
-- **`twitterapi.io` access**: confirm the user has a key. If absent, ask once; otherwise proceed with the pulls written out for the user to run.
-- **Intent**: *posting for enjoyment* or *engineering the algorithm*. The two accounts are built differently. Ask once if unclear.
+- **`twitterapi.io` access**: confirm the user has a key. If absent, ask via the max-ask skill; otherwise proceed with the pulls written out for the user to run.
+- **Intent**: *posting for enjoyment* or *engineering the algorithm*. The two accounts are built differently. If unclear, ask via the max-ask skill.
 
-If anything critical is missing, ask once in a single combined message. Then proceed on reasoned defaults and state them.
+If anything critical is missing, ask via the max-ask skill (one sheet). Then proceed on reasoned defaults and state them.
 
 ---
 

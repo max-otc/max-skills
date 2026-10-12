@@ -27,7 +27,7 @@ A claim, its measure, its cause. No adjective does the work a number can do. No 
 
 **Inputs.** Get what the thing is, in one plain sentence; the core facts (what it does, how, the mechanism, the numbers, with sources if any); the incumbents by real name and the gap each leaves (the litepaper names CME, EBS, Hyperliquid, OpenFX…); at least one worked example per use case (geography + instrument + tenor); which sections (default CRX set, see Output format; the user may add or cut).
 
-A number, source or incumbent name missing: ask once, in one combined message, then proceed. Omit what is still missing and state the gap. Never invent a statistic, a citation or a name. Fabricated data is worse than omitted data. An invented citation fails the whole document.
+A number, source or incumbent name missing: ask via the max-ask skill (one sheet), then proceed. Omit what is still missing and state the gap. Never invent a statistic, a citation or a name. Fabricated data is worse than omitted data. An invented citation fails the whole document.
 
 # Part I: the style fingerprint
 

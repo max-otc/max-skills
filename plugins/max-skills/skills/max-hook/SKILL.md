@@ -18,7 +18,7 @@ The first 2 seconds are the gate, not the full hook. If the gate fails, nobody w
 
 You need: product / offer / message; target audience; awareness level (Unaware / Problem aware / Solution aware / Product aware / Most aware); platform (TikTok, Reels, YouTube Shorts, Meta feed), which affects the format; production format (talking head, demo, voiceover, UGC, animation, screen recording).
 
-If any is missing, ask once, in one combined message; do not interrogate. Then proceed with reasoned defaults and state them explicitly. Never invent audience details; extrapolate only from what the user gave. A hook built for an imagined audience is worse than no hook.
+If any is missing, ask via the max-ask skill (one sheet); do not interrogate. Then proceed with reasoned defaults and state them explicitly. Never invent audience details; extrapolate only from what the user gave. A hook built for an imagined audience is worse than no hook.
 
 ## Method (mandatory)
 

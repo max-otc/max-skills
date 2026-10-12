@@ -23,11 +23,11 @@ From **[PRODUCT / OFFER / BRAND + AUDIENCE]**, deliver a battle-ready creative s
 - **Product / offer:** what is sold, price, claim.
 - **Audience:** at least a rough avatar (age, gender, life context).
 - **Market:** new category (Apple 1977) or saturated (10th D2C mattress)?
-- **Customer evidence:** reviews, Reddit threads, voice-of-customer (VOC) notes. If absent, ask once for any of: 50+ reviews, a Reddit thread, competitor ads they admire.
+- **Customer evidence:** reviews, Reddit threads, voice-of-customer (VOC) notes. If absent, ask via the max-ask skill for any of: 50+ reviews, a Reddit thread, competitor ads they admire.
 - **Platform:** Meta, TikTok, YouTube Shorts (changes format calls).
 - **Stage:** launch from zero / scale existing winners / plateaued and re-angling.
 
-If anything critical is missing, ask once, in one combined message. Then proceed on reasoned defaults and state them.
+If anything critical is missing, ask via the max-ask skill (one sheet). Then proceed on reasoned defaults and state them.
 
 # Part I: Frameworks
 

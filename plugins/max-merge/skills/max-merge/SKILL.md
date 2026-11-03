@@ -10,16 +10,16 @@ Consolidate every branch, worktree and clone of one repo into one clean main, ar
 ## Steps
 
 0. **Roll call.** `ListAgents`. Ask the repo's pusher (ROUTES.tsv): "max-merge on <repo>: any push in flight, which trees are yours, are you the pusher?" Wait one survey-length. Silence is not consent for a tree with live evidence.
-1. **Survey** (one read-only subagent): `git branch -vv`, `git worktree list`, clones under `~` and `~/Downloads`, each VPS (`ssh`, find `.git` dirs, match `origin`), other sessions' scratchpad worktrees (`find /private/tmp/claude-501 -maxdepth 4 -name .git`, rev-parse each HEAD), side branches (`git ls-remote --heads origin`). Per item: ahead/behind `origin/main`, dirty count, conflicts vs main, what it is. Sample the live checkout's HEAD + dirty at start and end; a moving HEAD is a finding.
+1. **Survey** (one read-only subagent): `git branch -vv`, `git worktree list`, clones under `~` and `~/Downloads`, each VPS (`ssh`, find `.git` dirs, match `origin`), other sessions' scratchpad worktrees (`find /private/tmp/claude-501 -maxdepth 4 -name .git`, rev-parse each HEAD), side branches (`git ls-remote --heads origin`). Per item: ahead/behind `origin/main`, dirty count, conflicts vs main, what it is. Read with `git --no-optional-locks status`: a plain `git status` rewrites the index of the tree it reads (a false "index moved" signal; it takes `index.lock` under a live session). Sample the live checkout's HEAD + dirty at start and end; a moving HEAD is a finding.
 2. **Classify** (below), E-active test first.
 3. **Fan out** up to 10 subagents for independent branches, each in its own worktree. One build on the merged tree.
 4. **Land** B first, C last, dependencies respected. Serial pushes, one pusher. Each next branch rebases onto the new tip.
-5. **Prune** to one main, zero parked branches. Keep audit pins + the live checkout.
-6. **Verify:** build the final `origin/main` tip; measure any size cap (EIP-170); only `main` + intended pins remain.
+5. **Prune** to one main: delete class A branches, local and remote. Keep `-parked` branches (local + remote), audit pins and the live checkout.
+6. **Verify:** build the final `origin/main` tip; measure any size cap (EIP-170); only `main`, intended pins and `-parked` branches remain.
 
 ## Classes
 
-- **A** on main (ancestor/merged): nothing to do.
+- **A** on main: ancestor, or landed by squash, cherry-pick or rebase. `git branch --merged` sees ancestors only; add `git cherry origin/main <branch>` (only `-` lines) and, for a multi-commit squash, `git merge-tree --write-tree origin/main <branch>` (prints `origin/main`'s tree). Nothing to do.
 - **B** clean (ahead, no conflict, coherent): rebase → build → push.
 - **C** conflicts: rebase → resolve keep-both → build → verify → push.
 - **D** do-not-merge: foreign branches (e.g. an outside contributor's port), old-commit audit pins, superseded doc branches. Leave or prune; never merge.
@@ -28,11 +28,11 @@ Consolidate every branch, worktree and clone of one repo into one clean main, ar
 
 **E-active test**, before any B/C/F. Peer sessions' subagents count, and so do your own still-writing builders and fixers. Any one makes a tree E-active, whatever its commits look like:
 - a peer claims it (ask each busy peer from `ListAgents` which trees its subagents hold and whether it is already the pusher);
-- a file mtime or reflog entry < 30 min old; `.git/index` or `.git/HEAD` moved < 15 min ago;
+- a file mtime or reflog entry < 30 min old; the index or HEAD file (`git rev-parse --git-path index` / `HEAD`; a linked worktree's `.git` is a file) moved < 15 min ago;
 - a live process (`forge|solc|cargo|rustc|docker|git|claude`) with the path in its command line (`ps -axo pid,etime,command`) or as its cwd (`lsof -a -d cwd -p <pid>`);
-- `rebase-merge`, `rebase-apply` or `MERGE_HEAD` present;
+- `rebase-merge`, `rebase-apply` or `MERGE_HEAD` present (resolve each with `--git-path`);
 - HEAD or dirty count moved between survey start and end;
-- a lock dir (e.g. `~/.forge-build.lock`) held by its owner.
+- a held forge slot or lock dir whose owner line names the tree (`~/bin/forge-slot status`).
 
 Start landing without waiting for your own E-active subagent; never put a second writer in its tree.
 
@@ -86,4 +86,4 @@ Own worktree, the branch SHA, the current `origin/main` to rebase onto. "Short b
 
 ## Done
 
-`git ls-remote --heads origin` shows only `main` (+ intended pins); `git worktree list` has no parked feature worktrees; the final tip builds green; any size cap is measured and under; tell every peer session that answered roll call the final tip. Merging is not deploying: track deploy blockers (e.g. vkey reproof) separately.
+`git ls-remote --heads origin` shows only `main`, intended pins and `-parked` branches; `git worktree list` has no parked feature worktrees; the final tip builds green; any size cap is measured and under; tell every peer session that answered roll call the final tip. Merging is not deploying: track deploy blockers (e.g. vkey reproof) separately.

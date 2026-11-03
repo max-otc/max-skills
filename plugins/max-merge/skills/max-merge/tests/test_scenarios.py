@@ -87,13 +87,43 @@ def sample(tree):
 
 
 def classify(repo, ref, base='origin/main'):
-    """Branch class from SKILL.md Classes: A on main, B clean, C conflicts."""
+    """Branch class from SKILL.md Classes: A on main, B clean, C conflicts.
+
+    A: ancestor, or landed by cherry-pick or rebase (`git cherry` prints only
+    `-` lines), or by a multi-commit squash (the merge tree is base's tree).
+    """
     if rc(repo, 'merge-base', '--is-ancestor', ref, base) == 0:
         return 'A'
     cherry = git(repo, 'cherry', base, ref).splitlines()
     if cherry and all(c.startswith('-') for c in cherry):
         return 'A'
-    return {0: 'B', 1: 'C'}[rc(repo, 'merge-tree', '--write-tree', base, ref)]
+    p = sh(repo, 'git', 'merge-tree', '--write-tree', base, ref, ok=False)
+    if p.returncode == 0 and p.stdout.split()[0] == git(repo, 'rev-parse', base + '^{tree}'):
+        return 'A'
+    return {0: 'B', 1: 'C'}[p.returncode]
+
+
+def prune(repo, pins=()):
+    """SKILL.md step 5: delete class A branches, local and remote; keep -parked and pins."""
+    def keep(b):
+        return b == 'main' or b in pins or b.endswith('-parked')
+    git(repo, 'fetch', '-q', '--prune')
+    current = git(repo, 'branch', '--show-current')
+    for b in git(repo, 'branch', '--format=%(refname:short)').split():
+        if not keep(b) and b != current and classify(repo, b) == 'A':
+            git(repo, 'branch', '-D', b)
+    for line in git(repo, 'ls-remote', '--heads', 'origin').splitlines():
+        sha, ref = line.split()
+        b = ref[len('refs/heads/'):]
+        if not keep(b) and classify(repo, sha) == 'A':
+            git(repo, 'push', '-q', 'origin', '--delete', b)
+
+
+def done_heads(repo, pins=()):
+    """SKILL.md Done: remote heads other than main, intended pins and -parked branches."""
+    heads = [l.split()[1][len('refs/heads/'):]
+             for l in git(repo, 'ls-remote', '--heads', 'origin').splitlines()]
+    return [b for b in heads if b != 'main' and b not in pins and not b.endswith('-parked')]
 
 
 def e_signals(tree, start=None, now=None):
@@ -203,7 +233,11 @@ class Scenario(unittest.TestCase):
                       '`git fetch --prune`', '`ps -axo pid,etime,command`',
                       '`lsof -a -d cwd -p <pid>`', '`find /private/tmp/claude-501 -maxdepth 4 -name .git`',
                       '`git worktree add`', '`git format-patch`', '`rebase-merge`, `rebase-apply` or `MERGE_HEAD`',
-                      '< 30 min old', '< 15 min ago', '`.git/index` or `.git/HEAD`',
+                      '< 30 min old', '< 15 min ago', '`git rev-parse --git-path index` / `HEAD`',
+                      'resolve each with `--git-path`', '`git --no-optional-locks status`',
+                      '`git cherry origin/main <branch>`', '`git merge-tree --write-tree origin/main <branch>`',
+                      'Keep `-parked` branches (local + remote)', 'intended pins and `-parked` branches',
+                      '`~/bin/forge-slot status`',
                       'no `git add -A`, `reset` or `stash`', 'Commit only your own paths',
                       '`--ours` is upstream, `--theirs` your commit', '`READY`/`LANDING`/`LANDED <sha>`',
                       '`-parked` branches', 'Never `--force` to main', 'Clean tree + idle owner = F',
@@ -211,6 +245,12 @@ class Scenario(unittest.TestCase):
                       'returns `git format-patch`; the builder applies serially',
                       'ABORT the branch', 'Rebase in parallel, cherry-pick last'):
             self.assertIn(quote, SKILL_TEXT, 'SKILL.md no longer says: ' + quote)
+
+    def test_skill_drops_the_four_faults(self):
+        steps = SKILL_TEXT.split('## Steps', 1)[1]
+        for fault in ('`.git/index`', '`.git/HEAD`', 'ancestor/merged', 'zero parked branches',
+                      'only `main` (+ intended pins)', '`~/.forge-build.lock`'):
+            self.assertFalse(fault in steps, 'SKILL.md steps still say: ' + fault)
 
     # -- two sessions, one tree ------------------------------------------
 
@@ -260,7 +300,10 @@ class Scenario(unittest.TestCase):
         self.assertTrue(os.path.isfile(os.path.join(wt, '.git')))
         self.assertFalse(os.path.exists(os.path.join(wt, '.git', 'index')),
                          'literal .git/index misses a linked worktree')
+        for name in ('index', 'HEAD'):
+            self.assertTrue(os.path.isfile(gitpath(wt, name)), '--git-path resolves ' + name)
         self.assertIn('index', e_signals(wt))
+        self.assertIn('HEAD', e_signals(wt))
         self.assertIn('reflog', e_signals(wt))
 
         self.assertIn(wt, git(self.home, 'worktree', 'list'))
@@ -357,6 +400,12 @@ class Scenario(unittest.TestCase):
         git(h, 'push', '-q', 'origin', 'done:main')
         git(h, 'checkout', '-q', '-b', 'squashed', 'origin/main')
         picked = self.commit(h, 'squashed', b_txt='sq\n')
+        git(h, 'checkout', '-q', '-b', 'multi', 'origin/main')
+        m1 = numbered().replace('line 8\n', 'line 8 m1\n')
+        self.commit(h, 'multi 1', app_txt=m1)
+        multi = self.commit(h, 'multi 2', app_txt=m1.replace('line 9\n', 'line 9 m2\n'))
+        git(h, 'checkout', '-q', '-b', 'rebased', 'origin/main')
+        rebased = self.commit(h, 'rebased', a_txt='rb\n')
         git(h, 'checkout', '-q', '-b', 'clean', 'origin/main')
         self.commit(h, 'clean', app_txt=numbered().replace('line 5\n', 'line 5 clean\n'))
         git(h, 'checkout', '-q', '-b', 'clash', 'origin/main')
@@ -365,17 +414,30 @@ class Scenario(unittest.TestCase):
 
         peer = self.clone('peer')
         self.commit(peer, 'main line 2', app_txt=numbered().replace('line 2\n', 'line 2 main\n'))
-        git(peer, 'fetch', '-q', self.home, picked)
+        git(peer, 'fetch', '-q', self.home, picked, multi, rebased)
         git(peer, 'cherry-pick', picked)
         self.assertNotEqual(git(peer, 'rev-parse', 'HEAD'), picked)
+        git(peer, 'merge', '-q', '--squash', multi)
+        git(peer, 'commit', '-q', '-m', 'multi squashed')
+        git(peer, 'branch', 'rb', rebased)
+        git(peer, 'rebase', '-q', 'main', 'rb')
+        git(peer, 'checkout', '-q', 'main')
+        git(peer, 'merge', '-q', '--ff-only', 'rb')
+        self.assertNotEqual(git(peer, 'rev-parse', 'HEAD'), rebased)
         git(peer, 'push', '-q', 'origin', 'HEAD:main')
         git(h, 'fetch', '-q', '--prune')
 
-        got = {b: classify(h, b) for b in ('done', 'squashed', 'clean', 'clash')}
-        self.assertEqual(got, {'done': 'A', 'squashed': 'A', 'clean': 'B', 'clash': 'C'})
+        names = ('done', 'squashed', 'multi', 'rebased', 'clean', 'clash')
+        got = {b: classify(h, b) for b in names}
+        self.assertEqual(got, {'done': 'A', 'squashed': 'A', 'multi': 'A', 'rebased': 'A',
+                               'clean': 'B', 'clash': 'C'})
+        cherry = git(h, 'cherry', 'origin/main', 'multi').splitlines()
+        self.assertTrue(any(c.startswith('+') for c in cherry),
+                        'git cherry misses a multi-commit squash; the merge-tree check finds it')
         merged = git(h, 'branch', '--merged', 'origin/main')
         self.assertIn('done', merged)
-        self.assertNotIn('squashed', merged, '--merged misses a cherry-picked landing; git cherry finds it')
+        for b in ('squashed', 'multi', 'rebased'):
+            self.assertNotIn(b, merged, '--merged sees ancestors only; class A needs the patch checks')
         git(h, 'checkout', '-q', 'squashed')
         git(h, 'rebase', '-q', 'origin/main')
         self.assertEqual(git(h, 'rev-parse', 'HEAD'), git(h, 'rev-parse', 'origin/main'),
@@ -408,8 +470,9 @@ class Scenario(unittest.TestCase):
                            ('idea-parked', 'app_txt', numbered().replace('line 7\n', 'line 7 idea\n'))):
             git(h, 'checkout', '-q', '-b', b, 'origin/main')
             self.commit(h, b, **{f: body})
-        parked = git(h, 'rev-parse', 'idea-parked')
-        git(h, 'push', '-q', 'origin', 'old-done:main', 'idea-parked', 'land-me')
+        git(h, 'branch', 'done-parked', 'old-done')
+        parked = {b: git(h, 'rev-parse', b) for b in ('idea-parked', 'done-parked')}
+        git(h, 'push', '-q', 'origin', 'old-done:main', 'idea-parked', 'done-parked', 'land-me')
         git(h, 'fetch', '-q', '--prune')
 
         git(h, 'checkout', '-q', 'land-me')
@@ -418,23 +481,19 @@ class Scenario(unittest.TestCase):
         git(h, 'checkout', '-q', 'main')
         git(h, 'merge', '-q', '--ff-only', 'land-me')
         git(h, 'fetch', '-q', '--prune')
+        self.assertEqual(classify(h, 'done-parked'), 'A')
+        self.assertEqual(classify(h, 'origin/land-me'), 'A', 'remote side branch of a rebase landing')
+        self.assertNotIn('origin/land-me', git(h, 'branch', '-r', '--merged', 'origin/main'))
 
-        merged = [b.strip('* ') for b in git(h, 'branch', '--merged', 'origin/main').splitlines()]
-        for b in merged:
-            if b != 'main':
-                git(h, 'branch', '-d', b)
-        for line in git(h, 'ls-remote', '--heads', 'origin').splitlines():
-            sha, ref = line.split()
-            b = ref[len('refs/heads/'):]
-            if b != 'main' and classify(h, sha) == 'A':
-                git(h, 'push', '-q', 'origin', '--delete', b)
+        prune(h)
 
-        self.assertNotEqual(rc(h, 'branch', '-d', 'idea-parked'), 0, 'safe delete refuses unmerged work')
-        self.assertEqual(git(h, 'rev-parse', 'idea-parked'), parked)
+        for b, sha in parked.items():
+            self.assertEqual(git(h, 'rev-parse', b), sha, b + ' kept local')
         heads = sorted(l.split()[1] for l in git(h, 'ls-remote', '--heads', 'origin').splitlines())
-        self.assertEqual(heads, ['refs/heads/idea-parked', 'refs/heads/main'])
+        self.assertEqual(heads, ['refs/heads/done-parked', 'refs/heads/idea-parked', 'refs/heads/main'])
         self.assertEqual(sorted(git(h, 'branch', '--format=%(refname:short)').split()),
-                         ['idea-parked', 'main'])
+                         ['done-parked', 'idea-parked', 'main'])
+        self.assertEqual(done_heads(h), [], 'Done: only main, pins and -parked branches remain')
 
     # -- E-active signals ------------------------------------------------
 
@@ -491,7 +550,11 @@ class Scenario(unittest.TestCase):
         for name in ('index', 'HEAD'):
             os.utime(gitpath(wt, name), (old, old))
 
+        index = gitpath(wt, 'index')
+        before = os.stat(index).st_mtime_ns
         start = sample(wt)
+        git(wt, '--no-optional-locks', 'status', '--porcelain')
+        self.assertEqual(os.stat(index).st_mtime_ns, before, 'the survey status leaves the index alone')
         self.assertEqual(e_signals(wt, start=start), [], 'clean + idle tree carries no E signal')
         self.assertEqual(classify(self.home, 'handoff'), 'B', 'F lands as B')
 
